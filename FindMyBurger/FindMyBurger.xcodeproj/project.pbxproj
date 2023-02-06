@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3306EAED2991730100427606 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAEC2991730100427606 /* RegisterView.swift */; };
+		3306EAF2299174D500427606 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAF1299174D500427606 /* LoginView.swift */; };
+		3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAF32991755D00427606 /* RegisterViewModel.swift */; };
+		3306EAF7299176B600427606 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAF6299176B600427606 /* HomeView.swift */; };
 		330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */; };
 		330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330832CB2971CDF100CA9EA8 /* ContentView.swift */; };
 		330832CE2971CDF300CA9EA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330832CD2971CDF300CA9EA8 /* Assets.xcassets */; };
 		330832D12971CDF300CA9EA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */; };
+		33E1637F2991807A00CE6D89 /* Logos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1637E2991807A00CE6D89 /* Logos.swift */; };
+		33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */; };
+		33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16382299180D100CE6D89 /* CustomTexts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3306EAEC2991730100427606 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3306EAF1299174D500427606 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3306EAF32991755D00427606 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3306EAF6299176B600427606 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		330832C62971CDF100CA9EA8 /* FindMyBurger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyBurger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyBurgerApp.swift; sourceTree = "<group>"; };
 		330832CB2971CDF100CA9EA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		330832CD2971CDF300CA9EA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		33E1637E2991807A00CE6D89 /* Logos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logos.swift; sourceTree = "<group>"; };
+		33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgrounds.swift; sourceTree = "<group>"; };
+		33E16382299180D100CE6D89 /* CustomTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,13 +46,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3306EAE8299171D500427606 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		3306EAE9299171F500427606 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -49,8 +56,36 @@
 		3306EAEA2991721200427606 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3306EAF5299176AA00427606 /* Home */,
+				3306EAF0299174CA00427606 /* Login */,
+				3306EAEB299172F100427606 /* Register */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3306EAEB299172F100427606 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3306EAF32991755D00427606 /* RegisterViewModel.swift */,
+				3306EAEC2991730100427606 /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3306EAF0299174CA00427606 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3306EAF1299174D500427606 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3306EAF5299176AA00427606 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3306EAF6299176B600427606 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		330832BD2971CDF100CA9EA8 = {
@@ -72,13 +107,10 @@
 		330832C82971CDF100CA9EA8 /* FindMyBurger */ = {
 			isa = PBXGroup;
 			children = (
-				3306EAEA2991721200427606 /* Views */,
-				3306EAE9299171F500427606 /* Models */,
-				3306EAE8299171D500427606 /* ViewModels */,
-				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
+				33E1637B29917FCE00CE6D89 /* Common */,
+				33E1637829917F7300CE6D89 /* Presentation */,
+				33E1637929917FAC00CE6D89 /* Data */,
 				330832CB2971CDF100CA9EA8 /* ContentView.swift */,
-				330832CD2971CDF300CA9EA8 /* Assets.xcassets */,
-				330832CF2971CDF300CA9EA8 /* Preview Content */,
 			);
 			path = FindMyBurger;
 			sourceTree = "<group>";
@@ -89,6 +121,59 @@
 				330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		33E1637829917F7300CE6D89 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				33E1637D2991805000CE6D89 /* Components */,
+				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
+				3306EAE9299171F500427606 /* Models */,
+				3306EAEA2991721200427606 /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		33E1637929917FAC00CE6D89 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				33E1637A29917FB800CE6D89 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		33E1637A29917FB800CE6D89 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		33E1637B29917FCE00CE6D89 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				33E1637C29917FD500CE6D89 /* Resources */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		33E1637C29917FD500CE6D89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				330832CF2971CDF300CA9EA8 /* Preview Content */,
+				330832CD2971CDF300CA9EA8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		33E1637D2991805000CE6D89 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				33E1637E2991807A00CE6D89 /* Logos.swift */,
+				33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */,
+				33E16382299180D100CE6D89 /* CustomTexts.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,8 +246,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */,
+				3306EAF7299176B600427606 /* HomeView.swift in Sources */,
+				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
+				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
+				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
+				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
+				33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
