@@ -32,6 +32,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3306EAE8299171D500427606 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3306EAE9299171F500427606 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3306EAEA2991721200427606 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		330832BD2971CDF100CA9EA8 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +72,9 @@
 		330832C82971CDF100CA9EA8 /* FindMyBurger */ = {
 			isa = PBXGroup;
 			children = (
+				3306EAEA2991721200427606 /* Views */,
+				3306EAE9299171F500427606 /* Models */,
+				3306EAE8299171D500427606 /* ViewModels */,
 				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
 				330832CB2971CDF100CA9EA8 /* ContentView.swift */,
 				330832CD2971CDF300CA9EA8 /* Assets.xcassets */,
