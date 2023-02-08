@@ -1,7 +1,7 @@
 //
 //  RegisterView.swift
 //  FindMyBurger
-//
+//  Soy un explotador de niños sirios
 //  Created by Apps2T on 6/2/23.
 //
 
@@ -13,6 +13,9 @@ struct RegisterView: View {
     
     @State var color = Color.black.opacity(0.7)
     @State var gray = Color("Gray")
+    
+    @ObservedObject var viewModel = RegisterViewModel()
+    
     @State var email = ""
     @State var name = ""
     @State var pass = ""
@@ -24,160 +27,83 @@ struct RegisterView: View {
     @State var textalert = ""
     @Environment(\.presentationMode)
     var mode: Binding<PresentationMode>
+    
     var body: some View{
-        
-        ZStack {
-            Color.white.ignoresSafeArea()
-            VStack{
-                Logo2()
-                Text("Registro")
-                    .font(.custom("Khand-Semibold", size: 48))
-                    .padding(.bottom,10)
-                    
-                
+        ScrollView {
+            ZStack {
+                Color.white.ignoresSafeArea()
                 VStack{
-                    TextField("Email", text: self.$email)
-                        .foregroundColor(color)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 25).stroke(self.email != "" ? Color("Black") : self.gray,lineWidth: 2))
-                        .font(.custom("Inter-VariableFont_slnt,wght", size: 20))
-                        
+                    Logo2()
+                    //TitleView(title: "Registro")
                     
-                    TextField("Nombre", text: self.$name)
-                        .foregroundColor(color)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 25).stroke(self.email != "" ? Color("Black") : self.gray,lineWidth: 2))
-                        .font(.custom("Inter-VariableFont_slnt,wght", size: 20))
-                        .padding(.bottom,20)
-                        .padding(.top,40)
-                }
-                
-                HStack (spacing: 10){
-                    VStack{
-                            SecureField("Contraseña", text: self.$pass)
-                                .foregroundColor(color)
-                                .font(.custom("Inter-VariableFont_slnt,wght", size: 20))
-                    }
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 25).stroke(self.email != "" ? Color("Black") : self.gray,lineWidth: 2))
-                .padding(.top, 20)
-                .padding(.bottom,20)
-                HStack (spacing: 10){
-                    VStack{
-                        
-                            SecureField("Repetir contraseña", text: self.$pass2)
-                                .foregroundColor(color)
-                                .font(.custom("Inter-VariableFont_slnt,wght", size: 20))
-                    }
- 
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 25).stroke(self.email != "" ? Color("Black") : self.gray,lineWidth: 2))
-                .padding(.top, 20)
-                .padding(.bottom,30)
-
-               
+                    Text("Registro")
+                        .font(.custom("Khand-Semibold", size: 48))
+                        .padding(.bottom,10)
                     
-                    Button(action: {
+                    VStack{
+                        //textFields()
+                        TextFields(title: "Nombre", text: name, color: color, gray: gray)
                         
+                        TextFields(title: "Email", text: email, color: color, gray: gray)
                         
-                    }){
+                        Securefields(title: "Contraseña", text: pass, color: color, gray: gray)
                         
-                        Text("Registrarse")
-                            .foregroundColor(.white)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 90)
-                        
+                        Securefields(title: "Repetir contraseña", text: pass2, color: color, gray: gray)
                     }
-                    .padding(.horizontal, 25)
-                    .background(Color("Amarillo"))
-                    .cornerRadius(25)
-                    .padding(.top,20)
                     .padding(.bottom,20)
-                
-             
-                HStack{
-                    Spacer()
-                    //Boton para redirijir a iniciar sesion
-                    Button(action: {
-                        shouldShowLogin = true
-                    }){
-                        Text("Ya tienes una cuenta? ")
-                            .padding(.top, 25)
-                            .foregroundColor(.black)
-                        
-                        
-                        Text("Inicia Sesion")
-                            .fontWeight(.bold)
-                            .foregroundColor(.orange)
-                            .padding(.top, 25)
-                        
-                    }.background(
-                        NavigationLink(destination: LoginView(), isActive: $shouldShowLogin) {
-                            EmptyView()
-                        }
-                    )
+                    .padding(.top,40)
+                    
+                    registerButton()
+                    
+                    HStack{
+                        goLogin()
+                    }
+                    .padding(.horizontal,20)
                 }
-                .padding(.horizontal,50)
-                
-                }
-            .padding(.horizontal, 25)
+                .padding(.horizontal, 25)
             }
-        
-           
         }
-    func onSuccess() {
-        shouldShowHome = true
-        mode.wrappedValue.dismiss()
     }
-    
-    func onError(error: String) {
-        print(error)
-        shouldShowError = true
-        textalert = "Error al crear nuevo usuario"
-
-    }
-    
-        }
-        
-struct RegisterView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterView()
-    }
-}
-
-extension RegisterView {
-    
-    func RegisterButton(title: String) -> some View {
-        Button {
-            if email.isEmpty || pass.isEmpty || pass2.isEmpty || name.isEmpty{
-                shouldShowError = true
-                textalert = "Rellena todos los campos"
-                
-            } else if pass != pass2{
-                
-                shouldShowError = true
-                textalert = "Las contraseñas deben coincidir"
-            }
+    func goLogin() -> some View {
+        Button(action: {
+            shouldShowLogin = true
+        }){
+            Text("Ya tienes una cuenta? ")
+                .padding(.top, 25)
+                .foregroundColor(.black)
             
-            else{
-                //register(email: email, pass: pass)
-            }
+            Spacer()
             
-        } label: {
-            Text(title)
+            Text("Inicia Sesion")
+                .fontWeight(.bold)
+                .foregroundColor(.orange)
+                .padding(.top, 25)
+            
+        }.background(
+            NavigationLink(destination: LoginView(), isActive: $shouldShowLogin) {
+                EmptyView()
+            }
+        )
+    }
+    
+    func registerButton() -> some View {
+        Button(action: {
+            viewModel.regist(name: name, email: email, pass: pass, pass2: pass2)
+        }){
+            
+            Text("Registrarse")
                 .foregroundColor(.white)
                 .padding(.vertical)
-                .frame(width: UIScreen.main.bounds.width - 50)
-                .background(Color("Color"))
-                .cornerRadius(10)
-                .padding(.top,20)
+                .frame(width: UIScreen.main.bounds.width - 90)
             
         }
-        //realizamos la navegacion hacia el destino que queremos y le pasamos la comprobacion creada en la aprte superior
+        .padding(.horizontal, 25)
+        .background(Color("Amarillo"))
+        .cornerRadius(25)
+        .padding(.top,20)
+        .padding(.bottom,20)
         .background(
-            NavigationLink(destination: HomeView(), isActive: $shouldShowHome) {
+            NavigationLink(destination: LoginView(), isActive: $viewModel.shouldShowLogin) {
                 EmptyView()
             }
         )
@@ -189,8 +115,26 @@ extension RegisterView {
                 Text("Ok")
             }
         }){
-            Text(textalert)
+            Text(viewModel.alertText)
         }
+    }
+//    func textFields() -> some View {
+//        
+//        TextFields(title: "Nombre", text: name, color: color, gray: gray)
+//        
+//        TextFields(title: "Email", text: email, color: color, gray: gray)
+//        
+//        Secureields(title: "Contraseña", text: pass, color: color, gray: gray)
+//        
+//        Secureields(title: "Repetir contraseña", text: pass2, color: color, gray: gray)
+//    }
+    
+    
+}
+
+struct RegisterView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterView()
     }
 }
 
