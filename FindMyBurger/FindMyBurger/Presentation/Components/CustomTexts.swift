@@ -13,9 +13,8 @@ struct TitleView: View {
     
     var body: some View {
         Text(title)
-            .foregroundColor(.black)
-            .font(.system(size: 30, weight: .bold))
-            .padding(.top, 20)
+            .font(.custom("Khand-SemiBold", size: 48))
+            .padding(.bottom, 45)
     }
     
 }

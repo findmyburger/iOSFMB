@@ -22,12 +22,9 @@ struct LoginView: View {
                 BackgroundColorView()
                 
                 VStack(spacing: 20){
-                    Image("Logo2")
-                        .resizable()
-                        .frame(width: 115, height: 90)
-                    Text("Iniciar Sesión")
-                        .font(.custom("Khand-SemiBold", size: 48))
-                        .padding(.bottom, 45)
+                    Logo2()
+                    
+                    TitleView(title: "Iniciar Sesión")
                     
                     TextFields(title: "Email", text: email)
                     
@@ -35,89 +32,19 @@ struct LoginView: View {
                     
                     
                     HStack{
-                        Button(action: {
-                            // goToRecoverPass
-                        }){
-                            Text("¿Has olvidado tu contraseña?")
-                                .fontWeight(.bold)
-                                .foregroundColor(placeholderColor)
-                        }
-                        
+                        forgetPass()
                         Spacer()
                     }
                     .padding(.horizontal, 7)
                     .padding(.bottom, 60)
                     
                     
-                    Button {
-                        // TODO: - Login
-                    } label: {
-                        HStack {
-                            Text("Iniciar Sesión")
-                                .foregroundColor(.white)
-                                .padding(.vertical)
-                                
-                        }
-                        .padding(.horizontal, 15)
-                    }
-                    .frame(height: 45)
-                    .font(.custom("Inter-Regular", size: 20))
-                    .frame(maxWidth: .infinity)
-                    .background(Color("Amarillo"))
-                    .cornerRadius(25)
-                    .padding(.bottom, 10)
+                    btnLogin()
                     
                     
-                    Button {
-                        // TODO: - Google Login
-                    } label: {
-                        HStack {
-                            Image("Google")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                            
-                            Spacer()
-                            
-                            Text("Iniciar Sesión con Google")
-                                .foregroundColor(placeholderColor)
-                            Spacer()
-                        }
-                        .padding(.horizontal, 15)
-                    }
-                    .frame(height: 50)
-                    .font(.custom("Inter-Regular", size: 20))
-                    .background(Color("Gray"))
-                    .cornerRadius(25)
-                    .padding(.bottom, 5)
+                    btnGoogle()
 
-                    Button(action: {
-                        
-                    }){
-                        HStack {
-                            Text("¿Aún no tienes una cuenta? ")
-                                .font(.custom("Inter-Regular", size: 18))
-                                .padding(.top, 25)
-                                .foregroundColor(.black)
-                                
-                            Spacer()
-                            
-                            Button(action: {
-                                shouldShowRegister = true
-                            }){
-                                Text("Registrate")
-                                    .font(.custom("Inter-Bold", size: 18))
-                                    .foregroundColor(Color("Black"))
-                                    .padding(.top, 25)
-                                    
-                                
-                            }.background(
-                                NavigationLink(destination: RegisterView(), isActive: $shouldShowRegister) {
-                                    EmptyView()
-                                }
-                            )
-                        }
-                        
-                    }
+                    goRegist()
                 }
                 
             }
@@ -126,13 +53,92 @@ struct LoginView: View {
     }
     
     // MARK: - Accessory Views
-    
-    var placeholderColor: Color {
-        Color.black.opacity(0.7)
+
+    func forgetPass() -> some View {
+        
+        Button(action: {
+            // goToRecoverPass
+        }){
+            Text("¿Has olvidado tu contraseña?")
+                .fontWeight(.bold)
+                .foregroundColor(Color("Black"))
+        }
+        
     }
     
-    var strokeLineTF: Color {
-        Color("Gray")
+    func btnLogin() -> some View {
+        Button {
+            // TODO: - Login
+        } label: {
+            HStack {
+                Text("Iniciar Sesión")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    
+            }
+            .padding(.horizontal, 15)
+        }
+        .frame(height: 45)
+        .font(.custom("Inter-Regular", size: 20))
+        .frame(maxWidth: .infinity)
+        .background(Color("Amarillo"))
+        .cornerRadius(25)
+        .padding(.bottom, 10)
+    }
+    
+    func btnGoogle() -> some View {
+        Button {
+            // TODO: - Google Login
+        } label: {
+            HStack {
+                Image("Google")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                
+                Spacer()
+                
+                Text("Iniciar Sesión con Google")
+                    .foregroundColor(Color("Gris"))
+                Spacer()
+            }
+            .padding(.horizontal, 15)
+        }
+        .frame(height: 50)
+        .font(.custom("Inter-Regular", size: 20))
+        .background(Color("Gray"))
+        .cornerRadius(25)
+        .padding(.bottom, 5)
+    }
+    
+    func goRegist() -> some View {
+        Button(action: {
+            
+        }){
+            HStack {
+                Text("¿Aún no tienes una cuenta? ")
+                    .font(.custom("Inter-Regular", size: 18))
+                    .padding(.top, 25)
+                    .foregroundColor(.black)
+                    
+                Spacer()
+                
+                Button(action: {
+                    shouldShowRegister = true
+                }){
+                    Text("Registrate")
+                        .font(.custom("Inter-Bold", size: 18))
+                        .foregroundColor(Color("Black"))
+                        .padding(.top, 25)
+                        
+                    
+                }.background(
+                    NavigationLink(destination: RegisterView(), isActive: $shouldShowRegister) {
+                        EmptyView()
+                    }
+                )
+            }
+            
+        }
     }
     
     func onSuccess() {
@@ -160,7 +166,6 @@ struct LoginView_Previews: PreviewProvider {
 }
 
 extension LoginView {
-    
     
     func loginButton(title: String) -> some View {
         Button {

@@ -18,11 +18,9 @@ struct RegisterView: View {
     @State var name = ""
     @State var pass = ""
     @State var pass2 = ""
-    @State var visible = false
+    
     @State private var shouldShowLogin: Bool = false
-    @State private var shouldShowHome: Bool = false
-    @State private var shouldShowError: Bool = false
-    @State var textalert = ""
+    
     @Environment(\.presentationMode)
     var mode: Binding<PresentationMode>
     
@@ -30,18 +28,15 @@ struct RegisterView: View {
         ScrollView {
             ZStack {
                 BackgroundColorView()
+                
                 VStack(spacing: 20){
                     Logo2()
-                    //TitleView(title: "Registro")
                     
-                    Text("Registro")
-                        .font(.custom("Khand-Semibold", size: 48))
-                        .padding(.bottom,10)
+                    TitleView(title: "Registro")
                     
                     VStack{
                         //textFields()
                         TextFields(title: "Nombre", text: name)
-                        
                         
                         TextFields(title: "Email", text: email)
                         
@@ -106,7 +101,7 @@ struct RegisterView: View {
                 EmptyView()
             }
         )
-        .alert("Error al registrarte", isPresented: $shouldShowError, actions: {
+        .alert("Error al registrarte", isPresented: $viewModel.shouldShowError, actions: {
             
             Button{
                 
