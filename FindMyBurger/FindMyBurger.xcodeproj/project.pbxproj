@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3306A3BA299410CB00C2387D /* Khand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3306A3B9299410CB00C2387D /* Khand-SemiBold.ttf */; };
+		3306A3BE299411FD00C2387D /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3306A3BD299411FD00C2387D /* Inter-Bold.ttf */; };
+		3306A3C02994123D00C2387D /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3306A3BF2994123D00C2387D /* Inter-Regular.ttf */; };
 		3306EAED2991730100427606 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAEC2991730100427606 /* RegisterView.swift */; };
 		3306EAF2299174D500427606 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAF1299174D500427606 /* LoginView.swift */; };
 		3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306EAF32991755D00427606 /* RegisterViewModel.swift */; };
@@ -19,9 +22,14 @@
 		33E1637F2991807A00CE6D89 /* Logos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1637E2991807A00CE6D89 /* Logos.swift */; };
 		33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */; };
 		33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16382299180D100CE6D89 /* CustomTexts.swift */; };
+		33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E163842991883F00CE6D89 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3306A3B529940DF900C2387D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3306A3B9299410CB00C2387D /* Khand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Khand-SemiBold.ttf"; sourceTree = "<group>"; };
+		3306A3BD299411FD00C2387D /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		3306A3BF2994123D00C2387D /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		3306EAEC2991730100427606 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3306EAF1299174D500427606 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3306EAF32991755D00427606 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -35,6 +43,7 @@
 		33E1637E2991807A00CE6D89 /* Logos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logos.swift; sourceTree = "<group>"; };
 		33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgrounds.swift; sourceTree = "<group>"; };
 		33E16382299180D100CE6D89 /* CustomTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexts.swift; sourceTree = "<group>"; };
+		33E163842991883F00CE6D89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3306A3B629940E5A00C2387D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3306A3B9299410CB00C2387D /* Khand-SemiBold.ttf */,
+				3306A3BD299411FD00C2387D /* Inter-Bold.ttf */,
+				3306A3BF2994123D00C2387D /* Inter-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3306EAE9299171F500427606 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				3306EAF1299174D500427606 /* LoginView.swift */,
+				33E163842991883F00CE6D89 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -109,6 +129,7 @@
 		330832C82971CDF100CA9EA8 /* FindMyBurger */ = {
 			isa = PBXGroup;
 			children = (
+				3306A3B529940DF900C2387D /* Info.plist */,
 				33E1637B29917FCE00CE6D89 /* Common */,
 				33E1637829917F7300CE6D89 /* Presentation */,
 				33E1637929917FAC00CE6D89 /* Data */,
@@ -162,6 +183,7 @@
 		33E1637C29917FD500CE6D89 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3306A3B629940E5A00C2387D /* Fonts */,
 				330832CF2971CDF300CA9EA8 /* Preview Content */,
 				330832CD2971CDF300CA9EA8 /* Assets.xcassets */,
 			);
@@ -237,8 +259,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3306A3BE299411FD00C2387D /* Inter-Bold.ttf in Resources */,
+				3306A3C02994123D00C2387D /* Inter-Regular.ttf in Resources */,
 				330832D12971CDF300CA9EA8 /* Preview Assets.xcassets in Resources */,
 				330832CE2971CDF300CA9EA8 /* Assets.xcassets in Resources */,
+				3306A3BA299410CB00C2387D /* Khand-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +283,7 @@
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
+				33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */,
 				33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +414,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FindMyBurger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -415,6 +442,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FindMyBurger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
