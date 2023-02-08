@@ -21,6 +21,7 @@ struct TextFields: View {
             .background(Color("Gray"))
             .cornerRadius(25)
             .background(RoundedRectangle(cornerRadius: 25).stroke(text != "" ? Color("TextField_Stroke") : Color("Gray"), lineWidth: 2))
+            .padding(.bottom, 10)
     }
 }
 struct SecureFields: View {
@@ -55,7 +56,7 @@ struct SecureFields: View {
             .background(Color("Gray"))
             .cornerRadius(25)
             .background(RoundedRectangle(cornerRadius: 25).stroke(text != "" ? Color("TextField_Stroke") : Color("Gray"), lineWidth: 2))
-        
+            .padding(.bottom, 10)
     }
 }
 
