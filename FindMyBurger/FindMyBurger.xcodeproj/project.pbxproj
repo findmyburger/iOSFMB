@@ -15,6 +15,7 @@
 		330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330832CB2971CDF100CA9EA8 /* ContentView.swift */; };
 		330832CE2971CDF300CA9EA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330832CD2971CDF300CA9EA8 /* Assets.xcassets */; };
 		330832D12971CDF300CA9EA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */; };
+		33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */; };
 		33E1637F2991807A00CE6D89 /* Logos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1637E2991807A00CE6D89 /* Logos.swift */; };
 		33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */; };
 		33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16382299180D100CE6D89 /* CustomTexts.swift */; };
@@ -30,6 +31,7 @@
 		330832CB2971CDF100CA9EA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		330832CD2971CDF300CA9EA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexfield.swift; sourceTree = "<group>"; };
 		33E1637E2991807A00CE6D89 /* Logos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logos.swift; sourceTree = "<group>"; };
 		33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgrounds.swift; sourceTree = "<group>"; };
 		33E16382299180D100CE6D89 /* CustomTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexts.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				33E1637E2991807A00CE6D89 /* Logos.swift */,
 				33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */,
 				33E16382299180D100CE6D89 /* CustomTexts.swift */,
+				33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
 				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
 				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
+				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
@@ -382,7 +386,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FindMyBurger/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -410,7 +413,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FindMyBurger/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
