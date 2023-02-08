@@ -11,8 +11,6 @@ import SwiftUI
 
 struct RegisterView: View {
     
-    @State var color = Color.black.opacity(0.7)
-    @State var gray = Color("Gray")
     
     @ObservedObject var viewModel = RegisterViewModel()
     
@@ -31,8 +29,8 @@ struct RegisterView: View {
     var body: some View{
         ScrollView {
             ZStack {
-                Color.white.ignoresSafeArea()
-                VStack{
+                BackgroundColorView()
+                VStack(spacing: 20){
                     Logo2()
                     //TitleView(title: "Registro")
                     
@@ -42,13 +40,14 @@ struct RegisterView: View {
                     
                     VStack{
                         //textFields()
-                        TextFields(title: "Nombre", text: name, color: color, gray: gray)
+                        TextFields(title: "Nombre", text: name)
                         
-                        TextFields(title: "Email", text: email, color: color, gray: gray)
                         
-                        Securefields(title: "Contraseña", text: pass, color: color, gray: gray)
+                        TextFields(title: "Email", text: email)
                         
-                        Securefields(title: "Repetir contraseña", text: pass2, color: color, gray: gray)
+                        SecureFields(title: "Contraseña", text: pass)
+                        
+                        SecureFields(title: "Repetir contraseña", text: pass2)
                     }
                     .padding(.bottom,20)
                     .padding(.top,40)
