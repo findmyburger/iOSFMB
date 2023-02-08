@@ -20,23 +20,23 @@ struct LoginView: View {
         ZStack {
             BackgroundColorView()
             
-            VStack(spacing: 0){
+            VStack(spacing: 20){
                 Image("Logo2")
                     .resizable()
                     .frame(width: 115, height: 90)
-                    .padding(.bottom, 5)
-            
-                Text("LOGIN")
-                    .font(.custom("Khand-Semibold", size: 48))
-                    .padding(.bottom, 15)
+                Text("Iniciar Sesión")
+                    .font(.custom("Khand-SemiBold", size: 48))
+                    .padding(.bottom, 45)
                 
                 
-                TextField("Nombre", text: self.$email)
-                    .font(.custom("Inter-VariableFont_slnt,wght", size: 20))
-                    .foregroundColor(placeholederColor)
-                    .frame(height: 55)
+                TextField("Email", text: self.$email)
+                    .font(.custom("Inter-Regular", size: 20))
+                    .foregroundColor(placeholderColor)
+                    .frame(height:45)
                     .padding(.horizontal, 18)
-                    .background(RoundedRectangle(cornerRadius: 25).stroke(self.email != "" ? Color("Black") : strokeLineTF, lineWidth: 2))
+                    .background(Color("Gray"))
+                    .cornerRadius(25)
+                    .background(RoundedRectangle(cornerRadius: 25).stroke(self.email != "" ? Color("TextField_Stroke") : strokeLineTF, lineWidth: 2))
                     .padding(.bottom, 15)
                 
                 
@@ -45,10 +45,10 @@ struct LoginView: View {
                     
                     //Funcion en la cual se comprueba si es visible o no la contraseña , si es visible se le pasa un texfiel si no se le pasa un securityfield
                     if self.visible{
-                        TextField("Password", text: self.$pass)
+                        TextField("Contraseña", text: self.$pass)
                         
                     }else{
-                        SecureField("Password", text: self.$pass)
+                        SecureField("Contraseña", text: self.$pass)
                             .foregroundColor(Color("Black"))
                     }
                     
@@ -61,39 +61,43 @@ struct LoginView: View {
                     
                 }
                     
-                    .font(.custom("Inter-VariableFont_slnt,wght", size: 20))
-                    .foregroundColor(placeholederColor)
-                    .frame(height: 55)
+                    .font(.custom("Inter-Regular", size: 20))
+                    .foregroundColor(placeholderColor)
+                    .frame(height: 45)
                     .padding(.horizontal, 18)
-                    .background(RoundedRectangle(cornerRadius: 25).stroke(self.pass != "" ? Color("Black") : strokeLineTF, lineWidth: 2))
-                    .padding(.bottom, 15)
+                    .background(Color("Gray"))
+                    .cornerRadius(25)
+                    .background(RoundedRectangle(cornerRadius: 25).stroke(self.pass != "" ? Color("TextField_Stroke") : strokeLineTF, lineWidth: 2))
+                    .padding(.bottom, 5)
                 
                 HStack{
                     Button(action: {
-                        // TODO: -
+                        // goToRecoverPass
                     }){
-                        Text("Has olvidado tu contraseña?")
+                        Text("¿Has olvidado tu contraseña?")
                             .fontWeight(.bold)
-                            .foregroundColor(placeholederColor)
+                            .foregroundColor(placeholderColor)
                     }
                     
                     Spacer()
                 }
-                .padding(.horizontal, 18)
-                .padding(.bottom, 45)
+                .padding(.horizontal, 7)
+                .padding(.bottom, 60)
                 
                 
                 Button {
                     // TODO: - Login
                 } label: {
                     HStack {
-                        Text("Iniciar Sesion")
+                        Text("Iniciar Sesión")
                             .foregroundColor(.white)
                             .padding(.vertical)
+                            
                     }
                     .padding(.horizontal, 15)
                 }
-                .frame(height: 50)
+                .frame(height: 45)
+                .font(.custom("Inter-Regular", size: 20))
                 .frame(maxWidth: .infinity)
                 .background(Color("Amarillo"))
                 .cornerRadius(25)
@@ -104,19 +108,20 @@ struct LoginView: View {
                     // TODO: - Google Login
                 } label: {
                     HStack {
-                        Image("google")
+                        Image("Google")
                             .resizable()
                             .frame(width: 24, height: 24)
                         
                         Spacer()
                         
-                        Text("Iniciar Sesion con Google")
-                            .foregroundColor(.white)
+                        Text("Iniciar Sesión con Google")
+                            .foregroundColor(placeholderColor)
                         Spacer()
                     }
                     .padding(.horizontal, 15)
                 }
                 .frame(height: 50)
+                .font(.custom("Inter-Regular", size: 20))
                 .background(Color("Gray"))
                 .cornerRadius(25)
                 .padding(.bottom, 5)
@@ -125,7 +130,8 @@ struct LoginView: View {
                     
                 }){
                     HStack {
-                        Text("Aun no tienes una cuenta? ")
+                        Text("¿Aún no tienes una cuenta? ")
+                            .font(.custom("Inter-Regular", size: 18))
                             .padding(.top, 25)
                             .foregroundColor(.black)
                             
@@ -135,8 +141,8 @@ struct LoginView: View {
                             shouldShowRegister = true
                         }){
                             Text("Registrate")
-                                .fontWeight(.bold)
-                                .foregroundColor(.orange)
+                                .font(.custom("Inter-Bold", size: 18))
+                                .foregroundColor(Color("Black"))
                                 .padding(.top, 25)
                                 
                             
@@ -145,10 +151,7 @@ struct LoginView: View {
                                 EmptyView()
                             }
                         )
-                        
-                       
                     }
-                    .padding(.horizontal,15)
                     
                 }
             }
@@ -159,7 +162,7 @@ struct LoginView: View {
     
     // MARK: - Accessory Views
     
-    var placeholederColor: Color {
+    var placeholderColor: Color {
         Color.black.opacity(0.7)
     }
     
