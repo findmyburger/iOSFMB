@@ -15,7 +15,7 @@ struct TextFields: View {
     var body: some View {
         TextField(title, text: $text)
             .font(.custom("Inter-Regular", size: 20))
-            .foregroundColor(Color("TextField_Stroke"))
+            .foregroundColor(Color("Black"))
             .frame(height:45)
             .padding(.horizontal, 18)
             .background(Color("Gray"))
@@ -50,7 +50,7 @@ struct SecureFields: View {
         }
             
             .font(.custom("Inter-Regular", size: 20))
-            .foregroundColor(Color("TextField_Stroke"))
+            .foregroundColor(Color("Black"))
             .frame(height: 45)
             .padding(.horizontal, 18)
             .background(Color("Gray"))

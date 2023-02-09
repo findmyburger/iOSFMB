@@ -11,6 +11,9 @@ class LoginViewModel: ObservableObject{
     
     @Published var shouldShowHome: Bool = false
     @Published var shouldShowError: Bool = false
+    @Published var shouldShowRegister: Bool = false
+    @Published var shouldShowRecoverPass: Bool = false
+    
     @Published var alertText: String = ""
     
     func login (email: String, pass: String){
@@ -24,6 +27,9 @@ class LoginViewModel: ObservableObject{
                 "password" : pass
             ]
         }
+        
+    }
+    func goRegister(){
         
     }
     
