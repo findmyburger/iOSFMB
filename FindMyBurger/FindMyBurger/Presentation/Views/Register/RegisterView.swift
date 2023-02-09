@@ -59,6 +59,7 @@ struct RegisterView: View {
     func goLogin() -> some View {
         Button(action: {
             shouldShowLogin = true
+            dismiss()
         }){
             Text("Ya tienes una cuenta? ")
                 .padding(.top, 25)
@@ -112,9 +113,8 @@ struct RegisterView: View {
         }
     }
     
-    func onSuccessLogin() -> Binding<Bool>{
+    func dismiss(){
         mode.wrappedValue.dismiss()
-        return $shouldShowLogin
     }
 }
 

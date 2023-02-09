@@ -60,6 +60,7 @@ struct LoginView: View {
         
         Button(action: {
             shouldShowRecoverPass = true
+            dismiss()
         }){
             Text("¿Has olvidado tu contraseña?")
                 .fontWeight(.bold)
@@ -142,6 +143,7 @@ struct LoginView: View {
             
             Button(action: {
                 shouldShowRegister = true
+                dismiss()
             }){
                 Text("Registrate")
                     .font(.custom("Inter-Bold", size: 18))
@@ -154,6 +156,9 @@ struct LoginView: View {
                 }
             )
         }
+    }
+    func dismiss(){
+        mode.wrappedValue.dismiss()
     }
 }
 
