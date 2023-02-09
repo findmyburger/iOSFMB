@@ -34,7 +34,7 @@ class LoginViewModel: ObservableObject{
                     self.onError(error: error.localizedDescription)
                 } else if let data = data, let response = response as? HTTPURLResponse {
                     if response.statusCode == 200 {
-                        self.onSuccess()
+                        self.onSuccess(data)
                     } else {
                         self.onError(error: error?.localizedDescription ?? "Request Error")
                     }
@@ -47,9 +47,17 @@ class LoginViewModel: ObservableObject{
         
     }
     
-    func onSuccess() {
+    func onSuccess(_ data: Data) {
         // Navegación al home
-        shouldShowHome = true
+        //shouldShowHome = true
+        do {
+            let loginResponse = try JSONDecoder().decode(LoginResponseModel?.self, from: data)
+            
+            loginResponse?.data?.userName
+            
+        } catch {
+            self.onError(error: error.localizedDescription)
+        }
     }
     
     func onError(error: String) {
