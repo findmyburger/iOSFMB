@@ -34,13 +34,13 @@ struct RegisterView: View {
                     .padding(.bottom, 20)
                 
                 VStack{
-                    TextFields(title: "Nombre", text: name)
+                    TextFields(title: "Nombre", binding: $name, text: name)
                     
-                    TextFields(title: "Email", text: email)
+                    TextFields(title: "Email", binding: $email, text: email)
                     
-                    SecureFields(title: "Contraseña", text: pass)
+                    SecureFields(title: "Contraseña", binding: $pass, text: pass)
                     
-                    SecureFields(title: "Repetir contraseña", text: pass2)
+                    SecureFields(title: "Repetir contraseña", binding: $pass2, text: pass2)
                 }
                 
                 registerButton()

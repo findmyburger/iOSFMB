@@ -9,11 +9,12 @@ import SwiftUI
 
 struct TextFields: View {
     var title: String
-    @State var text: String
+    @State var binding: Binding<String>
+    var text: String
 
     
     var body: some View {
-        TextField(title, text: $text)
+        TextField(title, text: binding)
             .font(.custom("Inter-Regular", size: 20))
             .foregroundColor(Color("Black"))
             .frame(height:45)
@@ -26,17 +27,18 @@ struct TextFields: View {
 }
 struct SecureFields: View {
     var title: String
-    @State var text: String
+    @State var binding: Binding<String>
+    var text: String
     @State var visible = false
     
     var body: some View {
         HStack (spacing: 15){
             
             if self.visible{
-                TextField(title, text: $text)
+                TextField(title, text: binding)
                 
             }else{
-                SecureField(title, text: $text)
+                SecureField(title, text: binding)
                     .foregroundColor(Color("Black"))
             }
             

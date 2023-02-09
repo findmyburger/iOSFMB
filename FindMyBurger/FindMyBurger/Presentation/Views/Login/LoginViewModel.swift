@@ -18,14 +18,28 @@ class LoginViewModel: ObservableObject{
     
     func login (email: String, pass: String){
         
+        let url = "http://127.0.0.1:8000/api/users/login"
+        
         if email.isEmpty || pass.isEmpty {
             shouldShowError = true
             alertText = "Rellena todos los campos."
         }else{
-            let request: [String: Any] = [
+            let dictionary: [String: Any] = [
                 "email": email,
                 "password" : pass
             ]
+            
+            NetworkHelper.shared.requestProvider(url: url, params: dictionary) { data, response, error in
+                if let error = error {
+                    self.onError(error: error.localizedDescription)
+                } else if let data = data, let response = response as? HTTPURLResponse {
+                    if response.statusCode == 200 {
+                        self.onSuccess()
+                    } else {
+                        self.onError(error: error?.localizedDescription ?? "Request Error")
+                    }
+                }
+            }
         }
         
     }
@@ -40,6 +54,7 @@ class LoginViewModel: ObservableObject{
     
     func onError(error: String) {
         shouldShowError = true
+        alertText = error
     }
     
     
