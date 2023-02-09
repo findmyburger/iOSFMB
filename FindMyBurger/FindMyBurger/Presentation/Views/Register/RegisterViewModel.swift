@@ -13,6 +13,8 @@ class RegisterViewModel: ObservableObject{
     @Published var shouldShowError: Bool = false
     @Published var alertText: String = ""
     
+    
+    
     func regist (name: String, email: String, pass: String, pass2: String){
         
         if name.isEmpty || email.isEmpty || pass.isEmpty || pass2.isEmpty {
@@ -34,7 +36,6 @@ class RegisterViewModel: ObservableObject{
         }
         
         func onSuccess() {
-            // Navegación hacia la vista de Agenda
             shouldShowLogin = true
         }
         

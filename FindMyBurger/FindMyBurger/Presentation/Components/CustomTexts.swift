@@ -14,7 +14,6 @@ struct TitleView: View {
     var body: some View {
         Text(title)
             .font(.custom("Khand-SemiBold", size: 48))
-            .padding(.bottom, 45)
     }
     
 }
