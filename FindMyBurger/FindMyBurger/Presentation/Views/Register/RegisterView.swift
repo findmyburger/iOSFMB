@@ -88,7 +88,7 @@ struct RegisterView: View {
             Text("Registrarse")
                 .foregroundColor(.white)
                 .padding(.vertical)
-                .frame(width: UIScreen.main.bounds.width - 90)
+                .frame(maxWidth: .infinity)
             
         }
         .padding(.horizontal, 25)
