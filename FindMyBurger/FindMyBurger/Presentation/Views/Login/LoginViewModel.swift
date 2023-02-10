@@ -14,6 +14,8 @@ class LoginViewModel: ObservableObject{
     @Published var shouldShowRegister: Bool = false
     @Published var shouldShowRecoverPass: Bool = false
     
+    let userDefaults = UserDefaults.standard
+
     @Published var alertText: String = ""
     
     func login (email: String, pass: String){
@@ -53,7 +55,16 @@ class LoginViewModel: ObservableObject{
         do {
             let loginResponse = try JSONDecoder().decode(LoginResponseModel?.self, from: data)
             
-            loginResponse?.data?.userName
+            if loginResponse?.status == 200 {
+                shouldShowHome = true
+                
+                userDefaults.set(loginResponse?.data?.userName, forKey: "userName")
+                userDefaults.set(loginResponse?.data?.token, forKey: "token")
+                
+            }else{
+                shouldShowError = true
+                alertText = loginResponse?.message ?? "No se ha encontrado un usuario con esos datos."
+            }
             
         } catch {
             self.onError(error: error.localizedDescription)
