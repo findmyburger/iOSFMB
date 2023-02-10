@@ -30,9 +30,9 @@ struct LoginView: View {
                     TitleView(title: "Iniciar Sesión")
                         .padding(.bottom, 50)
                     
-                    TextFields(title: "Email", text: email)
+                    TextFields(title: "Email", binding: $email, text: email)
                     
-                    SecureFields(title: "Contraseña", text: pass)
+                    SecureFields(title: "Contraseña", binding: $pass, text: pass)
                     
                     HStack{
                         forgotPass()
