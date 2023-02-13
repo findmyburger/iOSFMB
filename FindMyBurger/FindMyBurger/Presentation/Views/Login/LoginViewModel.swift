@@ -20,34 +20,37 @@ class LoginViewModel: ObservableObject{
     
     func login (email: String, pass: String){
         
-        let url = "http://127.0.0.1:8000/api/users/login"
         
         if email.isEmpty || pass.isEmpty {
             shouldShowError = true
             alertText = "Rellena todos los campos."
         }else{
+            
+            let url = "http://127.0.0.1:8000/api/users/login"
+
             let dictionary: [String: Any] = [
                 "email": email,
                 "password" : pass
             ]
+            connectToAPI(dictionary: dictionary, url: url)
             
-            NetworkHelper.shared.requestProvider(url: url, params: dictionary) { data, response, error in
-                if let error = error {
-                    self.onError(error: error.localizedDescription)
-                } else if let data = data, let response = response as? HTTPURLResponse {
-                    if response.statusCode == 200 {
-                        self.onSuccess(data)
-                    } else {
-                        self.onError(error: error?.localizedDescription ?? "Request Error")
-                    }
-                }
-            }
         }
         
     }
-    func goRegister(){
-        
+    func connectToAPI(dictionary: [String: Any], url: String){
+        NetworkHelper.shared.requestProvider(url: url, params: dictionary) { data, response, error in
+            if let error = error {
+                self.onError(error: error.localizedDescription)
+            } else if let data = data, let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 {
+                    self.onSuccess(data)
+                } else {
+                    self.onError(error: error?.localizedDescription ?? "Request Error")
+                }
+            }
+        }
     }
+    
     
     func onSuccess(_ data: Data) {
         // Navegación al home
