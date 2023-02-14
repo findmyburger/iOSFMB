@@ -329,6 +329,7 @@
 				90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */,
 				33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */,
 				33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */,
+				90C4EEC7299BDFE00011B056 /* RecoverPassView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
