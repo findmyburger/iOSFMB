@@ -1,5 +1,5 @@
 //
-//  RecoverPassView.swift
+//  ChangePassView.swift
 //  FindMyBurger
 //
 //  Created by Juan jose Morales on 14/2/23.
@@ -7,32 +7,37 @@
 
 import SwiftUI
 
-struct RecoverPassView: View {
-    
-    @State var email = ""
+struct ChangePassView: View {
+    @State var pass = ""
+    @State var pass2 = ""
+    @State var code = ""
     
     var body: some View {
         ZStack{
             BackgroundColorView()
             
-            VStack(spacing: 15){
+            VStack(spacing: 20){
                 Logo3()
                 
-                TextFields(title: "Email", binding: $email, text: email)
+                TextFields(title: "Código", binding: $code, text: code)
                 
-                sendEmail()
+                TextFields(title: "Contraseña", binding: $pass, text: pass)
+                
+                TextFields(title: "Repetir Contraseña", binding: $pass2, text: pass2)
+                
+                changePass()
 
             }
             .padding(.horizontal,20)
             .padding(.bottom,30)
         }
     }
-    func sendEmail() -> some View {
+    func changePass() -> some View {
         Button(action: {
             
         }){
             
-            Text("Enviar Email")
+            Text("Cambiar la contraseña")
                 .foregroundColor(.white)
                 .padding(.vertical)
                 .frame(maxWidth: .infinity)
@@ -51,9 +56,8 @@ struct RecoverPassView: View {
     }
 
 }
-
-struct RecoverPassView_Previews: PreviewProvider {
+struct ChangePassView_Previews: PreviewProvider {
     static var previews: some View {
-        RecoverPassView()
+        ChangePassView()
     }
 }
