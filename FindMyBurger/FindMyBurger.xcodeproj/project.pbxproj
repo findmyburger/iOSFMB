@@ -26,6 +26,10 @@
 		33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16382299180D100CE6D89 /* CustomTexts.swift */; };
 		33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E163842991883F00CE6D89 /* LoginViewModel.swift */; };
 		90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4EEBF29969D320011B056 /* RegisterResponseModel.swift */; };
+		90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */; };
+		90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */; };
+		90E75482299BEDBE006D581B /* ChangePassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75481299BEDBE006D581B /* ChangePassViewModel.swift */; };
+		90E75484299BF018006D581B /* UpdateDataResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75483299BF018006D581B /* UpdateDataResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		33E16382299180D100CE6D89 /* CustomTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexts.swift; sourceTree = "<group>"; };
 		33E163842991883F00CE6D89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		90C4EEBF29969D320011B056 /* RegisterResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseModel.swift; sourceTree = "<group>"; };
+		90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewModel.swift; sourceTree = "<group>"; };
+		90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailResponseModel.swift; sourceTree = "<group>"; };
+		90E75481299BEDBE006D581B /* ChangePassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassViewModel.swift; sourceTree = "<group>"; };
+		90E75483299BF018006D581B /* UpdateDataResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 		3306EAEA2991721200427606 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90E7547A299BE755006D581B /* RecoverPass */,
 				3306EAF5299176AA00427606 /* Home */,
 				3306EAF0299174CA00427606 /* Login */,
 				3306EAEB299172F100427606 /* Register */,
@@ -185,6 +194,8 @@
 			children = (
 				33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */,
 				90C4EEBF29969D320011B056 /* RegisterResponseModel.swift */,
+				90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */,
+				90E75483299BF018006D581B /* UpdateDataResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +227,15 @@
 				33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		90E7547A299BE755006D581B /* RecoverPass */ = {
+			isa = PBXGroup;
+			children = (
+				90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */,
+				90E75481299BEDBE006D581B /* ChangePassViewModel.swift */,
+			);
+			path = RecoverPass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,9 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E75482299BEDBE006D581B /* ChangePassViewModel.swift in Sources */,
 				33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */,
 				3306EAF7299176B600427606 /* HomeView.swift in Sources */,
 				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
+				90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */,
 				33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */,
 				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
 				33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */,
@@ -302,7 +324,9 @@
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
+				90E75484299BF018006D581B /* UpdateDataResponseModel.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
+				90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */,
 				33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */,
 				33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */,
 			);
