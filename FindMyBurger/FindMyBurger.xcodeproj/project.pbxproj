@@ -320,6 +320,7 @@
 				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
 				33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */,
 				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
+				90E75488299BF42C006D581B /* ChangePassView.swift in Sources */,
 				90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
