@@ -1,5 +1,5 @@
 //
-//  RecoverPassView.swift
+//  SendEmailView.swift
 //  FindMyBurger
 //
 //  Created by Juan jose Morales on 14/2/23.
@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SendEmailView: View {
     
+    @ObservedObject var viewModel = SendEmailViewModel()
     @State var email = ""
     
     var body: some View {
@@ -21,7 +22,7 @@ struct SendEmailView: View {
                 TextFields(title: "Email", binding: $email, text: email)
                 
                 sendEmail()
-
+                
             }
             .padding(.horizontal,20)
             .padding(.bottom,30)
@@ -29,7 +30,7 @@ struct SendEmailView: View {
     }
     func sendEmail() -> some View {
         Button(action: {
-            
+            viewModel.sendEmail(email: email)
         }){
             
             Text("Enviar Email")
@@ -44,13 +45,23 @@ struct SendEmailView: View {
         .cornerRadius(25)
         .padding(.top,20)
         .background(
-            /*NavigationLink(destination: LoginView(), isActive: $viewModel.shouldShowLogin) {
-                EmptyView()
-            }*/
+            NavigationLink(destination: ChangePassView(), isActive: $viewModel.shouldShowChangePass) {
+             EmptyView()
+             }
         )
+        .alert("Error al Enviar Email", isPresented: $viewModel.shouldShowError, actions: {
+            
+            Button{
+                
+            } label: {
+                Text("Cerrar")
+            }
+        }){
+            Text(viewModel.alertText)
+        }
     }
-
 }
+
 struct SendEmailView_Previews: PreviewProvider {
     static var previews: some View {
         SendEmailView()
