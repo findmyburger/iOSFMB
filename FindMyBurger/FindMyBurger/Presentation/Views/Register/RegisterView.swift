@@ -30,7 +30,7 @@ struct RegisterView: View {
             VStack(spacing: 10){
                 Logo2()
                 
-                TitleView(title: "Registro")
+                CustomTitle(title: "Registro")
                     .padding(.bottom, 20)
                 
                 VStack{
