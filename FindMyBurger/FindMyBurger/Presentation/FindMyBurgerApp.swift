@@ -11,7 +11,9 @@ import SwiftUI
 struct FindMyBurgerApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NavigationView {
+                EditProfileView()
+            }
         }
     }
 }
