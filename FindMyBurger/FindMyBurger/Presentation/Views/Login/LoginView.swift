@@ -66,7 +66,7 @@ struct LoginView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color("Black"))
         }.background(
-            NavigationLink(destination: RegisterView(), isActive: $shouldShowRegister) {
+            NavigationLink(destination: SendEmailView(), isActive: $shouldShowRecoverPass) {
                 EmptyView()
             }
         )

@@ -21,26 +21,21 @@ class ChangePassViewModel: ObservableObject{
             shouldShowError = true
             alertText = "Rellena todos los campos."
         }else{
-            if pass != pass2 {
-                shouldShowError = true
-                alertText = "Las contraseñas no coinciden."
-            }else{
-                let apiCode = userDefaults.string(forKey: "code")
-                
-                if apiCode != code {
-                    shouldShowError = true
-                    alertText = "El código no es correcto."
-                }else{
-                    let url = "http://127.0.0.1:8000/api/users/updateData"
-                    
-                    let dictionary: [String: Any] = [
-                        "password": pass
-                    ]
-                    connectToAPI(dictionary: dictionary, url: url)
-                }
-                
-            }
+            let apiCode = userDefaults.string(forKey: "code")
             
+            if apiCode != code {
+                shouldShowError = true
+                alertText = "El código no es correcto."
+            }else{
+                let url = "http://127.0.0.1:8000/api/users/recoverPass"
+                
+                let dictionary: [String: Any] = [
+                    "password": pass,
+                    "password_confirm": pass2,
+                    "email": userDefaults.string(forKey: "email") ?? ""
+                ]
+                connectToAPI(dictionary: dictionary, url: url)
+            }
         }
     }
     func connectToAPI(dictionary: [String: Any], url: String){
@@ -64,7 +59,7 @@ class ChangePassViewModel: ObservableObject{
                 shouldShowLogin = true
             }else{
                 shouldShowError = true
-                alertText = updatePassResponse?.message ?? "Algo ha salido mal al cambiar la contraseña."
+                alertText = updatePassResponse?.data?[0] ?? "Algo ha salido mal al cambiar la contraseña."
             }
         } catch {
             self.onError(error: error.localizedDescription)
