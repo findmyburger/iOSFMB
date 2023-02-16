@@ -26,7 +26,7 @@ class SendEmailViewModel: ObservableObject{
             let dictionary: [String: Any] = [
                 "email": email
             ]
-            //connectToAPI(dictionary: dictionary, url: url)
+            connectToAPI(dictionary: dictionary, url: url)
         }
     }
     func connectToAPI(dictionary: [String: Any], url: String){
@@ -48,9 +48,8 @@ class SendEmailViewModel: ObservableObject{
             
             if sendEmailResponse?.status == 200 {
                 shouldShowChangePass = true
-                
                 userDefaults.set(sendEmailResponse?.data?.code, forKey: "code")
-                
+                userDefaults.set(sendEmailResponse?.data?.email, forKey: "email")
             }else{
                 shouldShowError = true
                 alertText = sendEmailResponse?.message ?? "Algo ha salido mal al enviar el email."

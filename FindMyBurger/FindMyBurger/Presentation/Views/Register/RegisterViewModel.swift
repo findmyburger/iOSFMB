@@ -47,8 +47,6 @@ class RegisterViewModel: ObservableObject{
     }
     
     func onSuccess(_ data: Data) {
-        shouldShowLogin = true
-        
         do {
             let registerResponse = try JSONDecoder().decode(RegisterResponseModel?.self, from: data)
             

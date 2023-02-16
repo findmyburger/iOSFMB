@@ -30,6 +30,16 @@
 		90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */; };
 		90E75482299BEDBE006D581B /* ChangePassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75481299BEDBE006D581B /* ChangePassViewModel.swift */; };
 		90E75484299BF018006D581B /* UpdateDataResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75483299BF018006D581B /* UpdateDataResponseModel.swift */; };
+		90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75489299BFBC8006D581B /* SendEmailView.swift */; };
+		90E7548C299BFBDA006D581B /* ChangePassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7548B299BFBDA006D581B /* ChangePassView.swift */; };
+		90E7548E299D9372006D581B /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7548D299D9372006D581B /* LandingPage.swift */; };
+		90E75490299D9411006D581B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7548F299D9411006D581B /* CustomTabBar.swift */; };
+		90E75492299D94B0006D581B /* CustomLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75491299D94B0006D581B /* CustomLinearGradient.swift */; };
+		90E75495299D953D006D581B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75494299D953D006D581B /* Category.swift */; };
+		90E75497299D957F006D581B /* Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75496299D957F006D581B /* Recommended.swift */; };
+		90E75499299D95FB006D581B /* RecentlyAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75498299D95FB006D581B /* RecentlyAdded.swift */; };
+		90E7549B299D9666006D581B /* RecommendedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549A299D9666006D581B /* RecommendedItemsView.swift */; };
+		90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549C299D970C006D581B /* RecentlyAddedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +68,16 @@
 		90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailResponseModel.swift; sourceTree = "<group>"; };
 		90E75481299BEDBE006D581B /* ChangePassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassViewModel.swift; sourceTree = "<group>"; };
 		90E75483299BF018006D581B /* UpdateDataResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataResponseModel.swift; sourceTree = "<group>"; };
+		90E75489299BFBC8006D581B /* SendEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailView.swift; sourceTree = "<group>"; };
+		90E7548B299BFBDA006D581B /* ChangePassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassView.swift; sourceTree = "<group>"; };
+		90E7548D299D9372006D581B /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		90E7548F299D9411006D581B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		90E75491299D94B0006D581B /* CustomLinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLinearGradient.swift; sourceTree = "<group>"; };
+		90E75494299D953D006D581B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		90E75496299D957F006D581B /* Recommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommended.swift; sourceTree = "<group>"; };
+		90E75498299D95FB006D581B /* RecentlyAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAdded.swift; sourceTree = "<group>"; };
+		90E7549A299D9666006D581B /* RecommendedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsView.swift; sourceTree = "<group>"; };
+		90E7549C299D970C006D581B /* RecentlyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +140,12 @@
 		3306EAF5299176AA00427606 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				90E75493299D94FB006D581B /* Model */,
 				3306EAF6299176B600427606 /* HomeView.swift */,
+				90E7548D299D9372006D581B /* LandingPage.swift */,
+				90E7548F299D9411006D581B /* CustomTabBar.swift */,
+				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
+				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -225,6 +250,7 @@
 				33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */,
 				33E16382299180D100CE6D89 /* CustomTexts.swift */,
 				33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */,
+				90E75491299D94B0006D581B /* CustomLinearGradient.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,8 +260,20 @@
 			children = (
 				90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */,
 				90E75481299BEDBE006D581B /* ChangePassViewModel.swift */,
+				90E75489299BFBC8006D581B /* SendEmailView.swift */,
+				90E7548B299BFBDA006D581B /* ChangePassView.swift */,
 			);
 			path = RecoverPass;
+			sourceTree = "<group>";
+		};
+		90E75493299D94FB006D581B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90E75494299D953D006D581B /* Category.swift */,
+				90E75496299D957F006D581B /* Recommended.swift */,
+				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,18 +356,27 @@
 				90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */,
 				33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */,
 				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
+				90E7549B299D9666006D581B /* RecommendedItemsView.swift in Sources */,
 				33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */,
+				90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */,
 				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
-				90E75488299BF42C006D581B /* ChangePassView.swift in Sources */,
 				90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */,
+				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
+				90E75492299D94B0006D581B /* CustomLinearGradient.swift in Sources */,
+				90E75497299D957F006D581B /* Recommended.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
+				90E75490299D9411006D581B /* CustomTabBar.swift in Sources */,
+				90E7548E299D9372006D581B /* LandingPage.swift in Sources */,
 				90E75484299BF018006D581B /* UpdateDataResponseModel.swift in Sources */,
+				90E7548C299BFBDA006D581B /* ChangePassView.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
 				90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */,
+				90E75499299D95FB006D581B /* RecentlyAdded.swift in Sources */,
 				33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */,
 				33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */,
+				90E75495299D953D006D581B /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

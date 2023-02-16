@@ -10,5 +10,5 @@ import Foundation
 struct UpdateDataResponseModel: Decodable{
     let status: Int?
     let message: String?
-    //let data: DataToUpdateResponseModel?
+    let data: [String]?
 }
