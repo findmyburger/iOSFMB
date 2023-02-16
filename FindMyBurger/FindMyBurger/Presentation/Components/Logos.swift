@@ -24,4 +24,12 @@ struct Logo3: View {
             .padding(.bottom, 5)
     }
 }
+struct Logo4: View {
+    var body: some View{
+        Image("Logo4")
+            .resizable()
+            .frame(width: 257, height: 205)
+            .padding(.bottom, 5)
+    }
+}
 
