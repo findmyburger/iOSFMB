@@ -27,8 +27,8 @@ struct LoginView: View {
                 VStack(spacing: 10){
                     Logo2()
                     
-                    TitleView(title: "Iniciar Sesión")
-                        .padding(.bottom, 50)
+                    CustomTitle(title: "Iniciar Sesión")
+                        .padding(.bottom, 45)
                     
                     TextFields(title: "Email", binding: $email, text: email)
                     

@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct TitleView: View {
+struct CustomTitle: View {
     var title: String
     
     var body: some View {
         Text(title)
             .font(.custom("Khand-SemiBold", size: 48))
+            
     }
     
 }
