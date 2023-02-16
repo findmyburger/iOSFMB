@@ -13,5 +13,6 @@ struct SendEmailResponseModel: Decodable{
     let data: DataSendEmailResponseModel?
 }
 struct DataSendEmailResponseModel: Decodable{
-    let code: String?
+    let code: Int?
+    let email: String?
 }
