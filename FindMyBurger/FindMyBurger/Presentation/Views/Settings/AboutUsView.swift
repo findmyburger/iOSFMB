@@ -39,7 +39,7 @@ struct AboutUsView: View {
     }
     func aboutUsHeader() -> some View{
         ZStack{
-            TitleView(title: "SOBRE NOSOTROS")
+            CustomTitle(title: "SOBRE NOSOTROS")
         }
     }
 }

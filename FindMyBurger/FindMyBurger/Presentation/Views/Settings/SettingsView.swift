@@ -116,7 +116,7 @@ struct SettingsView: View {
     }
     func settingHeader() -> some View{
         ZStack{
-            TitleView(title: "AJUSTES")
+            CustomTitle(title: "AJUSTES")
             HStack{
                 Spacer()
                 Image("configuracion")
