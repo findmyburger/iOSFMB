@@ -18,6 +18,8 @@
 		330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330832CB2971CDF100CA9EA8 /* ContentView.swift */; };
 		330832CE2971CDF300CA9EA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330832CD2971CDF300CA9EA8 /* Assets.xcassets */; };
 		330832D12971CDF300CA9EA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */; };
+		33501EDB299E9EF500EB1CFE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33501EDA299E9EF500EB1CFE /* SettingsView.swift */; };
+		33501EDF299EB10E00EB1CFE /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33501EDE299EB10E00EB1CFE /* AboutUsView.swift */; };
 		33321D2929954C77001410E4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33321D2829954C77001410E4 /* ProfileView.swift */; };
 		33501EE7299EBEAB00EB1CFE /* CustomLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33501EE6299EBEAB00EB1CFE /* CustomLinearGradient.swift */; };
 		33AB4985299ABF7900FDF71F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB4984299ABF7900FDF71F /* EditProfileView.swift */; };
@@ -61,6 +63,8 @@
 		33321D2829954C77001410E4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		33501EE6299EBEAB00EB1CFE /* CustomLinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLinearGradient.swift; sourceTree = "<group>"; };
 		33AB4984299ABF7900FDF71F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		33501EDA299E9EF500EB1CFE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		33501EDE299EB10E00EB1CFE /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexfield.swift; sourceTree = "<group>"; };
 		33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		3306EAEA2991721200427606 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33501ED9299E9EE300EB1CFE /* Settings */,
 				33321D2A2995672C001410E4 /* Profile */,
 				90E7547A299BE755006D581B /* RecoverPass */,
 				3306EAF5299176AA00427606 /* Home */,
@@ -191,6 +196,15 @@
 				330832D02971CDF300CA9EA8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		33501ED9299E9EE300EB1CFE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				33501EDA299E9EF500EB1CFE /* SettingsView.swift */,
+				33501EDE299EB10E00EB1CFE /* AboutUsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		33321D2A2995672C001410E4 /* Profile */ = {
@@ -391,8 +405,10 @@
 				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				90E75497299D957F006D581B /* Recommended.swift in Sources */,
+				33501EDF299EB10E00EB1CFE /* AboutUsView.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
+				33501EDB299E9EF500EB1CFE /* SettingsView.swift in Sources */,
 				90E75490299D9411006D581B /* CustomTabBar.swift in Sources */,
 				90E7548E299D9372006D581B /* LandingPage.swift in Sources */,
 				90E75484299BF018006D581B /* UpdateDataResponseModel.swift in Sources */,
@@ -530,7 +546,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H8ZVN55RGH;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMyBurger/Info.plist;
@@ -559,7 +575,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H8ZVN55RGH;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMyBurger/Info.plist;
