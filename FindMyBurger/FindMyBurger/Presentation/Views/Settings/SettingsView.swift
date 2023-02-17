@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var viewModel = SettingViewModel()
     
     @State var shouldShowLogin: Bool = false
     @State var shouldShowAboutUs: Bool = false
@@ -56,16 +57,16 @@ struct SettingsView: View {
                 EmptyView()
             }
         )
-        //        .alert("Error al Cerrar Sesión", isPresented: $viewModel.shouldShowError, actions: {
-        //
-        //            Button{
-        //
-        //            } label: {
-        //                Text("Cerrar")
-        //            }
-        //        }){
-        //            Text(viewModel.alertText)
-        //        }
+        .alert("Error al Cerrar Sesión", isPresented: $viewModel.shouldShowError, actions: {
+
+            Button{
+
+            } label: {
+                Text("Cerrar")
+            }
+        }){
+            Text(viewModel.alertText)
+        }
     }
     func btnSignOut() -> some View {
         Button {
@@ -94,23 +95,23 @@ struct SettingsView: View {
                   primaryButton:
                     .default(Text("Aceptar"),
                              action: {
-                                print("hola")
+                                viewModel.signOut()
             }),
                   secondaryButton:
                     .destructive(Text("Cancelar"))
             )
             
         })
-        //        .alert("¿Seguro que quieres Cerrar Sesión?", isPresented: $shouldShowAlert, actions: {
-        //            Alert
-        //            Button{
-        //
-        //            } label: {
-        //                Text("Cerrar")
-        //            }
-        //        }){
-        //            Text(viewModel.alertText)
-        //        }
+        .alert("Error al Cerrar Sesión", isPresented: $viewModel.shouldShowError, actions: {
+            
+            Button{
+                
+            } label: {
+                Text("Cerrar")
+            }
+        }){
+            Text(viewModel.alertText)
+        }
     }
     func contactText() -> some View{
         VStack(spacing: 15){
