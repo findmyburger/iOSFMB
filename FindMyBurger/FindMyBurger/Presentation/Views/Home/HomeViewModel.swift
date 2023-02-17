@@ -6,20 +6,12 @@
 //
 
 import Foundation
-
 class HomeViewModel: ObservableObject{
     
-    @Published var shouldShowRestaurant: Bool = false
-    @Published var shouldShowError: Bool = false
     @Published var alertText: String = ""
+    @Published var shouldShowError: Bool = false
     
     let userDefaults = UserDefaults.standard
-    
-    func getRestaurants(burgerType: String){
-        if burgerType.isEmpty{
-            
-        }
-    }
     
     func connectToAPI(dictionary: [String: Any], url: String){
         NetworkHelper.shared.requestProvider(url: url, params: dictionary) { data, response, error in
@@ -34,20 +26,37 @@ class HomeViewModel: ObservableObject{
             }
         }
     }
-    func onSuccess(_ data: Data) {
+    func getRecommended (recommended: String){
         
+        
+        
+        
+    }
+    func onSuccess(_ data: Data) {
+        // Navegación al home
+        //shouldShowHome = true
         do {
+            let homeResponse = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
+            if homeResponse?.status == 200 {
+                //shouldShowHome = true
+                
+               
+                
+            }else{
+                
+            }
             
         } catch {
             self.onError(error: error.localizedDescription)
         }
     }
+    
+    
     func onError(error: String) {
         shouldShowError = true
         alertText = error
     }
+    
+    
 }
-
-
-

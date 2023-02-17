@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-
 struct HomeResponseModel: Decodable{
     let status: Int?
     let message: String?
