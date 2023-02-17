@@ -11,6 +11,7 @@ struct SettingsView: View {
     
     @State var shouldShowLogin: Bool = false
     @State var shouldShowAboutUs: Bool = false
+    @State var shouldShowAlert: Bool = false
     
     var body: some View {
         ZStack{
@@ -18,11 +19,11 @@ struct SettingsView: View {
             VStack(spacing: 15){
                 
                 settingHeader()
-               
+                
                 Spacer()
                 
                 btnAboutUs()
-                    
+                
                 btnSignOut()
                 
                 contactText()
@@ -55,20 +56,20 @@ struct SettingsView: View {
                 EmptyView()
             }
         )
-//        .alert("Error al Cerrar Sesión", isPresented: $viewModel.shouldShowError, actions: {
-//
-//            Button{
-//
-//            } label: {
-//                Text("Cerrar")
-//            }
-//        }){
-//            Text(viewModel.alertText)
-//        }
+        //        .alert("Error al Cerrar Sesión", isPresented: $viewModel.shouldShowError, actions: {
+        //
+        //            Button{
+        //
+        //            } label: {
+        //                Text("Cerrar")
+        //            }
+        //        }){
+        //            Text(viewModel.alertText)
+        //        }
     }
     func btnSignOut() -> some View {
         Button {
-            //viewModel.login(email: email, pass: pass)
+            shouldShowAlert = true
         } label: {
             HStack {
                 Text("Cerrar Sesión")
@@ -88,16 +89,28 @@ struct SettingsView: View {
                 EmptyView()
             }
         )
-//        .alert("Error al Cerrar Sesión", isPresented: $viewModel.shouldShowError, actions: {
-//
-//            Button{
-//
-//            } label: {
-//                Text("Cerrar")
-//            }
-//        }){
-//            Text(viewModel.alertText)
-//        }
+        .alert(isPresented: $shouldShowAlert, content: {
+            Alert(title: Text("Cerrar Sesión"), message: Text("¿Seguro que quieres Cerrar Sesión?"),
+                  primaryButton:
+                    .default(Text("Aceptar"),
+                             action: {
+                                print("hola")
+            }),
+                  secondaryButton:
+                    .destructive(Text("Cancelar"))
+            )
+            
+        })
+        //        .alert("¿Seguro que quieres Cerrar Sesión?", isPresented: $shouldShowAlert, actions: {
+        //            Alert
+        //            Button{
+        //
+        //            } label: {
+        //                Text("Cerrar")
+        //            }
+        //        }){
+        //            Text(viewModel.alertText)
+        //        }
     }
     func contactText() -> some View{
         VStack(spacing: 15){
