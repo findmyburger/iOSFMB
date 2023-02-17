@@ -9,10 +9,10 @@ import SwiftUI
 
 struct EditProfileView: View {
     
-    @State var email = ""
+    @State var newPass = ""
     @State var name = ""
     @State var pass = ""
-    @State var pass2 = ""
+    @State var newPass2 = ""
     
     var body: some View {
         VStack(spacing: 0){
@@ -51,12 +51,13 @@ struct EditProfileView: View {
                     //textFields()
                 TextFields(title: "Nombre", binding: $name, text: name)
                     
-                TextFields(title: "Email", binding: $email, text: email)
-                    
                 SecureFields(title: "Contraseña", binding: $pass, text: pass)
-                    
-                SecureFields(title: "Repetir contraseña", binding: $pass2, text: pass2)
                 
+                SecureFields(title: "Nueva Contraseña", binding: $newPass, text: newPass)
+                    
+                SecureFields(title: "Repetir contraseña", binding: $newPass2, text: newPass2)
+                
+                Spacer()
                 Spacer()
             }
             .padding(.horizontal, 25)
