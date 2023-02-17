@@ -23,7 +23,7 @@ class SettingViewModel: ObservableObject{
         connectToAPI(url: url)
     }
     func connectToAPI(url: String){
-        NetworkHelper.shared.requestProvider(url: url) { data, response, error in
+        NetworkHelper.shared.requestProvider(url: url, type: .DELETE) { data, response, error in
             if let error = error {
                 self.onError(error: error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse {
