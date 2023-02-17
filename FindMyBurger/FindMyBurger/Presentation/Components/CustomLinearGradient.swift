@@ -9,12 +9,8 @@ import SwiftUI
 
 struct CustomLinearGradient: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct CustomLinearGradient_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomLinearGradient()
+        Rectangle()
+            .fill(LinearGradient(colors: [Color("Gray3"), .white], startPoint: .top, endPoint: .bottom))
+            .frame(height: 16)
     }
 }
