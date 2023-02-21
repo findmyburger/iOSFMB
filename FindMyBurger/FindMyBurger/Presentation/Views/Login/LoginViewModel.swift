@@ -15,7 +15,7 @@ class LoginViewModel: ObservableObject{
     @Published var shouldShowRecoverPass: Bool = false
     
     let userDefaults = UserDefaults.standard
-
+    
     @Published var alertText: String = ""
     
     func login (email: String, pass: String){
@@ -27,7 +27,7 @@ class LoginViewModel: ObservableObject{
         }else{
             
             let url = "http://127.0.0.1:8000/api/users/login"
-
+            
             let dictionary: [String: Any] = [
                 "email": email,
                 "password" : pass
@@ -50,7 +50,6 @@ class LoginViewModel: ObservableObject{
             }
         }
     }
-    
     
     func onSuccess(_ data: Data) {
         // Navegación al home

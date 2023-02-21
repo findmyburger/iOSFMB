@@ -12,7 +12,7 @@ struct FindMyBurgerApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                LoginView()
+                ProfileView()
             }
         }
     }
