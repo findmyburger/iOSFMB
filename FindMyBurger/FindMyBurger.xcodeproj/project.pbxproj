@@ -42,6 +42,7 @@
 		90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549C299D970C006D581B /* RecentlyAddedView.swift */; };
 		90E754A3299EAC17006D581B /* HomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754A2299EAC17006D581B /* HomeResponseModel.swift */; };
 		90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754A4299EAD4A006D581B /* HomeViewModel.swift */; };
+		90E754B029A3E5FA006D581B /* RestaurantPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		90E7549C299D970C006D581B /* RecentlyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedView.swift; sourceTree = "<group>"; };
 		90E754A2299EAC17006D581B /* HomeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseModel.swift; sourceTree = "<group>"; };
 		90E754A4299EAD4A006D581B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPresentationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +105,6 @@
 				3306A3BF2994123D00C2387D /* Inter-Regular.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		3306EAE9299171F500427606 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		3306EAEA2991721200427606 /* Views */ = {
@@ -151,6 +146,7 @@
 				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
 				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
 				90E754A4299EAD4A006D581B /* HomeViewModel.swift */,
+				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -204,7 +200,6 @@
 			children = (
 				33E1637D2991805000CE6D89 /* Components */,
 				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
-				3306EAE9299171F500427606 /* Models */,
 				3306EAEA2991721200427606 /* Views */,
 			);
 			path = Presentation;
@@ -367,6 +362,7 @@
 				33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */,
 				90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */,
 				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
+				90E754B029A3E5FA006D581B /* RestaurantPresentationModel.swift in Sources */,
 				90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */,
 				90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */,
 				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,

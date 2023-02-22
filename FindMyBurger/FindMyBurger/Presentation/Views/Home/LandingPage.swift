@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandingPage: View {
+    @ObservedObject var viewModel = HomeViewModel()
     @State var searchText = ""
     @Binding var selectedCategory: Category
     var imageNames: [String] = ["1","2","3","4"]
@@ -184,18 +185,16 @@ struct LandingPage: View {
                 
                 HStack (spacing: 25){
                     
-                    ForEach(recomendado_items){ item in
-                        
-                        RecommendedItemsView(item: item)
-                            .padding(.vertical)
+                    ForEach(viewModel.restaurants) { item in
+                        HStack {
+                            
+                            RecommendedItemsView(item: item)
+                            
+                        }
                     }
                 }
-                
                 .padding(.leading)
-                
-                
             })
-            
         }
     }
     
@@ -210,20 +209,6 @@ struct LandingPage: View {
                     .foregroundColor(Color("Black"))
                 
                 Spacer()
-                
-//                Button(action: {}, label:{
-//
-//                    HStack( spacing: 6){
-//
-//                        Text("Ver todo")
-//                            .font(.footnote)
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color("Naranja"))
-//                            .padding(.horizontal)
-//                            .padding(.bottom)
-//                    }
-//                })
-                
             }
             .padding(.top,10)
             VStack(spacing:15){
@@ -232,6 +217,22 @@ struct LandingPage: View {
                     RecentlyAddedView(item: item)
                 }
                 
+            }
+        }
+    }
+    
+    var restaurantformat: some View {
+        LazyVStack(spacing: 1) {
+            ForEach(viewModel.restaurants) { item in
+                HStack {
+                    Text(item.name)
+                    Spacer()
+                    
+                }
+                .padding(.horizontal, 10)
+                .frame(height: 60)
+                .background(Color.white)
+                .padding(.horizontal, 20)
             }
         }
     }

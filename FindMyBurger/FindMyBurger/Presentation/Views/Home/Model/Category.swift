@@ -21,10 +21,7 @@ var categories = [
     Category(image: "Cerdo", title: "Cerdo"),
     Category(image: "Vegetariana", title: "Vegetariana"),
     Category(image: "Vegana", title: "Vegana"),
-    Category(image: "Buey", title: "BUEY"),
-    Category(image: "Pescado", title: "Pescado"),
-    Category(image: "", title: "")
-   
-
+    Category(image: "Buey", title: "Buey"),
+    Category(image: "Pescado", title: "Pescado")
 ]
 

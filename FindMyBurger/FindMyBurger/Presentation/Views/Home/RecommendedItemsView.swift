@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct RecommendedItemsView: View {
-    var item: Recomendado
+    var item: RestaurantPresentationModel
+    
     var body: some View {
-
-        VStack(spacing:5) {
-            
+        VStack(spacing: 5) {
             Image(systemName: "flame")
                 .font(.footnote)
                 .foregroundColor(.red)
                 .padding(8)
                 .background(Color.orange.opacity(0.1))
                 .clipShape(Circle())
-            
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(-10)
             
@@ -28,14 +26,14 @@ struct RecommendedItemsView: View {
                 .aspectRatio( contentMode: .fit)
                 .frame(width: getRect().width / 2.5)
                 .cornerRadius(20)
-                .padding(.top,6)
+                .padding(.top, 6)
             
             
             Text(item.name)
                 .fontWeight(.bold)
             
             HStack{
-                Text(item.direction)
+                Text(item.address)
                     .foregroundColor(.black.opacity(0.40))
                     .font(.system(size: 12))
                 
@@ -44,8 +42,8 @@ struct RecommendedItemsView: View {
                     .frame(width: 15, height: 15)
                     .padding(.horizontal,4)
                 
-                Text(item.qualification)
-                    .fontWeight(.semibold)
+//                Text(item.rate)
+//                    .fontWeight(.semibold)
                 
             }
             

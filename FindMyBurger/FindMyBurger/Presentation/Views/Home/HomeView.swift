@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     init(){
         UITabBar.appearance().isHidden = true
         
@@ -17,39 +18,48 @@ struct HomeView: View {
     @State var selectedTab: String = "home"
     @State var searchText = ""
     
+    var imageNames: [String] = ["1","2","3","4"]
+    
+    
     var body: some View {
         
         ZStack{
             
             BackgroundColorView()
             
-           tabBarView
+            
+            tabBarView
+            
+            
         }
-
+        .background(Color.black.opacity(0.03).ignoresSafeArea())
     }
+    
+    
     //MARK Accesory Views
     private var tabBarView: some View{
-      VStack(spacing: 0){
-          
-          TabView(selection: $selectedTab){
-              LandingPage(selectedCategory: $selectedCategory)
-                  .tag("home")
-              
-             //RestaurantView()
-                  .tag("heart")
-              //MapView()
-                  .tag("mapmarker")
-              //ProfileView()
-                  .tag("person")
-              
-          }
-          
-          CustomTabBar(selectedTab: $selectedTab)
-      }
-      
-  }
+        VStack(spacing: 0){
+            
+            TabView(selection: $selectedTab){
+                LandingPage(selectedCategory: $selectedCategory)
+                    .tag("home")
+                
+                //RestaurantView()
+                    .tag("heart")
+                //MapView()
+                    .tag("mapmarker")
+                //ProfileView()
+                    .tag("person")
+                
+            }
+            
+            CustomTabBar(selectedTab: $selectedTab)
+        }
+        
+    }
+    
+    
 }
-
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
