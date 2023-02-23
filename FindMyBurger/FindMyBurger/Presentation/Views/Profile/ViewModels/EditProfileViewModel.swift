@@ -16,19 +16,19 @@ class EditProfileViewModel: ObservableObject {
     @State var isPresented: Bool = false
     @Published var shouldShowName: Bool = false
     
-    @Published private var name = ""
-    @Published private var pass = ""
-    @Published private var newPass = ""
-    @Published private var newPass_confirmation = ""
+    @Published var name = ""
+    @Published var pass = ""
+    @Published var newPass = ""
+    @Published var newPass_confirmation = ""
     
 
     let userDefaults = UserDefaults.standard
 //
     @Published var alertText: String = ""
 
-    func editProfile(name:String, pass:String, newPass:String, newPass2:String){
-        
-        if name.isEmpty || pass.isEmpty || newPass.isEmpty || newPass2.isEmpty{
+    func editProfile(){
+        //Comprobar si se ha elegido nombre o contraseña y rellenar el dictinary con eso.
+        if name.isEmpty || pass.isEmpty || newPass.isEmpty || newPass_confirmation.isEmpty{
             shouldShowError = true
             alertText = "Rellena todos los campos."
             
@@ -40,7 +40,7 @@ class EditProfileViewModel: ObservableObject {
             "name": name,
             "password" : pass,
             "newPass": newPass,
-            "newPass" : newPass2
+            "newPass" : newPass_confirmation
         ]
         connectToAPI(dictionary: dictionary, url: url)
         }
@@ -60,8 +60,6 @@ class EditProfileViewModel: ObservableObject {
             }
         }
     }
-    
-    
     func onSuccess(_ data: Data) {
 
         do{
