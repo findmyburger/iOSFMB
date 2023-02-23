@@ -50,13 +50,13 @@ struct EditProfileView: View {
                 VStack(spacing: 30) {
                     switch editSelectedState {
                     case .name:
-                        TextFields(title: "Nombre", binding: $name, text: name)
+                        TextFields(title: "Nombre", binding: $viewModel.name, text: viewModel.name)
                     case .passwords:
-                        SecureFields(title: "Contraseña", binding: $pass, text: pass)
+                        SecureFields(title: "Contraseña", binding: $viewModel.pass, text: viewModel.pass)
                         
-                        SecureFields(title: "Nueva Contraseña", binding: $newPass, text: newPass)
+                        SecureFields(title: "Nueva Contraseña", binding: $viewModel.newPass, text: viewModel.newPass)
                         
-                        SecureFields(title: "Repetir contraseña", binding: $newPass2, text: newPass2)
+                        SecureFields(title: "Repetir contraseña", binding: $viewModel.newPass_confirmation, text: viewModel.newPass_confirmation)
                     }
                 }
                 .padding(.top, 50)
@@ -76,7 +76,7 @@ struct EditProfileView: View {
     var editProfileButton: some View {
         Button(
             action: {
-                viewModel.editProfile(name: name, pass: pass, newPass: newPass, newPass2: newPass2)
+                viewModel.editProfile()
             }){
                 
                 Text("Actualizar")
