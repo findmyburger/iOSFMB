@@ -15,7 +15,8 @@ class HomeViewModel: ObservableObject{
     func getRecommended (recommended: String){
         
     }
-    
+    @Published var searchText: String = ""
+    @Published var searchActivated: Bool = false
     @Published var restaurants: [RestaurantPresentationModel] = []
     @Published var shouldShowRestaurants = false
     
@@ -25,7 +26,7 @@ class HomeViewModel: ObservableObject{
         let url = "http://127.0.0.1:8000/api/restaurants/list"
         
         // petición
-        NetworkHelper.shared.requestProvider(url: url, type: .GET) { data, response, error in
+        NetworkHelper.shared.requestProvider(url: url, type: .POST) { data, response, error in
             if let error = error {
                 self.onError(error: error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse {

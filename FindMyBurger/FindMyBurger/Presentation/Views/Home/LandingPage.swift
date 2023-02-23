@@ -10,12 +10,12 @@ import SwiftUI
 struct LandingPage: View {
     @ObservedObject var viewModel = HomeViewModel()
     @State var searchText = ""
+    @Namespace var animation
     @Binding var selectedCategory: Category
     var imageNames: [String] = ["1","2","3","4"]
     
     var body: some View {
-        
-        ZStack{
+        ZStack {
             BackgroundColorView()
             
             VStack {
@@ -24,7 +24,24 @@ struct LandingPage: View {
                 CustomLinearGradient()
                     .padding(.bottom, 10)
                 
-                searchView
+                ZStack{
+                    if viewModel.searchActivated{
+                        SearchBar()
+                    }
+                    else{
+                        SearchBar()
+                            .matchedGeometryEffect(id: "SearchBar", in: animation)
+                    }
+                    
+                }
+                .contentShape(Rectangle())
+                .onTapGesture{
+                    withAnimation(.easeInOut){
+                        viewModel.searchActivated = true
+                    }
+                }
+                
+                
                 
                 ScrollView(.vertical, showsIndicators: false,content: {
                     tabView
@@ -33,13 +50,31 @@ struct LandingPage: View {
                         .padding(.vertical)
                     Recommended
                     RecentlyAdded
-                    .padding(.leading)
-                    .padding(.horizontal,10)
+                    //.padding(.leading)
+                        .padding(.horizontal)
                     
                 })
+
+                .overlay {
+                    ZStack{
+                        
+                        if viewModel.searchActivated{
+                            SearchView(animation: animation)
+                                .environmentObject(viewModel)
+                        }
+                    }
+                }
+                
             }
+            .padding(.horizontal,40)
             .background(Color.black.opacity(0.03).ignoresSafeArea())
         }
+        .padding(.horizontal,30)
+        .onAppear{
+            viewModel.getRestaurants()
+        }
+        
+        
     }
     
     
@@ -178,24 +213,43 @@ struct LandingPage: View {
                     }
                 })
             }
-            .padding(.top,10)
+            .padding(.top, 10)
             //.padding(.horizontal,10)
             
             ScrollView(.horizontal, showsIndicators: false, content: {
-                
-                HStack (spacing: 25){
-                    
+                HStack(spacing: 25) {
                     ForEach(viewModel.restaurants) { item in
-                        HStack {
-                            
-                            RecommendedItemsView(item: item)
-                            
-                        }
+                        RecommendedItemsView(item: item)
                     }
                 }
                 .padding(.leading)
             })
         }
+    }
+    
+    @ViewBuilder
+    func SearchBar() -> some View{
+        HStack{
+            TextField("Buscar restaurantes",text: $searchText)
+                .frame(height: 50)
+                .padding(.leading, 44)
+                .foregroundColor(Color("Texto"))
+                .background(Color("Gray2"))
+                .cornerRadius(20)
+                .disabled(true)
+        }
+        .padding(.horizontal)
+        .overlay(
+            HStack {
+                Image(systemName: "magnifyingglass")
+                Spacer()
+                Image("filtro")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+            }
+                .padding(.horizontal, 32)
+                .foregroundColor(.gray)
+        )
     }
     
     private var RecentlyAdded: some View{
@@ -220,23 +274,6 @@ struct LandingPage: View {
             }
         }
     }
-    
-    var restaurantformat: some View {
-        LazyVStack(spacing: 1) {
-            ForEach(viewModel.restaurants) { item in
-                HStack {
-                    Text(item.name)
-                    Spacer()
-                    
-                }
-                .padding(.horizontal, 10)
-                .frame(height: 60)
-                .background(Color.white)
-                .padding(.horizontal, 20)
-            }
-        }
-    }
-    
     
 }
 
