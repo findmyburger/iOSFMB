@@ -11,6 +11,13 @@ class HomeViewModel: ObservableObject{
     @Published var alertText: String = ""
     @Published var shouldShowError: Bool = false
     let userDefaults = UserDefaults.standard
+    @Published var selectedIndex = 0
+        
+        func startTimer() {
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+                self.selectedIndex = (self.selectedIndex + 1) % 3
+            }
+        }
     
     func getRecommended (recommended: String){
         

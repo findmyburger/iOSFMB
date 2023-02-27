@@ -17,7 +17,7 @@ struct HomeView: View {
     @State var selectedCategory : Category = categories.first!
     @State var selectedTab: String = "home"
     @State var searchText = ""
-    
+    @State private  var  selection = 0
     var imageNames: [String] = ["1","2","3","4"]
     
     

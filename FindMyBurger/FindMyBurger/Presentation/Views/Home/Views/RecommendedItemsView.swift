@@ -42,8 +42,8 @@ struct RecommendedItemsView: View {
                     .frame(width: 15, height: 15)
                     .padding(.horizontal,4)
                 
-//                Text(item.rate)
-//                    .fontWeight(.semibold)
+                Text("\(item.rate)")
+                    .fontWeight(.semibold)
                 
             }
             

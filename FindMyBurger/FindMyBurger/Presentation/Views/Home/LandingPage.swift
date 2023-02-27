@@ -54,7 +54,7 @@ struct LandingPage: View {
                         .padding(.horizontal)
                     
                 })
-
+                
                 .overlay {
                     ZStack{
                         
@@ -123,18 +123,44 @@ struct LandingPage: View {
     }
     
     private var tabView: some View {
-        TabView {
-            ForEach (imageNames, id:\.self ){ imageNames in
-                Image(imageNames)
-                    .resizable()
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 250)
-            }
+        
+        TabView(selection: $viewModel.selectedIndex) {
+            Image("1")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(0)
+            
+            Image("2")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(1)
+            Image("3")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(2)
+            Image("4")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(3)
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
         .frame(height: 250)
+        .animation(.easeInOut)
+        .onAppear {
+            viewModel.startTimer()
+        }
     }
     
     private var Categorys: some View{
