@@ -47,9 +47,6 @@ struct RecommendedItemsView: View {
                 
                 Text("\(item.rate)".trimmingCharacters(in: ["0"]))
                     .fontWeight(.semibold)
-                
-                
-                
             }
             
         }
@@ -59,10 +56,6 @@ struct RecommendedItemsView: View {
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
         .padding(.bottom)
-    }
-    func convertedRate(){
-        
-        
     }
 }
 

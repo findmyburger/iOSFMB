@@ -226,19 +226,7 @@ struct LandingPage: View {
                     .padding(.horizontal)
                     .foregroundColor(Color("Black"))
                 
-                Spacer()
                 
-                Button(action: {}, label:{
-                    
-                    HStack( spacing: 6){
-                        
-                        Text("Ver todo")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Naranja"))
-                            .padding(.horizontal)
-                    }
-                })
             }
             .padding(.top, 10)
             //.padding(.horizontal,10)
