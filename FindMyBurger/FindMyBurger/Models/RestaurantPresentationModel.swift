@@ -9,12 +9,10 @@ import Foundation
 
 struct RestaurantPresentationModel: Identifiable {
     
-        
-    let id = UUID()
+    let id: Int
     let name: String
     let image: String
     let address: String
     let rate: Float
-    
 }
 

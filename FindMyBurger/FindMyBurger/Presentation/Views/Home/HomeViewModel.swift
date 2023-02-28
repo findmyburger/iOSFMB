@@ -50,11 +50,12 @@ class HomeViewModel: ObservableObject{
     func onSuccess(data: Data) {
         do {
             // Convertimos a modelo de Data los datos que nos llegan
-            let restaurantsNotFiltered = try JSONDecoder().decode([HomeResponseModel?].self, from: data)
+            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
-            restaurants = restaurantsNotFiltered.compactMap({ restaurantsNotFiltered in
-                return RestaurantPresentationModel(name: restaurantsNotFiltered?.data?.name ?? "", image: restaurantsNotFiltered?.data?.image ?? "", address: restaurantsNotFiltered?.data?.address ?? "", rate: restaurantsNotFiltered?.data?.rate ?? 0)
+            guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
+            restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
+                return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
             })
         } catch {
             self.onError(error: error.localizedDescription)

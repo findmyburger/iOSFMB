@@ -24,15 +24,13 @@ struct LandingPage: View {
                 CustomLinearGradient()
                     .padding(.bottom, 10)
                 
-                ZStack{
+                VStack {
                     if viewModel.searchActivated{
                         SearchBar()
-                    }
-                    else{
+                    } else{
                         SearchBar()
                             .matchedGeometryEffect(id: "SearchBar", in: animation)
                     }
-                    
                 }
                 .contentShape(Rectangle())
                 .onTapGesture{
@@ -40,6 +38,7 @@ struct LandingPage: View {
                         viewModel.searchActivated = true
                     }
                 }
+                
                 
                 
                 
@@ -227,19 +226,7 @@ struct LandingPage: View {
                     .padding(.horizontal)
                     .foregroundColor(Color("Black"))
                 
-                Spacer()
                 
-                Button(action: {}, label:{
-                    
-                    HStack( spacing: 6){
-                        
-                        Text("Ver todo")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Naranja"))
-                            .padding(.horizontal)
-                    }
-                })
             }
             .padding(.top, 10)
             //.padding(.horizontal,10)

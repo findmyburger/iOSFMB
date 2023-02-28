@@ -1,14 +1,14 @@
 //
-//  RecommendedItemsView.swift
+//  ItemSearchView.swift
 //  FindMyBurger
 //
-//  Created by Juan jose Morales on 15/2/23.
+//  Created by Juan jose Morales on 28/2/23.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct RecommendedItemsView: View {
+struct ItemSearchView: View {
     var item: RestaurantPresentationModel
     
     var body: some View {
@@ -24,7 +24,7 @@ struct RecommendedItemsView: View {
             
             KFImage(URL(string: item.image))
                 .resizable()
-                .frame(width: 180 , height: 165)
+                .frame(width: 280 , height: 220)
                 .cornerRadius(20)
                 //.padding(.top, 6)
             
@@ -51,7 +51,7 @@ struct RecommendedItemsView: View {
             
         }
         .padding()
-        .frame(width: 250 ,height: 250)
+        .frame(width: 320 ,height: 250)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
@@ -59,8 +59,8 @@ struct RecommendedItemsView: View {
     }
 }
 
-struct RecommendedItemsView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct ItemSearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //SearchView(animation: )
+//    }
+//}

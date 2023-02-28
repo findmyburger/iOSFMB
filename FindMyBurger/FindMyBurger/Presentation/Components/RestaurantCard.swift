@@ -7,9 +7,10 @@
 
 import Foundation
 import SwiftUI
+import Kingfisher
 
 struct RestaurantCard: View {
-    var item: Recomendado
+    var item: RestaurantPresentationModel
     var width: CGFloat
     var height: CGFloat
     @State var favourite = false
@@ -31,9 +32,8 @@ struct RestaurantCard: View {
                     }
             }
             
-            Image(item.image)
+            KFImage(URL(string: item.image))
                 .resizable()
-                .aspectRatio( contentMode: .fit)
                 .frame(width: width, height: height)
                 .cornerRadius(20)
                 .padding(.top,6)
@@ -47,7 +47,7 @@ struct RestaurantCard: View {
                         Spacer()
                     }
                     HStack{
-                        Text(item.direction)
+                        Text(item.address)
                             .font(.custom("Inter-Regular", size: 16))
                             .frame(alignment: .leading)
                         Spacer()
@@ -60,7 +60,7 @@ struct RestaurantCard: View {
                     .frame(width: 15, height: 15)
                     .padding(.horizontal,4)
                 
-                Text(item.rate)
+                Text("\(item.rate)".trimmingCharacters(in: ["0"]))
                     .fontWeight(.semibold)
                     
                 
