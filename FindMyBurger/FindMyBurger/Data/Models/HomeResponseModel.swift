@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-
 struct HomeResponseModel: Decodable{
     let status: Int?
     let message: String?
@@ -15,7 +13,7 @@ struct HomeResponseModel: Decodable{
 }
 
 struct DataHomeResponseModel: Decodable{
-    let id: UUID
+    let id: UUID?
     let name: String?
     let image: String?
     let address: String

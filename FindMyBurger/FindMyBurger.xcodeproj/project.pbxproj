@@ -50,6 +50,10 @@
 		90E75499299D95FB006D581B /* RecentlyAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75498299D95FB006D581B /* RecentlyAdded.swift */; };
 		90E7549B299D9666006D581B /* RecommendedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549A299D9666006D581B /* RecommendedItemsView.swift */; };
 		90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549C299D970C006D581B /* RecentlyAddedView.swift */; };
+		90E754A3299EAC17006D581B /* HomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754A2299EAC17006D581B /* HomeResponseModel.swift */; };
+		90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754A4299EAD4A006D581B /* HomeViewModel.swift */; };
+		90E754B029A3E5FA006D581B /* RestaurantPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */; };
+		90E754B229A692E1006D581B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754B129A692E1006D581B /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +102,10 @@
 		90E75498299D95FB006D581B /* RecentlyAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAdded.swift; sourceTree = "<group>"; };
 		90E7549A299D9666006D581B /* RecommendedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsView.swift; sourceTree = "<group>"; };
 		90E7549C299D970C006D581B /* RecentlyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedView.swift; sourceTree = "<group>"; };
+		90E754A2299EAC17006D581B /* HomeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseModel.swift; sourceTree = "<group>"; };
+		90E754A4299EAD4A006D581B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPresentationModel.swift; sourceTree = "<group>"; };
+		90E754B129A692E1006D581B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,13 +127,6 @@
 				3306A3BF2994123D00C2387D /* Inter-Regular.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		3306EAE9299171F500427606 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		3306EAEA2991721200427606 /* Views */ = {
@@ -163,12 +164,12 @@
 		3306EAF5299176AA00427606 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				90F9E8D229A7EBB7005DAE7A /* Views */,
 				90E75493299D94FB006D581B /* Model */,
 				3306EAF6299176B600427606 /* HomeView.swift */,
 				90E7548D299D9372006D581B /* LandingPage.swift */,
 				90E7548F299D9411006D581B /* CustomTabBar.swift */,
-				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
-				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
+				90E754A4299EAD4A006D581B /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -192,6 +193,7 @@
 		330832C82971CDF100CA9EA8 /* FindMyBurger */ = {
 			isa = PBXGroup;
 			children = (
+				90F9E8D129A7E7A3005DAE7A /* Models */,
 				3306A3B529940DF900C2387D /* Info.plist */,
 				33E1637B29917FCE00CE6D89 /* Common */,
 				33E1637829917F7300CE6D89 /* Presentation */,
@@ -259,7 +261,6 @@
 			children = (
 				33E1637D2991805000CE6D89 /* Components */,
 				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
-				3306EAE9299171F500427606 /* Models */,
 				3306EAEA2991721200427606 /* Views */,
 			);
 			path = Presentation;
@@ -282,6 +283,7 @@
 				90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */,
 				90E75483299BF018006D581B /* UpdateDataResponseModel.swift */,
 				33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */,
+				90E754A2299EAC17006D581B /* HomeResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +338,24 @@
 				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		90F9E8D129A7E7A3005DAE7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		90F9E8D229A7EBB7005DAE7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90E754B129A692E1006D581B /* SearchView.swift */,
+				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
+				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +436,7 @@
 				3306EAF7299176B600427606 /* HomeView.swift in Sources */,
 				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
 				90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */,
+				90E754A3299EAC17006D581B /* HomeResponseModel.swift in Sources */,
 				33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */,
 				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
 				33AB4985299ABF7900FDF71F /* EditProfileView.swift in Sources */,
@@ -425,8 +446,10 @@
 				33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */,
 				90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */,
 				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
+				90E754B029A3E5FA006D581B /* RestaurantPresentationModel.swift in Sources */,
 				33D30F7C299FF4120027F4B8 /* SignOutResponseModel.swift in Sources */,
 				90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */,
+				90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */,
 				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				90E75497299D957F006D581B /* Recommended.swift in Sources */,
@@ -446,6 +469,7 @@
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
 				90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */,
 				90E75499299D95FB006D581B /* RecentlyAdded.swift in Sources */,
+				90E754B229A692E1006D581B /* SearchView.swift in Sources */,
 				33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */,
 				33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */,
 				90E75495299D953D006D581B /* Category.swift in Sources */,
@@ -576,7 +600,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H8ZVN55RGH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMyBurger/Info.plist;
@@ -605,7 +629,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H8ZVN55RGH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMyBurger/Info.plist;

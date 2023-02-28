@@ -14,7 +14,7 @@ struct RecentlyAddedView: View {
         ZStack {
             Image(item.image)
                 .resizable()
-                .frame(width: 340, height: 200)
+                .frame(width: 380, height: 200)
                 .cornerRadius(10)
             
             VStack {

@@ -14,13 +14,13 @@ struct FavouritesView: View {
             VStack{
                 CustomTitle(title: "Favoritos")
                 
-                ScrollView{
-                    ForEach(recomendado_items){ item in
-                        
-                        RestaurantCard(item: item, width: 327, height: 275)
-                            .padding(40)
-                    }
-                }
+//                ScrollView{
+//                    ForEach(recomendado_items){ item in
+//                        
+//                        RestaurantCard(item: item, width: 327, height: 275)
+//                            .padding(40)
+//                    }
+//                }
             }
             
         }

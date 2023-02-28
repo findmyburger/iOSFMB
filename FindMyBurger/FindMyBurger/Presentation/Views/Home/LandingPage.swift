@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct LandingPage: View {
+    @ObservedObject var viewModel = HomeViewModel()
     @State var searchText = ""
+    @Namespace var animation
     @Binding var selectedCategory: Category
     var imageNames: [String] = ["1","2","3","4"]
     
     var body: some View {
-        
-        ZStack{
+        ZStack {
             BackgroundColorView()
             
             VStack {
@@ -23,23 +24,60 @@ struct LandingPage: View {
                 CustomLinearGradient()
                     .padding(.bottom, 10)
                 
-                searchView
+                ZStack{
+                    if viewModel.searchActivated{
+                        SearchBar()
+                    }
+                    else{
+                        SearchBar()
+                            .matchedGeometryEffect(id: "SearchBar", in: animation)
+                    }
+                    
+                }
+                .contentShape(Rectangle())
+                .onTapGesture{
+                    withAnimation(.easeInOut){
+                        viewModel.searchActivated = true
+                    }
+                }
+                
+                
                 
                 ScrollView(.vertical, showsIndicators: false,content: {
                     tabView
                         .padding(.top, 10)
                     Categorys
                         .padding(.vertical)
+                        
                     Recommended
                     RecentlyAdded
-                    .padding(.leading)
-                    .padding(.horizontal,10)
+                        .padding(.horizontal)
                     
                 })
+                
+                .overlay {
+                    ZStack{
+                        
+                        if viewModel.searchActivated{
+                            SearchView(animation: animation)
+                                .environmentObject(viewModel)
+                        }
+                    }
+                }
+                
+                
             }
+            //.padding(.horizontal)
             .background(Color.black.opacity(0.03).ignoresSafeArea())
         }
+        .padding(.horizontal)
+        .onAppear{
+            viewModel.getRestaurants()
+        }
+        
+        //.padding(.horizontal)
     }
+    
     
     
     // MARK: - Accessory Views
@@ -87,18 +125,44 @@ struct LandingPage: View {
     }
     
     private var tabView: some View {
-        TabView {
-            ForEach (imageNames, id:\.self ){ imageNames in
-                Image(imageNames)
-                    .resizable()
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 250)
-            }
+        
+        TabView(selection: $viewModel.selectedIndex) {
+            Image("1")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(0)
+            
+            Image("2")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(1)
+            Image("3")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(2)
+            Image("3")
+                .resizable()
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
+                .tag(3)
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
         .frame(height: 250)
+        .animation(.easeInOut)
+        .onAppear {
+            viewModel.startTimer()
+        }
     }
     
     private var Categorys: some View{
@@ -177,26 +241,43 @@ struct LandingPage: View {
                     }
                 })
             }
-            .padding(.top,10)
+            .padding(.top, 10)
             //.padding(.horizontal,10)
             
             ScrollView(.horizontal, showsIndicators: false, content: {
-                
-                HStack (spacing: 25){
-                    
-                    ForEach(recomendado_items){ item in
-                        
+                HStack(spacing: 25) {
+                    ForEach(viewModel.restaurants) { item in
                         RecommendedItemsView(item: item)
-                            .padding(.vertical)
                     }
                 }
-                
                 .padding(.leading)
-                
-                
             })
-            
         }
+    }
+    
+    @ViewBuilder
+    func SearchBar() -> some View{
+        HStack{
+            TextField("Buscar restaurantes",text: $searchText)
+                .frame(height: 50)
+                .padding(.leading, 44)
+                .foregroundColor(Color("Texto"))
+                .background(Color("Gray2"))
+                .cornerRadius(20)
+                .disabled(true)
+        }
+        .padding(.horizontal)
+        .overlay(
+            HStack {
+                Image(systemName: "magnifyingglass")
+                Spacer()
+                Image("filtro")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+            }
+                .padding(.horizontal, 32)
+                .foregroundColor(.gray)
+        )
     }
     
     private var RecentlyAdded: some View{
@@ -210,20 +291,6 @@ struct LandingPage: View {
                     .foregroundColor(Color("Black"))
                 
                 Spacer()
-                
-//                Button(action: {}, label:{
-//
-//                    HStack( spacing: 6){
-//
-//                        Text("Ver todo")
-//                            .font(.footnote)
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color("Naranja"))
-//                            .padding(.horizontal)
-//                            .padding(.bottom)
-//                    }
-//                })
-                
             }
             .padding(.top,10)
             VStack(spacing:15){
@@ -235,7 +302,6 @@ struct LandingPage: View {
             }
         }
     }
-    
     
 }
 
