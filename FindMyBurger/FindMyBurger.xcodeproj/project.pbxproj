@@ -46,7 +46,6 @@
 		90E7548E299D9372006D581B /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7548D299D9372006D581B /* LandingPage.swift */; };
 		90E75490299D9411006D581B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7548F299D9411006D581B /* CustomTabBar.swift */; };
 		90E75495299D953D006D581B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75494299D953D006D581B /* Category.swift */; };
-		90E75497299D957F006D581B /* Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75496299D957F006D581B /* Recommended.swift */; };
 		90E75499299D95FB006D581B /* RecentlyAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E75498299D95FB006D581B /* RecentlyAdded.swift */; };
 		90E7549B299D9666006D581B /* RecommendedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549A299D9666006D581B /* RecommendedItemsView.swift */; };
 		90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7549C299D970C006D581B /* RecentlyAddedView.swift */; };
@@ -54,6 +53,8 @@
 		90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754A4299EAD4A006D581B /* HomeViewModel.swift */; };
 		90E754B029A3E5FA006D581B /* RestaurantPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */; };
 		90E754B229A692E1006D581B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E754B129A692E1006D581B /* SearchView.swift */; };
+		90F9E8D429AD8836005DAE7A /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9E8D329AD8836005DAE7A /* ItemSearchView.swift */; };
+		90F9E8D729AE578C005DAE7A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 90F9E8D629AE578C005DAE7A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,7 +99,6 @@
 		90E7548D299D9372006D581B /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		90E7548F299D9411006D581B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		90E75494299D953D006D581B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		90E75496299D957F006D581B /* Recommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommended.swift; sourceTree = "<group>"; };
 		90E75498299D95FB006D581B /* RecentlyAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAdded.swift; sourceTree = "<group>"; };
 		90E7549A299D9666006D581B /* RecommendedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsView.swift; sourceTree = "<group>"; };
 		90E7549C299D970C006D581B /* RecentlyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedView.swift; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		90E754A4299EAD4A006D581B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPresentationModel.swift; sourceTree = "<group>"; };
 		90E754B129A692E1006D581B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		90F9E8D329AD8836005DAE7A /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F9E8D729AE578C005DAE7A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				90E75494299D953D006D581B /* Category.swift */,
-				90E75496299D957F006D581B /* Recommended.swift */,
 				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
 			);
 			path = Model;
@@ -354,6 +355,7 @@
 				90E754B129A692E1006D581B /* SearchView.swift */,
 				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
 				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
+				90F9E8D329AD8836005DAE7A /* ItemSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,6 +376,9 @@
 			dependencies = (
 			);
 			name = FindMyBurger;
+			packageProductDependencies = (
+				90F9E8D629AE578C005DAE7A /* Kingfisher */,
+			);
 			productName = FindMyBurger;
 			productReference = 330832C62971CDF100CA9EA8 /* FindMyBurger.app */;
 			productType = "com.apple.product-type.application";
@@ -402,6 +407,9 @@
 				Base,
 			);
 			mainGroup = 330832BD2971CDF100CA9EA8;
+			packageReferences = (
+				90F9E8D529AE578C005DAE7A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 330832C72971CDF100CA9EA8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -452,7 +460,6 @@
 				90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */,
 				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
-				90E75497299D957F006D581B /* Recommended.swift in Sources */,
 				33600CF0299FF0A90066EC3D /* ProfileViewModel.swift in Sources */,
 				33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */,
 				33501EDF299EB10E00EB1CFE /* AboutUsView.swift in Sources */,
@@ -468,6 +475,7 @@
 				90E7548C299BFBDA006D581B /* ChangePassView.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
 				90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */,
+				90F9E8D429AD8836005DAE7A /* ItemSearchView.swift in Sources */,
 				90E75499299D95FB006D581B /* RecentlyAdded.swift in Sources */,
 				90E754B229A692E1006D581B /* SearchView.swift in Sources */,
 				33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */,
@@ -673,6 +681,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90F9E8D529AE578C005DAE7A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90F9E8D629AE578C005DAE7A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90F9E8D529AE578C005DAE7A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 330832BE2971CDF100CA9EA8 /* Project object */;
 }

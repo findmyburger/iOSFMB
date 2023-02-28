@@ -24,15 +24,13 @@ struct LandingPage: View {
                 CustomLinearGradient()
                     .padding(.bottom, 10)
                 
-                ZStack{
+                VStack {
                     if viewModel.searchActivated{
                         SearchBar()
-                    }
-                    else{
+                    } else{
                         SearchBar()
                             .matchedGeometryEffect(id: "SearchBar", in: animation)
                     }
-                    
                 }
                 .contentShape(Rectangle())
                 .onTapGesture{
@@ -40,6 +38,7 @@ struct LandingPage: View {
                         viewModel.searchActivated = true
                     }
                 }
+                
                 
                 
                 

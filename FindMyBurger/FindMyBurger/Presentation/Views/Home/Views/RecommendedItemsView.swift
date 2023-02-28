@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct RecommendedItemsView: View {
     var item: RestaurantPresentationModel
@@ -21,37 +22,47 @@ struct RecommendedItemsView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(-10)
             
-            Image(item.image)
+            KFImage(URL(string: item.image))
                 .resizable()
-                .aspectRatio( contentMode: .fit)
-                .frame(width: getRect().width / 2.5)
+                .frame(width: 180 , height: 165)
                 .cornerRadius(20)
-                .padding(.top, 6)
+                //.padding(.top, 6)
             
             
             Text(item.name)
+                .font(.custom("Inter-Regular", size: 13))
                 .fontWeight(.bold)
-            
+                .padding(.top, 6)
             HStack{
                 Text(item.address)
                     .foregroundColor(.black.opacity(0.40))
                     .font(.system(size: 12))
-                
+                    .padding(.top, 6)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
                 Image("Stars")
                     .resizable()
                     .frame(width: 15, height: 15)
                     .padding(.horizontal,4)
                 
-                Text("\(item.rate)")
+                Text("\(item.rate)".trimmingCharacters(in: ["0"]))
                     .fontWeight(.semibold)
+                
+                
                 
             }
             
         }
         .padding()
+        .frame(width: 250 ,height: 250)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
+        .padding(.bottom)
+    }
+    func convertedRate(){
+        
+        
     }
 }
 
