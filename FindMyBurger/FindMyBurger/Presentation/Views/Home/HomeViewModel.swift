@@ -8,6 +8,10 @@
 import Foundation
 class HomeViewModel: ObservableObject{
     
+    @Published var searchText: String = ""
+    @Published var searchActivated: Bool = false
+    @Published var restaurants: [RestaurantPresentationModel] = []
+    @Published var shouldShowRestaurants = false
     @Published var alertText: String = ""
     @Published var shouldShowError: Bool = false
     let userDefaults = UserDefaults.standard
@@ -22,10 +26,7 @@ class HomeViewModel: ObservableObject{
     func getRecommended (recommended: String){
         
     }
-    @Published var searchText: String = ""
-    @Published var searchActivated: Bool = false
-    @Published var restaurants: [RestaurantPresentationModel] = []
-    @Published var shouldShowRestaurants = false
+
     
     func getRestaurants() {
         

@@ -48,9 +48,9 @@ struct LandingPage: View {
                         .padding(.top, 10)
                     Categorys
                         .padding(.vertical)
+                        
                     Recommended
                     RecentlyAdded
-                    //.padding(.leading)
                         .padding(.horizontal)
                     
                 })
@@ -65,17 +65,19 @@ struct LandingPage: View {
                     }
                 }
                 
+                
             }
-            .padding(.horizontal,40)
+            //.padding(.horizontal)
             .background(Color.black.opacity(0.03).ignoresSafeArea())
         }
-        .padding(.horizontal,30)
+        .padding(.horizontal)
         .onAppear{
             viewModel.getRestaurants()
         }
         
-        
+        //.padding(.horizontal)
     }
+    
     
     
     // MARK: - Accessory Views
@@ -147,7 +149,7 @@ struct LandingPage: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 250)
                 .tag(2)
-            Image("4")
+            Image("3")
                 .resizable()
                 .cornerRadius(10)
                 .padding(.horizontal)

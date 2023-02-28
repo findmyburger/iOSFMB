@@ -18,6 +18,7 @@ struct SearchView: View{
         
         VStack(spacing: 0 ){
             
+            //SearchBar
             HStack(spacing:20){
                 
                 Button{
@@ -39,15 +40,13 @@ struct SearchView: View{
                         .focused($startTF)
                         .font(.custom("Inter-Regular", size: 18))
                         .foregroundColor(Color("Black"))
-                        .disabled(true)
-                        .textCase(.lowercase)
                         .disableAutocorrection(true)
                     Image("filtro")
                         .resizable()
                         .frame(width: 20, height: 20)
                 }
                 .padding(.vertical,12)
-                .padding(.horizontal)
+                .padding(.horizontal,20)
                 
                 .background(
                 Capsule()
@@ -61,8 +60,15 @@ struct SearchView: View{
                 
                 
             }
-            .padding([.horizontal,.top])
-            .padding(.top)
+            .padding([.horizontal])
+            
+            //Filter Results
+            
+            ScrollView(.vertical, showsIndicators: false){
+                
+                //Staggered Grid
+                
+            }
         }
         .frame(maxWidth: .infinity , maxHeight: .infinity, alignment: .top)
         .background(

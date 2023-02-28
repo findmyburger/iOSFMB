@@ -169,9 +169,7 @@
 				3306EAF6299176B600427606 /* HomeView.swift */,
 				90E7548D299D9372006D581B /* LandingPage.swift */,
 				90E7548F299D9411006D581B /* CustomTabBar.swift */,
-				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
 				90E754A4299EAD4A006D581B /* HomeViewModel.swift */,
-				90E754B129A692E1006D581B /* SearchView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -353,6 +351,8 @@
 		90F9E8D229A7EBB7005DAE7A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90E754B129A692E1006D581B /* SearchView.swift */,
+				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
 				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
 			);
 			path = Views;
