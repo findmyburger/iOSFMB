@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 class HomeViewModel: ObservableObject{
     
     @Published var searchText: String = ""
@@ -17,7 +19,25 @@ class HomeViewModel: ObservableObject{
     let userDefaults = UserDefaults.standard
     @Published var selectedIndex = 0
     @Published var searchedProducts: [RestaurantPresentationModel]?
+    
+    var searchCancellable: AnyCancellable?
+    
+    init(){
         
+        searchCancellable = $searchText.removeDuplicates()
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .sink(receiveValue: { str in
+                
+                if str != ""{
+                    
+                    self.filterProductsBySearch()
+                }
+                else {
+                    self.searchedProducts = nil
+                }
+            })
+    }
+    
         func startTimer() {
             Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
                 self.selectedIndex = (self.selectedIndex + 1) % 3
@@ -52,6 +72,10 @@ class HomeViewModel: ObservableObject{
         do {
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
+            
+            //userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
+            
+            //let saveRestaurants = userDefaults.array(forKey: "restaurants")
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }

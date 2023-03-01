@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct LandingPage: View {
     @ObservedObject var viewModel = HomeViewModel()
     @State var searchText = ""
@@ -59,7 +60,7 @@ struct LandingPage: View {
                     ZStack{
                         
                         if viewModel.searchActivated{
-                            SearchView()
+                            SearchView(animation: animation)
                                 .environmentObject(viewModel)
                         }
                     }
