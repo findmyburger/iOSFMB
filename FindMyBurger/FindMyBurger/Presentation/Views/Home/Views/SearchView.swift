@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct SearchView: View{
-    var animation: Namespace.ID
+    //var animation: Namespace.ID
     
     @EnvironmentObject var viewModel: HomeViewModel
     @FocusState var startTF: Bool
@@ -21,6 +21,7 @@ struct SearchView: View{
             //SearchBar
             HStack(spacing:20){
                 
+                //Close Button
                 Button{
                     
                     withAnimation{
@@ -55,7 +56,7 @@ struct SearchView: View{
                     .cornerRadius(25)
                 
                 )
-                .matchedGeometryEffect(id: "SearchBar", in: animation)
+                //.matchedGeometryEffect(id: "SearchBar", in: animation)
                 .padding(.trailing,20)
                 
                 
@@ -64,10 +65,51 @@ struct SearchView: View{
             
             //Filter Results
             
-            ScrollView(.vertical, showsIndicators: false){
+            if let items = viewModel.searchedProducts {
                 
-                //Staggered Grid
+                if items.isEmpty {
+                    
+                    // No results Found
+                    
+                    VStack(spacing:10){
+                        
+                        Image("nodata")
+                            .resizable()
+                            .aspectRatio( contentMode: .fit)
+                            .padding(.top,60)
+                        
+                        Text("No se han encontrado resultados con tu busqueda")
+                            .font(.custom("Inter-SemiBold", size: 17))
+                        
+                        Text("Intenta buscar otra hamburgueseria")
+                            .font(.custom("Inter-Regular", size: 15))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal,30)
+                    }
+                    .padding()
+                } else {
+                    
+                    ScrollView(.vertical, showsIndicators: false){
+                        VStack(spacing:25){
+                            Text("Se han encontrado \(viewModel.restaurants.count) restaurantes ")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .padding(.horizontal)
+                                .foregroundColor(Color("Black"))
+                                .padding(.top , 20)
+                            ForEach(viewModel.restaurants) { item in
+                                ItemSearchView(item: item)
+                            }
+                        }
+                    }
+                }
                 
+            } else {
+                
+                ProgressView()
+                    .padding(.top , 30)
+                    .opacity(viewModel.searchText == "" ? 0 : 1)
             }
         }
         .frame(maxWidth: .infinity , maxHeight: .infinity, alignment: .top)
@@ -87,6 +129,7 @@ struct SearchView: View{
 
 struct SearchView_Provider: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        SearchView()
+            .environmentObject(HomeViewModel())
     }
 }

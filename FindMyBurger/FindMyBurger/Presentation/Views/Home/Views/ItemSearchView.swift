@@ -55,6 +55,7 @@ struct ItemSearchView: View {
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
+        .padding(.top , 50)
         .padding(.bottom)
     }
 }

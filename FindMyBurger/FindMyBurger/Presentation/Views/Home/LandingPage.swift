@@ -32,6 +32,7 @@ struct LandingPage: View {
                             .matchedGeometryEffect(id: "SearchBar", in: animation)
                     }
                 }
+                //.frame(getRect().width / 1.6)
                 .contentShape(Rectangle())
                 .onTapGesture{
                     withAnimation(.easeInOut){
@@ -58,7 +59,7 @@ struct LandingPage: View {
                     ZStack{
                         
                         if viewModel.searchActivated{
-                            SearchView(animation: animation)
+                            SearchView()
                                 .environmentObject(viewModel)
                         }
                     }

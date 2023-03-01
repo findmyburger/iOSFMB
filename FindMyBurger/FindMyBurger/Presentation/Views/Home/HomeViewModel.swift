@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject{
     @Published var shouldShowError: Bool = false
     let userDefaults = UserDefaults.standard
     @Published var selectedIndex = 0
+    @Published var searchedProducts: [RestaurantPresentationModel]?
         
         func startTimer() {
             Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
@@ -65,6 +66,29 @@ class HomeViewModel: ObservableObject{
     
     func onError(error: String) {
         print(error)
+    }
+    
+    func filterProductsBySearch(){
+
+        DispatchQueue.global( qos: .userInteractive).async {
+
+            let results = self.restaurants
+
+                .lazy
+                .filter{ item in
+                    return item.name.lowercased().contains(self.searchText.lowercased())
+
+                }
+
+            DispatchQueue.main.async {
+                
+                self.searchedProducts = results.compactMap({ item in
+                    
+                    return item
+                    
+                })
+            }
+        }
     }
     
 }
