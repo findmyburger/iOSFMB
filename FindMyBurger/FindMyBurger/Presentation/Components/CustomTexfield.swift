@@ -9,34 +9,35 @@ import SwiftUI
 
 struct TextFields: View {
     var title: String
-    @State var text: String
+    @State var binding: Binding<String>
+    var text: String
 
     
     var body: some View {
-        TextField(title, text: $text)
+        TextField(title, text: binding)
             .font(.custom("Inter-Regular", size: 20))
-            .foregroundColor(Color("TextField_Stroke"))
+            .foregroundColor(Color("Black"))
             .frame(height:45)
             .padding(.horizontal, 18)
             .background(Color("Gray"))
             .cornerRadius(25)
             .background(RoundedRectangle(cornerRadius: 25).stroke(text != "" ? Color("TextField_Stroke") : Color("Gray"), lineWidth: 2))
-            .padding(.bottom, 10)
     }
 }
 struct SecureFields: View {
     var title: String
-    @State var text: String
+    @State var binding: Binding<String>
+    var text: String
     @State var visible = false
     
     var body: some View {
         HStack (spacing: 15){
             
             if self.visible{
-                TextField(title, text: $text)
+                TextField(title, text: binding)
                 
             }else{
-                SecureField(title, text: $text)
+                SecureField(title, text: binding)
                     .foregroundColor(Color("Black"))
             }
             
@@ -50,13 +51,12 @@ struct SecureFields: View {
         }
             
             .font(.custom("Inter-Regular", size: 20))
-            .foregroundColor(Color("TextField_Stroke"))
+            .foregroundColor(Color("Black"))
             .frame(height: 45)
             .padding(.horizontal, 18)
             .background(Color("Gray"))
             .cornerRadius(25)
             .background(RoundedRectangle(cornerRadius: 25).stroke(text != "" ? Color("TextField_Stroke") : Color("Gray"), lineWidth: 2))
-            .padding(.bottom, 10)
     }
 }
 

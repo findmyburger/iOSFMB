@@ -9,74 +9,79 @@ import SwiftUI
 
 
 struct LoginView: View {
+    
     @ObservedObject var viewModel = LoginViewModel()
     
     @State var email = ""
     @State var pass = ""
     @State var visible = false
     @State private var shouldShowRegister: Bool = false
-    @State private var shouldShowAgenda: Bool = false
-    @State private var shouldShowError: Bool = false
-    @State var textalert = ""
+    @State private var shouldShowRecoverPass: Bool = false
+    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
-        ScrollView{
+        NavigationView{
             ZStack {
                 BackgroundColorView()
                 
-                VStack(spacing: 20){
+                VStack(spacing: 10){
                     Logo2()
                     
-                    TitleView(title: "Iniciar Sesión")
+                    CustomTitle(title: "Iniciar Sesión")
+                        .padding(.bottom, 45)
                     
-                    TextFields(title: "Email", text: email)
+                    TextFields(title: "Email", binding: $email, text: email)
                     
-                    SecureFields(title: "Contraseña", text: pass)
-                    
+                    SecureFields(title: "Contraseña", binding: $pass, text: pass)
                     
                     HStack{
-                        forgetPass()
+                        forgotPass()
                         Spacer()
                     }
                     .padding(.horizontal, 7)
                     .padding(.bottom, 60)
                     
-                    
                     btnLogin()
                     
-                    
                     btnGoogle()
-
+                    
                     goRegist()
                 }
-                
+                .padding(.bottom, 70)
             }
             .padding(.horizontal, 25)
         }
+        .navigationBarHidden(true)
     }
     
     // MARK: - Accessory Views
-
-    func forgetPass() -> some View {
+    
+    func forgotPass() -> some View {
         
         Button(action: {
-            // goToRecoverPass
+            shouldShowRecoverPass = true
+            dismiss()
         }){
             Text("¿Has olvidado tu contraseña?")
                 .fontWeight(.bold)
                 .foregroundColor(Color("Black"))
-        }
+        }.background(
+            NavigationLink(destination: SendEmailView(), isActive: $shouldShowRecoverPass) {
+                EmptyView()
+            }
+        )
         
     }
     
     func btnLogin() -> some View {
         Button {
-            // TODO: - Login
+            viewModel.login(email: email, pass: pass)
         } label: {
             HStack {
                 Text("Iniciar Sesión")
                     .foregroundColor(.white)
                     .padding(.vertical)
-                    
             }
             .padding(.horizontal, 15)
         }
@@ -86,6 +91,21 @@ struct LoginView: View {
         .background(Color("Amarillo"))
         .cornerRadius(25)
         .padding(.bottom, 10)
+        .background(
+            NavigationLink(destination: HomeView(), isActive: $viewModel.shouldShowHome) {
+                EmptyView()
+            }
+        )
+        .alert("Error al Iniciar Sesión", isPresented: $viewModel.shouldShowError, actions: {
+            
+            Button{
+                
+            } label: {
+                Text("Cerrar")
+            }
+        }){
+            Text(viewModel.alertText)
+        }
     }
     
     func btnGoogle() -> some View {
@@ -113,97 +133,39 @@ struct LoginView: View {
     }
     
     func goRegist() -> some View {
-        Button(action: {
+        
+        HStack {
+            Text("¿Aún no tienes una cuenta? ")
+                .font(.custom("Inter-Regular", size: 18))
+                .padding(.top, 25)
+                .foregroundColor(.black)
             
-        }){
-            HStack {
-                Text("¿Aún no tienes una cuenta? ")
-                    .font(.custom("Inter-Regular", size: 18))
+            Spacer()
+            
+            Button(action: {
+                shouldShowRegister = true
+                dismiss()
+            }){
+                Text("Registrate")
+                    .font(.custom("Inter-Bold", size: 18))
+                    .foregroundColor(Color("Black"))
                     .padding(.top, 25)
-                    .foregroundColor(.black)
-                    
-                Spacer()
                 
-                Button(action: {
-                    shouldShowRegister = true
-                }){
-                    Text("Registrate")
-                        .font(.custom("Inter-Bold", size: 18))
-                        .foregroundColor(Color("Black"))
-                        .padding(.top, 25)
-                        
-                    
-                }.background(
-                    NavigationLink(destination: RegisterView(), isActive: $shouldShowRegister) {
-                        EmptyView()
-                    }
-                )
-            }
-            
+            }.background(
+                NavigationLink(destination: RegisterView(), isActive: $shouldShowRegister) {
+                    EmptyView()
+                }
+            )
         }
     }
-    
-    func onSuccess() {
-        
-        shouldShowAgenda = true
-    }
-    
-    func onError(error: String) {
-        print(error)
-        shouldShowError = true
-        textalert = "No existe este usuario"
-        
-        
+    func dismiss(){
+        mode.wrappedValue.dismiss()
     }
 }
-
-
-
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
-    }
-}
-
-extension LoginView {
-    
-    func loginButton(title: String) -> some View {
-        Button {
-            if email.isEmpty || pass.isEmpty{
-                shouldShowError = true
-                textalert = "Fields are empty"
-            }else{
-                //login(email: email, pass: pass)
-            }
-            
-        } label: {
-            Text(title)
-                .foregroundColor(.white)
-                .padding(.vertical)
-                .frame(width: UIScreen.main.bounds.width - 50)
-                .padding(.horizontal, 2)
-                .background(Color("Color"))
-                .cornerRadius(10)
-                .padding(.top,25)
-            
-        }
-        .background(
-            NavigationLink(destination: HomeView(), isActive: $shouldShowAgenda) {
-                EmptyView()
-            }
-        )
-        .alert("Error al logearse", isPresented: $shouldShowError, actions: {
-            
-            Button{
-                
-            } label: {
-                Text("Ok")
-            }
-        }){
-            Text(textalert)
-        }
     }
 }
 

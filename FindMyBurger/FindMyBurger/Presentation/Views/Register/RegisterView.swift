@@ -21,46 +21,45 @@ struct RegisterView: View {
     
     @State private var shouldShowLogin: Bool = false
     
-    @Environment(\.presentationMode)
-    var mode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View{
-        ScrollView {
-            ZStack {
-                BackgroundColorView()
+        ZStack {
+            BackgroundColorView()
+            
+            VStack(spacing: 10){
+                Logo2()
                 
-                VStack(spacing: 20){
-                    Logo2()
+                CustomTitle(title: "Registro")
+                    .padding(.bottom, 20)
+                
+                VStack{
+                    TextFields(title: "Nombre", binding: $name, text: name)
                     
-                    TitleView(title: "Registro")
+                    TextFields(title: "Email", binding: $email, text: email)
                     
-                    VStack{
-                        //textFields()
-                        TextFields(title: "Nombre", text: name)
-                        
-                        TextFields(title: "Email", text: email)
-                        
-                        SecureFields(title: "Contraseña", text: pass)
-                        
-                        SecureFields(title: "Repetir contraseña", text: pass2)
-                    }
-                    .padding(.bottom,20)
-                    .padding(.top,40)
+                    SecureFields(title: "Contraseña", binding: $pass, text: pass)
                     
-                    registerButton()
-                    
-                    HStack{
-                        goLogin()
-                    }
-                    .padding(.horizontal,20)
+                    SecureFields(title: "Repetir contraseña", binding: $pass2, text: pass2)
                 }
-                .padding(.horizontal, 25)
+                
+                registerButton()
+                
+                HStack{
+                    goLogin()
+                }
+                .padding(.horizontal,20)
             }
+            
         }
+        .padding(.horizontal, 25)
+        .navigationBarHidden(true)
+        
     }
     func goLogin() -> some View {
         Button(action: {
             shouldShowLogin = true
+            dismiss()
         }){
             Text("Ya tienes una cuenta? ")
                 .padding(.top, 25)
@@ -68,7 +67,7 @@ struct RegisterView: View {
             
             Spacer()
             
-            Text("Inicia Sesion")
+            Text("Inicia Sesión")
                 .fontWeight(.bold)
                 .foregroundColor(.orange)
                 .padding(.top, 25)
@@ -89,6 +88,7 @@ struct RegisterView: View {
                 .foregroundColor(.white)
                 .padding(.vertical)
                 .frame(maxWidth: .infinity)
+                .font(.custom("Inter-Regular", size: 20))
             
         }
         .padding(.horizontal, 25)
@@ -112,18 +112,10 @@ struct RegisterView: View {
             Text(viewModel.alertText)
         }
     }
-//    func textFields() -> some View {
-//        
-//        TextFields(title: "Nombre", text: name, color: color, gray: gray)
-//        
-//        TextFields(title: "Email", text: email, color: color, gray: gray)
-//        
-//        Secureields(title: "Contraseña", text: pass, color: color, gray: gray)
-//        
-//        Secureields(title: "Repetir contraseña", text: pass2, color: color, gray: gray)
-//    }
     
-    
+    func dismiss(){
+        mode.wrappedValue.dismiss()
+    }
 }
 
 struct RegisterView_Previews: PreviewProvider {
