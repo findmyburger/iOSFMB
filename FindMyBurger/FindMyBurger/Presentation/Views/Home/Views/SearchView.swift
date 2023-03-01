@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct SearchView: View{
-    //var animation: Namespace.ID
+    var animation: Namespace.ID
     
     @EnvironmentObject var viewModel: HomeViewModel
     @FocusState var startTF: Bool
@@ -27,6 +27,7 @@ struct SearchView: View{
                     withAnimation{
                         viewModel.searchActivated = false
                     }
+                    viewModel.searchText = ""
                 } label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)
@@ -56,7 +57,7 @@ struct SearchView: View{
                     .cornerRadius(25)
                 
                 )
-                //.matchedGeometryEffect(id: "SearchBar", in: animation)
+                .matchedGeometryEffect(id: "SearchBar", in: animation)
                 .padding(.trailing,20)
                 
                 
@@ -75,6 +76,7 @@ struct SearchView: View{
                         
                         Image("nodata")
                             .resizable()
+                            .frame(width: 100, height: 100)
                             .aspectRatio( contentMode: .fit)
                             .padding(.top,60)
                         
@@ -92,13 +94,13 @@ struct SearchView: View{
                     
                     ScrollView(.vertical, showsIndicators: false){
                         VStack(spacing:25){
-                            Text("Se han encontrado \(viewModel.restaurants.count) restaurantes ")
+                            Text("Se han encontrado \(items.count) restaurantes ")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .padding(.horizontal)
                                 .foregroundColor(Color("Black"))
                                 .padding(.top , 20)
-                            ForEach(viewModel.restaurants) { item in
+                            ForEach(items) { item in
                                 ItemSearchView(item: item)
                             }
                         }
@@ -129,7 +131,6 @@ struct SearchView: View{
 
 struct SearchView_Provider: PreviewProvider {
     static var previews: some View {
-        SearchView()
-            .environmentObject(HomeViewModel())
+       HomeView()
     }
 }
