@@ -48,7 +48,7 @@ struct HomeView: View {
                     .tag("heart")
                 //MapView()
                     .tag("mapmarker")
-                //ProfileView()
+                ProfileView()
                     .tag("person")
                 
             }
