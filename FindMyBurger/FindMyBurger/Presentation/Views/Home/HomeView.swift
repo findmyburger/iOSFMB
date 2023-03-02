@@ -44,7 +44,7 @@ struct HomeView: View {
                 LandingPage(selectedCategory: $selectedCategory)
                     .tag("home")
                 
-                //RestaurantView()
+                FavouritesView()
                     .tag("heart")
                 //MapView()
                     .tag("mapmarker")

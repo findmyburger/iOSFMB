@@ -26,7 +26,6 @@
 		33600CF2299FF0D70066EC3D /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33600CF1299FF0D70066EC3D /* EditProfileViewModel.swift */; };
 		336E2E7329A3F6EE00AA9DDC /* ProfileResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E2E7229A3F6EE00AA9DDC /* ProfileResponseModel.swift */; };
 		33AB4985299ABF7900FDF71F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB4984299ABF7900FDF71F /* EditProfileView.swift */; };
-		33C0FA8729A54BD300B03949 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 33C0FA8629A54BD300B03949 /* Kingfisher */; };
 		33C0FA8A29A54CDE00B03949 /* ProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */; };
 		33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */; };
 		33D30F7A299FEC1A0027F4B8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30F79299FEC1A0027F4B8 /* SettingViewModel.swift */; };
@@ -39,6 +38,12 @@
 		33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */; };
 		33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16382299180D100CE6D89 /* CustomTexts.swift */; };
 		33E163852991883F00CE6D89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E163842991883F00CE6D89 /* LoginViewModel.swift */; };
+		904585F129B00325004C7224 /* DishesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F029B00325004C7224 /* DishesPresentationModel.swift */; };
+		904585F329B0EF8A004C7224 /* DishesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F229B0EF8A004C7224 /* DishesResponseModel.swift */; };
+		904585F829B0F3C9004C7224 /* RestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F729B0F3C9004C7224 /* RestaurantsView.swift */; };
+		904585FA29B0F495004C7224 /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F929B0F495004C7224 /* RestaurantsViewModel.swift */; };
+		904585FE29B0F56D004C7224 /* RestaurantHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585FC29B0F56D004C7224 /* RestaurantHeaderView.swift */; };
+		9045860129B0F5D2004C7224 /* DishesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045860029B0F5D2004C7224 /* DishesCardView.swift */; };
 		90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4EEBF29969D320011B056 /* RegisterResponseModel.swift */; };
 		90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */; };
 		90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */; };
@@ -94,6 +99,12 @@
 		33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgrounds.swift; sourceTree = "<group>"; };
 		33E16382299180D100CE6D89 /* CustomTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexts.swift; sourceTree = "<group>"; };
 		33E163842991883F00CE6D89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		904585F029B00325004C7224 /* DishesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesPresentationModel.swift; sourceTree = "<group>"; };
+		904585F229B0EF8A004C7224 /* DishesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesResponseModel.swift; sourceTree = "<group>"; };
+		904585F729B0F3C9004C7224 /* RestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsView.swift; sourceTree = "<group>"; };
+		904585F929B0F495004C7224 /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
+		904585FC29B0F56D004C7224 /* RestaurantHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantHeaderView.swift; sourceTree = "<group>"; };
+		9045860029B0F5D2004C7224 /* DishesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesCardView.swift; sourceTree = "<group>"; };
 		90C4EEBF29969D320011B056 /* RegisterResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseModel.swift; sourceTree = "<group>"; };
 		90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewModel.swift; sourceTree = "<group>"; };
 		90E7547F299BECB4006D581B /* SendEmailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailResponseModel.swift; sourceTree = "<group>"; };
@@ -139,6 +150,7 @@
 		3306EAEA2991721200427606 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				904585F429B0F1E0004C7224 /* Restaurants */,
 				33D3200B29A3C2DA00EC9DF9 /* Favourites */,
 				33501ED9299E9EE300EB1CFE /* Settings */,
 				33321D2A2995672C001410E4 /* Profile */,
@@ -247,20 +259,20 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		33D3200B29A3C2DA00EC9DF9 /* Favourites */ = {
-			isa = PBXGroup;
-			children = (
-				33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */,
-			);
-			path = Favourites;
-			sourceTree = "<group>";
-		};
 		33C0FA8829A54CC700B03949 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		33D3200B29A3C2DA00EC9DF9 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */,
+			);
+			path = Favourites;
 			sourceTree = "<group>";
 		};
 		33DA5E3D299559F7003DEFD2 /* Network */ = {
@@ -301,6 +313,7 @@
 				33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */,
 				336E2E7229A3F6EE00AA9DDC /* ProfileResponseModel.swift */,
 				90E754A2299EAC17006D581B /* HomeResponseModel.swift */,
+				904585F229B0EF8A004C7224 /* DishesResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,9 +349,36 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		904585E929B0005F004C7224 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		904585F429B0F1E0004C7224 /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				904585FB29B0F54E004C7224 /* Views */,
+				904585F729B0F3C9004C7224 /* RestaurantsView.swift */,
+				904585F929B0F495004C7224 /* RestaurantsViewModel.swift */,
+			);
+			path = Restaurants;
+			sourceTree = "<group>";
+		};
+		904585FB29B0F54E004C7224 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				904585FC29B0F56D004C7224 /* RestaurantHeaderView.swift */,
+				9045860029B0F5D2004C7224 /* DishesCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		90E7547A299BE755006D581B /* RecoverPass */ = {
 			isa = PBXGroup;
 			children = (
+				904585E929B0005F004C7224 /* Restaurant */,
 				90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */,
 				90E75481299BEDBE006D581B /* ChangePassViewModel.swift */,
 				90E75489299BFBC8006D581B /* SendEmailView.swift */,
@@ -360,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
+				904585F029B00325004C7224 /* DishesPresentationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,8 +495,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9045860129B0F5D2004C7224 /* DishesCardView.swift in Sources */,
 				90E75482299BEDBE006D581B /* ChangePassViewModel.swift in Sources */,
 				33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */,
+				904585F329B0EF8A004C7224 /* DishesResponseModel.swift in Sources */,
 				3306EAF7299176B600427606 /* HomeView.swift in Sources */,
 				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
 				90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */,
@@ -466,6 +509,7 @@
 				33321D2929954C77001410E4 /* ProfileView.swift in Sources */,
 				33501EE7299EBEAB00EB1CFE /* CustomLinearGradient.swift in Sources */,
 				90E7549B299D9666006D581B /* RecommendedItemsView.swift in Sources */,
+				904585FA29B0F495004C7224 /* RestaurantsViewModel.swift in Sources */,
 				33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */,
 				90E7549D299D970C006D581B /* RecentlyAddedView.swift in Sources */,
 				3306EAED2991730100427606 /* RegisterView.swift in Sources */,
@@ -474,13 +518,16 @@
 				90C4EEC029969D320011B056 /* RegisterResponseModel.swift in Sources */,
 				90E754A5299EAD4A006D581B /* HomeViewModel.swift in Sources */,
 				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,
+				904585F129B00325004C7224 /* DishesPresentationModel.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				33600CF0299FF0A90066EC3D /* ProfileViewModel.swift in Sources */,
 				336E2E7329A3F6EE00AA9DDC /* ProfileResponseModel.swift in Sources */,
+				904585F829B0F3C9004C7224 /* RestaurantsView.swift in Sources */,
 				33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */,
 				33501EDF299EB10E00EB1CFE /* AboutUsView.swift in Sources */,
 				33D30F7A299FEC1A0027F4B8 /* SettingViewModel.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
+				904585FE29B0F56D004C7224 /* RestaurantHeaderView.swift in Sources */,
 				33D3200F29A3C58200EC9DF9 /* RestaurantCard.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
 				33501EDB299E9EF500EB1CFE /* SettingsView.swift in Sources */,
