@@ -24,9 +24,9 @@ struct RecommendedItemsView: View {
             
             KFImage(URL(string: item.image))
                 .resizable()
-                .frame(width: 180 , height: 165)
+                .frame(width: 170 , height: 150)
                 .cornerRadius(20)
-                //.padding(.top, 6)
+                .padding(.top, 30)
             
             
             Text(item.name)
@@ -38,24 +38,29 @@ struct RecommendedItemsView: View {
                     .foregroundColor(.black.opacity(0.40))
                     .font(.system(size: 12))
                     .padding(.top, 6)
+                    .padding(.bottom)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
                 Image("Stars")
                     .resizable()
                     .frame(width: 15, height: 15)
                     .padding(.horizontal,4)
+
                 
                 Text("\(item.rate)".trimmingCharacters(in: ["0"]))
                     .fontWeight(.semibold)
+                    .lineLimit(1)
+
             }
             
         }
         .padding()
-        .frame(width: 250 ,height: 250)
+        .frame(width: 210 ,height: 230)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
         .padding(.bottom)
+        .padding(.top)
     }
 }
 

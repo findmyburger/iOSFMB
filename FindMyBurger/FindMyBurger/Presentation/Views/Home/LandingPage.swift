@@ -25,7 +25,7 @@ struct LandingPage: View {
                 CustomLinearGradient()
                     .padding(.bottom, 10)
                 
-                VStack {
+                ZStack {
                     if viewModel.searchActivated{
                         SearchBar()
                     } else{
@@ -33,7 +33,6 @@ struct LandingPage: View {
                             .matchedGeometryEffect(id: "SearchBar", in: animation)
                     }
                 }
-                //.frame(getRect().width / 1.6)
                 .contentShape(Rectangle())
                 .onTapGesture{
                     withAnimation(.easeInOut){
@@ -73,12 +72,12 @@ struct LandingPage: View {
         }
         .padding(.horizontal)
         .onAppear{
-            viewModel.getRestaurants()
+            viewModel.getRecommended()
         }
-        
+        .navigationBarHidden(true)
         //.padding(.horizontal)
     }
-    
+        
     
     
     // MARK: - Accessory Views
@@ -115,7 +114,8 @@ struct LandingPage: View {
             Spacer()
             
             Button(action: {
-                // TODO: - config action
+                
+               
             } , label: {
                 Image("configuracion")
                     .resizable()
@@ -253,7 +253,6 @@ struct LandingPage: View {
                 .foregroundColor(Color("Texto"))
                 .background(Color("Gray2"))
                 .cornerRadius(20)
-                .disabled(true)
         }
         .padding(.horizontal)
         .overlay(
@@ -298,3 +297,11 @@ struct LandingPage_Previews: PreviewProvider {
     static var previews: some View {
         LandingPage(selectedCategory: .constant(Category(image: "Ternera", title: "Burguer")))    }
 }
+
+//extension View {
+//
+//    func getRect()->CGRect{
+//
+//        return UIScreen.main.bounds
+//    }
+//}

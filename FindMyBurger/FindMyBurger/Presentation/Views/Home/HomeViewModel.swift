@@ -19,8 +19,7 @@ class HomeViewModel: ObservableObject{
     let userDefaults = UserDefaults.standard
     @Published var selectedIndex = 0
     @Published var searchedProducts: [RestaurantPresentationModel]?
-    
-    var searchCancellable: AnyCancellable?
+    @Published var searchCancellable: AnyCancellable?
     
     init(){
         
@@ -39,23 +38,35 @@ class HomeViewModel: ObservableObject{
     }
     
         func startTimer() {
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-                self.selectedIndex = (self.selectedIndex + 1) % 3
+            Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
+                self.selectedIndex = (self.selectedIndex + 1) % 4
             }
         }
     
-    func getRecommended (recommended: String){
-        
-    }
-
-    
-    func getRestaurants() {
-        
-        //baseUrl + endpoint
-        let url = "http://127.0.0.1:8000/api/restaurants/list"
+    func getRecentlyAdded(){
+        let url = "http://127.0.0.1:8000/api/restaurants/getRecentlyAdded"
         
         // petición
-        NetworkHelper.shared.requestProvider(url: url, type: .POST) { data, response, error in
+        NetworkHelper.shared.requestProvider(url: url, type: .GET) { data, response, error in
+            if let error = error {
+                self.onError(error: error.localizedDescription)
+            } else if let data = data, let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 { // esto daria ok
+                    self.recentlyAddedOnSuccess(data: data)
+                } else { // esto daria error
+                    self.onError(error: error?.localizedDescription ?? "Request Error")
+                }
+            }
+        }
+    }
+    
+    func getAllRestaurants (){
+        
+        //baseUrl + endpoint
+        let url = "http://127.0.0.1:8000/api/restaurants/getAllRestaurants"
+        
+        // petición
+        NetworkHelper.shared.requestProvider(url: url, type: .GET) { data, response, error in
             if let error = error {
                 self.onError(error: error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse {
@@ -67,8 +78,66 @@ class HomeViewModel: ObservableObject{
             }
         }
     }
+
+    
+    func getRecommended() {
+        
+        //baseUrl + endpoint
+        let url = "http://127.0.0.1:8000/api/restaurants/getRecommended"
+        
+        // petición
+        NetworkHelper.shared.requestProvider(url: url, type: .GET) { data, response, error in
+            if let error = error {
+                self.onError(error: error.localizedDescription)
+            } else if let data = data, let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 { // esto daria ok
+                    self.recommendedOnSuccess(data: data)
+                } else { // esto daria error
+                    self.onError(error: error?.localizedDescription ?? "Request Error")
+                }
+            }
+        }
+    }
     
     func onSuccess(data: Data) {
+        do {
+            // Convertimos a modelo de Data los datos que nos llegan
+            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
+            
+            //userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
+            
+            //let saveRestaurants = userDefaults.array(forKey: "restaurants")
+            
+            // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
+            guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
+            restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
+                return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
+            })
+        } catch {
+            self.onError(error: error.localizedDescription)
+        }
+        
+    }
+    func recommendedOnSuccess(data: Data) {
+        do {
+            // Convertimos a modelo de Data los datos que nos llegan
+            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
+            
+            //userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
+            
+            //let saveRestaurants = userDefaults.array(forKey: "restaurants")
+            
+            // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
+            guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
+            restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
+                return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
+            })
+        } catch {
+            self.onError(error: error.localizedDescription)
+        }
+        
+    }
+    func recentlyAddedOnSuccess(data: Data) {
         do {
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)

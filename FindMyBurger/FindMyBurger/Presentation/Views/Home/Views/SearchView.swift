@@ -63,6 +63,7 @@ struct SearchView: View{
                 
             }
             .padding([.horizontal])
+            .padding(.bottom)
             
             //Filter Results
             
