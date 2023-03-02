@@ -34,6 +34,8 @@
 		33D3200F29A3C58200EC9DF9 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3200E29A3C58200EC9DF9 /* RestaurantCard.swift */; };
 		33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */; };
 		33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */; };
+		33DE18E529B1233B0043EA8B /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */; };
+		33DE18E729B125370043EA8B /* FavouriteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE18E629B125370043EA8B /* FavouriteItemView.swift */; };
 		33E1637F2991807A00CE6D89 /* Logos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1637E2991807A00CE6D89 /* Logos.swift */; };
 		33E16381299180AE00CE6D89 /* CustomBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */; };
 		33E16383299180D100CE6D89 /* CustomTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E16382299180D100CE6D89 /* CustomTexts.swift */; };
@@ -95,6 +97,8 @@
 		33D3200E29A3C58200EC9DF9 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
 		33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		33DE18E629B125370043EA8B /* FavouriteItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteItemView.swift; sourceTree = "<group>"; };
 		33E1637E2991807A00CE6D89 /* Logos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logos.swift; sourceTree = "<group>"; };
 		33E16380299180AE00CE6D89 /* CustomBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgrounds.swift; sourceTree = "<group>"; };
 		33E16382299180D100CE6D89 /* CustomTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexts.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */,
+				33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */,
+				33DE18E629B125370043EA8B /* FavouriteItemView.swift */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				904585F129B00325004C7224 /* DishesPresentationModel.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
 				33600CF0299FF0A90066EC3D /* ProfileViewModel.swift in Sources */,
+				33DE18E529B1233B0043EA8B /* FavouritesViewModel.swift in Sources */,
 				336E2E7329A3F6EE00AA9DDC /* ProfileResponseModel.swift in Sources */,
 				904585F829B0F3C9004C7224 /* RestaurantsView.swift in Sources */,
 				33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */,
@@ -535,6 +542,7 @@
 				90E7548E299D9372006D581B /* LandingPage.swift in Sources */,
 				90E75484299BF018006D581B /* UpdateDataResponseModel.swift in Sources */,
 				33600CF2299FF0D70066EC3D /* EditProfileViewModel.swift in Sources */,
+				33DE18E729B125370043EA8B /* FavouriteItemView.swift in Sources */,
 				90E7548C299BFBDA006D581B /* ChangePassView.swift in Sources */,
 				330832CA2971CDF100CA9EA8 /* FindMyBurgerApp.swift in Sources */,
 				90E7547E299BE7F0006D581B /* SendEmailViewModel.swift in Sources */,
