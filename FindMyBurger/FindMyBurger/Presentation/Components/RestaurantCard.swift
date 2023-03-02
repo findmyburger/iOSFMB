@@ -14,6 +14,8 @@ struct RestaurantCard: View {
     var width: CGFloat
     var height: CGFloat
     @State var favourite = false
+    @ObservedObject var viewModel = RestaurantsViewModel()
+
     
     var body: some View {
 
@@ -21,6 +23,11 @@ struct RestaurantCard: View {
             
             Button {
                 favourite.toggle()
+                if favourite{
+                    //viewModel.deleteFavourite()
+                }else{
+                    //viewModel.addFavourite()
+                }
                 
             } label: {
                 HStack{
