@@ -45,7 +45,6 @@ class HomeViewModel: ObservableObject{
             }
         }
     }
-    
     func getAllRestaurants() {
         
         //baseUrl + endpoint
@@ -65,7 +64,6 @@ class HomeViewModel: ObservableObject{
         }
     }
 
-    
     func getRecommended() {
         
         //baseUrl + endpoint
@@ -90,9 +88,9 @@ class HomeViewModel: ObservableObject{
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
-            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
-            
-            let savedRestaurants = userDefaults.array(forKey: "restaurants")
+//            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
+//            
+//            let savedRestaurants = userDefaults.array(forKey: "restaurants")
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
