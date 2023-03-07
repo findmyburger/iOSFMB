@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RestaurantHeaderView: View {
-    
-    @EnvironmentObject var restaurantData : RestaurantsViewModel
+    var item: RestaurantPresentationModel
+    @ObservedObject var restaurantData = RestaurantsViewModel()
     //@Binding var selectedCategory: Category
     var body: some View {
         
@@ -23,16 +23,14 @@ struct RestaurantHeaderView: View {
                         .frame(width: getSize(), height: getSize())
                         .foregroundColor(Color("Naranja"))
                 })
-                Text("Restaurante X")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.horizontal,20)
+                Text(item.name)
+                    .font(.custom("Inter-Bold", size: 22))
                 
                 Spacer()
                 
                 Button (action: {}, label: {
                     
-                    Image("heart3")
+                    Image("heart")
                         .resizable()
                         .frame(width: 32,height: 32)
                         .padding(.top)
@@ -44,21 +42,18 @@ struct RestaurantHeaderView: View {
                 
                 VStack(alignment: .leading,spacing: 10, content: {
                     HStack{
-                        Text("Av llaod")
+                        Text(item.address)
                             .fontWeight(.semibold)
-                        
                         Image("ubication")
+ 
                     }
-
                     HStack (spacing: 8){
-                        
-                        Text("4.3")
-                        
                         Image(systemName: "star.fill")
                             .font(.caption)
-                        
-                        
-                            
+                            .font(.custom("Inter-Regular", size: 18))
+                        Text("\(item.rate)".trimmingCharacters(in: ["0"]))
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
                     }
                     .frame(maxWidth: .infinity , alignment: .leading)
                 })
@@ -102,8 +97,8 @@ struct RestaurantHeaderView: View {
     
 }
 
-struct RestaurantHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantsView()
-    }
-}
+//struct RestaurantHeaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //RestaurantsView()
+//    }
+//}

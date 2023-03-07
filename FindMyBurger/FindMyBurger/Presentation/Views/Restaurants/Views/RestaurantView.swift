@@ -1,76 +1,73 @@
 //
-//  RestaurantsView.swift
+//  RestaurantView.swift
 //  FindMyBurger
 //
-//  Created by Juan jose Morales on 2/3/23.
+//  Created by Juan jose Morales on 3/3/23.
 //
 
 import SwiftUI
 import Kingfisher
-
-struct RestaurantsView: View {
+struct RestaurantView: View {
     
-    
+    @EnvironmentObject var restaurantsViewModel: RestaurantsViewModel
     var item: RestaurantPresentationModel
-    @EnvironmentObject var sharedData: SharedDataModel
-    var animation: Namespace.ID
     var body: some View {
-        
+    
         VStack{
             
-            //Title bar and Restaurant Image
             VStack{
                 
+                //Title bar
                 HStack{
-                    
                     Button{
-                        
                         withAnimation(.easeInOut){
                             
-                            sharedData.showDetailProduct = false
+                            restaurantsViewModel.showDetailProduct = false
                         }
                     } label: {
-                        
                         Image(systemName: "arrow.left")
                             .font(.title2)
                             .foregroundColor(Color.black.opacity(0.7))
                     }
                     Spacer()
                     
-                    Button {
+                    Button{
                         
                     } label: {
-                        Image("heart")
+                        Image("hearth")
                             .renderingMode(.template)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio( contentMode: .fit)
                             .frame(width: 22, height: 22)
                             .foregroundColor(Color.black.opacity(0.7))
                     }
                 }
                 .padding()
-                //Adding Matched Geometry Effect
+                
+                //Product Image
                 KFImage(URL(string: item.image ))
                     .resizable()
-                    .aspectRatio( contentMode: .fit)
-                    .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
+                    .aspectRatio(contentMode: .fit)
                     .padding(.horizontal)
                     .offset(y: -12)
-                    .cornerRadius(10)
                     .frame(maxHeight: .infinity)
                 
             }
             .frame(height: getRect().height / 2.7)
             
-            //Restaurant Details
-            ScrollView(.vertical,showsIndicators: false){
+            //Product Details
+            
+            ScrollView(.vertical, showsIndicators: false){
+                
+                
+                //ProductData
                 
                 VStack(alignment: .leading, spacing: 15){
                     
                     Text(item.name)
                         .font(.custom("Inter-Bold", size: 22))
                     
-                    HStack(spacing: 8){
+                    HStack{
                         Text(item.address)
                             .fontWeight(.semibold)
                         Image("ubication")
@@ -84,32 +81,30 @@ struct RestaurantsView: View {
                             .fontWeight(.semibold)
                             .lineLimit(1)
                     }
-                    
                 }
+                .padding([.horizontal, .bottom], 25)
+                .padding(.top , 25)
+                .frame(maxWidth: .infinity,alignment: .leading)
+                
+                CustomLinearGradient()
                 
             }
-            .frame(maxWidth: .infinity,maxHeight:.infinity)
-            .background(
-                Color.white
-                //Corner Radius for only Top side
-                
-                    .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 25))
-                    .ignoresSafeArea()
-                
-                
+            .frame(maxWidth: .infinity, maxHeight:  .infinity)
+            .background(Color.white
+            
+                .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 25))
+                .ignoresSafeArea()
             )
+            
         }
         .background(Color("Gray").ignoresSafeArea())
-        
+
     }
 }
-struct RestaurantsView_Previews: PreviewProvider {
+
+struct RestaurantView_Previews: PreviewProvider {
     static var previews: some View {
-        //        RestaurantsView(item: HomeViewModel().restaurants[0])
-        //            .environmentObject(RestaurantsViewModel())
-        
-       LandingPage()
+        RestaurantView(item: HomeViewModel().restaurants[0])
+            .environmentObject(RestaurantsViewModel())
     }
 }
-
-

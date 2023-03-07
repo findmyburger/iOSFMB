@@ -7,130 +7,236 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-struct SearchView: View{
+struct SearchView: View {
+    @ObservedObject var viewModel: ViewModel = ViewModel()
     var animation: Namespace.ID
-    
-    @EnvironmentObject var viewModel: HomeViewModel
+    var restaurants: [RestaurantPresentationModel]
+    @Binding var searchActivated: Bool
     @FocusState var startTF: Bool
+    @State var searchCancellable: AnyCancellable?
     
     var body: some View {
-        
-        VStack(spacing: 0 ){
-            
-            //SearchBar
-            HStack(spacing:20){
-                
-                //Close Button
-                Button{
+        ZStack{
+            NavigationView{
+                VStack(spacing: 0) {
                     
-                    withAnimation{
-                        viewModel.searchActivated = false
+                    //SearchBar
+                    HStack(spacing: 20) {
+                        //Close Button
+                        Button {
+                            withAnimation{
+                                searchActivated = false
+                            }
+                            viewModel.searchText = ""
+                        } label: {
+                            Image(systemName: "arrow.left")
+                                .font(.title2)
+                                .foregroundColor(.black.opacity(0.7))
+                                .padding(.horizontal,5)
+                        }
+                        HStack(spacing: 15){
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.gray)
+                            
+                            TextField("Buscar Restaurantes",text: $viewModel.searchText)
+                                .focused($startTF)
+                                .font(.custom("Inter-Regular", size: 18))
+                                .foregroundColor(Color("Black"))
+                                .disableAutocorrection(true)
+                            
+                            Button(action: {
+                                viewModel.showFilters = true
+                            }){
+                                Image("filtro")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                            }
+                        }
+                        .sheet(isPresented: $viewModel.showFilters) {
+                            FiltersView()
+                        }
+                        .padding(.vertical,12)
+                        .padding(.horizontal,20)
+                        .background(
+                            Capsule()
+                                .strokeBorder( Color ("Gris"), lineWidth: 1.5)
+                                .background(Color("Gray"))
+                                .cornerRadius(25)
+                        )
+                        .matchedGeometryEffect(id: "SearchBar", in: animation)
+                        .padding(.trailing,20)
                     }
-                    viewModel.searchText = ""
-                } label: {
-                    Image(systemName: "arrow.left")
-                        .font(.title2)
-                        .foregroundColor(.black.opacity(0.7))
-                        .padding(.horizontal,5)
-                }
-                HStack(spacing: 15){
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
+                    .padding(.horizontal)
+                    .padding(.bottom)
                     
-                    TextField("Buscar Restaurantes",text: $viewModel.searchText)
-                        .focused($startTF)
-                        .font(.custom("Inter-Regular", size: 18))
-                        .foregroundColor(Color("Black"))
-                        .disableAutocorrection(true)
-                    Image("filtro")
-                        .resizable()
-                        .frame(width: 20, height: 20)
+                    //Filter Results
+                    
+                    if let items = viewModel.searchedProducts {
+                        
+                        if items.isEmpty {
+                            
+                            // No results Found
+                            
+                            VStack(spacing:10){
+                                Image("nodata")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .aspectRatio( contentMode: .fit)
+                                    .padding(.top,60)
+                                
+                                Text("No se han encontrado resultados con tu busqueda")
+                                    .font(.custom("Inter-SemiBold", size: 17))
+                                
+                                Text("Intenta buscar otra hamburgueseria")
+                                    .font(.custom("Inter-Regular", size: 15))
+                                    .foregroundColor(.gray)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal,30)
+                            }
+                            .padding()
+                        } else {
+                            
+                            ScrollView(.vertical, showsIndicators: false){
+                                VStack(spacing:25){
+                                    Text("Se han encontrado \(items.count) restaurantes ")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .padding(.horizontal)
+                                        .foregroundColor(Color("Black"))
+                                        .padding(.top , 20)
+                                    ForEach(items) { item in
+                                        ItemSearchView(item: item)
+                                    }
+                                }
+                            }
+                        }
+                        
+                    } else {
+                        ProgressView()
+                            .padding(.top , 30)
+                            .opacity(viewModel.searchText == "" ? 0 : 1)
+                    }
                 }
-                .padding(.vertical,12)
-                .padding(.horizontal,20)
-                
+                .frame(maxWidth: .infinity , maxHeight: .infinity, alignment: .top)
                 .background(
-                Capsule()
-                    .strokeBorder( Color ("Gris"), lineWidth: 1.5)
-                    .background(Color("Gray"))
-                    .cornerRadius(25)
-                
+                    Color("Home")
+                        .ignoresSafeArea()
                 )
-                .matchedGeometryEffect(id: "SearchBar", in: animation)
-                .padding(.trailing,20)
+                        .onAppear{
                 
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                
+                                startTF = true
+                            }
+                        }
                 
             }
-            .padding([.horizontal])
-            
-            //Filter Results
-            
-            if let items = viewModel.searchedProducts {
-                
-                if items.isEmpty {
-                    
-                    // No results Found
-                    
-                    VStack(spacing:10){
-                        
-                        Image("nodata")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .aspectRatio( contentMode: .fit)
-                            .padding(.top,60)
-                        
-                        Text("No se han encontrado resultados con tu busqueda")
-                            .font(.custom("Inter-SemiBold", size: 17))
-                        
-                        Text("Intenta buscar otra hamburgueseria")
-                            .font(.custom("Inter-Regular", size: 15))
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal,30)
+        }
+        .onAppear {
+            searchCancellable = viewModel.$searchText.removeDuplicates()
+                .debounce(for: 0.5, scheduler: RunLoop.main)
+                .sink(receiveValue: { str in
+
+                    if str != ""{
+
+                        self.filterProductsBySearch()
                     }
-                    .padding()
-                } else {
+                    else {
+                        self.viewModel.searchedProducts = nil
+                    }
+                })
+        }
+        // MARK Accesory Views
+    }
+    
+    private func filterResults(){
+        
+        if let items = viewModel.searchedProducts {
+            
+            if items.isEmpty {
+                
+                // No results Found
+                
+                VStack(spacing:10){
+                    Image("nodata")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .aspectRatio( contentMode: .fit)
+                        .padding(.top,60)
                     
-                    ScrollView(.vertical, showsIndicators: false){
-                        VStack(spacing:25){
-                            Text("Se han encontrado \(items.count) restaurantes ")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .padding(.horizontal)
-                                .foregroundColor(Color("Black"))
-                                .padding(.top , 20)
-                            ForEach(items) { item in
-                                ItemSearchView(item: item)
-                            }
+                    Text("No se han encontrado resultados con tu busqueda")
+                        .font(.custom("Inter-SemiBold", size: 17))
+                    
+                    Text("Intenta buscar otra hamburgueseria")
+                        .font(.custom("Inter-Regular", size: 15))
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal,30)
+                }
+                .padding()
+            } else {
+                
+                ScrollView(.vertical, showsIndicators: false){
+                    VStack(spacing:25){
+                        Text("Se han encontrado \(items.count) restaurantes ")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .padding(.horizontal)
+                            .foregroundColor(Color("Black"))
+                            .padding(.top , 20)
+                        ForEach(items) { item in
+                            ItemSearchView(item: item)
                         }
                     }
                 }
-                
-            } else {
-                
-                ProgressView()
-                    .padding(.top , 30)
-                    .opacity(viewModel.searchText == "" ? 0 : 1)
             }
-        }
-        .frame(maxWidth: .infinity , maxHeight: .infinity, alignment: .top)
-        .background(
-        Color("Home")
-            .ignoresSafeArea()
-        )
-        .onAppear{
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+        } else {
+            ProgressView()
+                .padding(.top , 30)
+                .opacity(viewModel.searchText.isEmpty ? 0 : 1)
+        }
+        
+    }
+    
+    func filterProductsBySearch(){
+
+        DispatchQueue.global( qos: .userInteractive).async {
+
+            let results = self.restaurants
+
+                .lazy
+                .filter{ item in
+                    return item.name.lowercased().contains(self.viewModel.searchText.lowercased())
+
+                }
+
+            DispatchQueue.main.async {
                 
-                startTF = true
+                self.viewModel.searchedProducts = results.compactMap({ item in
+                    
+                    return item
+                    
+                })
             }
         }
+    }
+
+}
+
+extension SearchView {
+    class ViewModel: ObservableObject {
+        @Published var searchedProducts: [RestaurantPresentationModel]?
+        @Published var showFilters: Bool = false
+        @Published var searchText: String = ""
+        
     }
 }
 
 struct SearchView_Provider: PreviewProvider {
     static var previews: some View {
-       HomeView()
+        HomeView()
     }
 }
