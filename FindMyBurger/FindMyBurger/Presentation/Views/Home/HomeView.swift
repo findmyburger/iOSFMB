@@ -11,10 +11,8 @@ struct HomeView: View {
     
     init(){
         UITabBar.appearance().isHidden = true
-        
     }
     
-    @StateObject var sharedData: SharedDataModel = SharedDataModel()
     @State var selectedCategory : Category = categories.first!
     @State var selectedTab: String = "home"
     @State var searchText = ""
@@ -22,24 +20,13 @@ struct HomeView: View {
     @Namespace var animation
     var imageNames: [String] = ["1","2","3","4"]
     
-    
     var body: some View {
         
         ZStack{
-            
             BackgroundColorView()
+            
             tabBarView
                 .background(Color.black.opacity(0.03).ignoresSafeArea())
-                .overlay(
-                    ZStack{
-                        //Detail Page
-                        if let restaurant = sharedData.detailRestaurant,sharedData.showDetailProduct{
-                            
-                            RestaurantsView(item: restaurant, animation: animation)
-                                .environmentObject(sharedData)
-                        }
-                    }
-                )
         }
     }
     
@@ -50,7 +37,6 @@ struct HomeView: View {
             
             TabView(selection: $selectedTab){
                 LandingPage()
-                    .environmentObject(sharedData)
                     .tag("home")
                 
                 FavouritesView()

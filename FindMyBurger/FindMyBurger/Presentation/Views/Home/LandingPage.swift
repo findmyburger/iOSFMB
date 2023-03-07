@@ -13,8 +13,7 @@ struct LandingPage: View {
     @State var searchText = ""
     @Namespace var animation
     //@Binding var selectedCategory: Category
-    @EnvironmentObject var sharedData: SharedDataModel
-    
+    @State var showDetailProduct: Bool = false
     
     // MARK: - Accessory Views
     
@@ -25,14 +24,16 @@ struct LandingPage: View {
             if !viewModel.searchActivated {
                 mainView
             } else {
-                SearchView(animation: animation, restaurants: viewModel.restaurants, searchActivated: $viewModel.searchActivated)
-                    .environmentObject(viewModel)
+                SearchView(viewModel: .init(restaurants: viewModel.restaurants),
+                           animation: animation,
+                           searchActivated: $viewModel.searchActivated)
             }
         }
         .navigationBarHidden(true)
         .onAppear {
             viewModel.getRecommended()
             viewModel.getRecentlyAdded()
+            viewModel.getAllRestaurants()
         }
         //.padding(.horizontal)
     }
@@ -160,7 +161,7 @@ struct LandingPage: View {
         .frame(height: 250)
         .animation(.easeInOut)
         .onAppear {
-            viewModel.startTimer()
+            //viewModel.startTimer()
         }
     }
     
@@ -213,7 +214,6 @@ struct LandingPage: View {
     var recommended: some View {
         VStack(alignment: .leading , spacing: 15){
             HStack{
-                
                 Text("Recomendado")
                     .font(.title2)
                     .fontWeight(.bold)
@@ -226,14 +226,10 @@ struct LandingPage: View {
             
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(spacing: 25) {
-                    ForEach(viewModel.restaurantsRecommended) { restaurants in
-                        Button {
-                            withAnimation(.easeInOut){
-                                sharedData.detailRestaurant = restaurants
-                            }
-                        } label: {
-                            RecommendedItemsView(item: restaurants)
-                        }
+                    ForEach(viewModel.restaurantsRecommended) { restaurant in
+                        NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
+                            RecommendedItemsView(item: restaurant)
+                        })
                     }
                 }
                 .padding(.leading)
@@ -279,6 +275,7 @@ struct LandingPage: View {
             .padding(.top,10)
             VStack(spacing:15){
                 ForEach(viewModel.restaurantsRecentlyAdded){ item in
+                    
                     RecentlyAddedView(item: .init(name: item.name, image: item.image))
                 }
                 

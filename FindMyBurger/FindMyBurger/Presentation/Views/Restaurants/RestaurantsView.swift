@@ -9,25 +9,19 @@ import SwiftUI
 import Kingfisher
 
 struct RestaurantsView: View {
-    
-    
     var item: RestaurantPresentationModel
-    @EnvironmentObject var sharedData: SharedDataModel
     var animation: Namespace.ID
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
-        
-        VStack{
+        VStack {
             
             //Title bar and Restaurant Image
             VStack{
-                
                 HStack{
-                    
                     Button{
-                        
                         withAnimation(.easeInOut){
-                            
-                            sharedData.showDetailProduct = false
+                            mode.wrappedValue.dismiss()
                         }
                     } label: {
                         
@@ -99,6 +93,7 @@ struct RestaurantsView: View {
                 
             )
         }
+        .navigationBarBackButtonHidden(true)
         .background(Color("Gray").ignoresSafeArea())
         
     }
