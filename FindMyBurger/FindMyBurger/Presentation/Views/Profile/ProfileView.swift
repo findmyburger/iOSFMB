@@ -34,10 +34,18 @@ struct ProfileView: View {
 //                .aspectRatio(contentMode: .fill)
 //                .frame(width: 150, height: 150)
 //                .clipShape(Circle())
-            Image(systemName: "person.fill")
-                .font(.system(size: 80))
-                .padding()
-                .foregroundColor(Color(.label))
+            if viewModel.user.imageUrl.isEmpty{
+                Image(systemName: "person.fill")
+                    .font(.system(size: 80))
+                    .padding()
+                    .foregroundColor(Color(.label))
+            }else{
+                KFImage(URL(string: viewModel.user.imageUrl))
+                    .font(.system(size: 80))
+                    .padding()
+                    .foregroundColor(Color(.label))
+            }
+            
             
             Text(viewModel.user.name)
                 .font(.custom("Inter-Regular", size: 20))
@@ -96,7 +104,7 @@ struct ProfileView: View {
             //}))
         }
         .onAppear {
-            //viewModel.connectToAPI()
+            viewModel.connectToAPI()
         }
     }
     

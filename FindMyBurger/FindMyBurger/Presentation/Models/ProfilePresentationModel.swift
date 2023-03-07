@@ -5,7 +5,7 @@
 //  Created by Apps2T on 21/2/23.
 //
 
-struct ProfilePresentationModel {
+struct ProfilePresentationModel : Identifiable {
     let name: String
     let email: String
     let imageUrl: String
