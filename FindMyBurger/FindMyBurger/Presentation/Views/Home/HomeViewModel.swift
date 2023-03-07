@@ -7,35 +7,21 @@
 
 import Foundation
 import SwiftUI
-import Combine
+
 class HomeViewModel: ObservableObject{
     
     @Published var searchText: String = ""
     @Published var searchActivated: Bool = false
     @Published var restaurants: [RestaurantPresentationModel] = []
+    @Published var restaurantsRecentlyAdded: [RestaurantPresentationModel] = []
+    @Published var restaurantsRecommended: [RestaurantPresentationModel] = []
     @Published var shouldShowRestaurants = false
     @Published var alertText: String = ""
     @Published var shouldShowError: Bool = false
     let userDefaults = UserDefaults.standard
     @Published var selectedIndex = 0
-    @Published var searchedProducts: [RestaurantPresentationModel]?
-    @Published var searchCancellable: AnyCancellable?
     
-    init(){
-        
-        searchCancellable = $searchText.removeDuplicates()
-            .debounce(for: 0.5, scheduler: RunLoop.main)
-            .sink(receiveValue: { str in
-                
-                if str != ""{
-                    
-                    self.filterProductsBySearch()
-                }
-                else {
-                    self.searchedProducts = nil
-                }
-            })
-    }
+    
     
         func startTimer() {
             Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
@@ -60,7 +46,7 @@ class HomeViewModel: ObservableObject{
         }
     }
     
-    func getAllRestaurants (){
+    func getAllRestaurants() {
         
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/restaurants/getAllRestaurants"
@@ -104,9 +90,9 @@ class HomeViewModel: ObservableObject{
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
-            //userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
+            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
             
-            //let saveRestaurants = userDefaults.array(forKey: "restaurants")
+            let savedRestaurants = userDefaults.array(forKey: "restaurants")
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
@@ -129,7 +115,7 @@ class HomeViewModel: ObservableObject{
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
-            restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
+            restaurantsRecommended = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
                 return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
             })
         } catch {
@@ -142,13 +128,10 @@ class HomeViewModel: ObservableObject{
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
-            //userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
-            
-            //let saveRestaurants = userDefaults.array(forKey: "restaurants")
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
-            restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
+            restaurantsRecentlyAdded = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
                 return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
             })
         } catch {
@@ -161,28 +144,6 @@ class HomeViewModel: ObservableObject{
         print(error)
     }
     
-    func filterProductsBySearch(){
-
-        DispatchQueue.global( qos: .userInteractive).async {
-
-            let results = self.restaurants
-
-                .lazy
-                .filter{ item in
-                    return item.name.lowercased().contains(self.searchText.lowercased())
-
-                }
-
-            DispatchQueue.main.async {
-                
-                self.searchedProducts = results.compactMap({ item in
-                    
-                    return item
-                    
-                })
-            }
-        }
-    }
     
 }
 

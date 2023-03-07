@@ -10,6 +10,8 @@ import Kingfisher
 
 struct RecommendedItemsView: View {
     var item: RestaurantPresentationModel
+    @EnvironmentObject var sharedData: SharedDataModel
+    @Namespace var animation
     
     var body: some View {
         VStack(spacing: 5) {
@@ -22,11 +24,25 @@ struct RecommendedItemsView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(-10)
             
-            KFImage(URL(string: item.image))
-                .resizable()
-                .frame(width: 170 , height: 150)
-                .cornerRadius(20)
-                .padding(.top, 30)
+            ZStack{
+                if sharedData.showDetailProduct{
+                    KFImage(URL(string: item.image))
+                        .resizable()
+                        .frame(width: 170 , height: 150)
+                        .cornerRadius(20)
+                        .padding(.top, 30)
+                }
+                else{
+                    KFImage(URL(string: item.image))
+                        .resizable()
+                        .frame(width: 170 , height: 150)
+                        .cornerRadius(20)
+                        .padding(.top, 30)
+                        .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
+                }
+                
+            }
+            
             
             
             Text(item.name)
@@ -36,9 +52,9 @@ struct RecommendedItemsView: View {
             HStack{
                 Text(item.address)
                     .foregroundColor(.black.opacity(0.40))
-                    .font(.system(size: 12))
+                    .font(.system(size: 16))
                     .padding(.top, 6)
-                    .padding(.bottom)
+
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
                 Image("Stars")
@@ -55,11 +71,10 @@ struct RecommendedItemsView: View {
             
         }
         .padding()
-        .frame(width: 210 ,height: 230)
+        .frame(width: 230 ,height: 250)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
-        .padding(.bottom)
         .padding(.top)
     }
 }

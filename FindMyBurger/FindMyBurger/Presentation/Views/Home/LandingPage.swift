@@ -12,21 +12,43 @@ struct LandingPage: View {
     @ObservedObject var viewModel = HomeViewModel()
     @State var searchText = ""
     @Namespace var animation
-    @Binding var selectedCategory: Category
-    var imageNames: [String] = ["1","2","3","4"]
+    //@Binding var selectedCategory: Category
+    @EnvironmentObject var sharedData: SharedDataModel
+    
+    
+    // MARK: - Accessory Views
     
     var body: some View {
         ZStack {
             BackgroundColorView()
             
+            if !viewModel.searchActivated {
+                mainView
+            } else {
+                SearchView(animation: animation, restaurants: viewModel.restaurants, searchActivated: $viewModel.searchActivated)
+                    .environmentObject(viewModel)
+            }
+        }
+        .navigationBarHidden(true)
+        .onAppear {
+            viewModel.getRecommended()
+            viewModel.getRecentlyAdded()
+        }
+        //.padding(.horizontal)
+    }
+    
+    // MARK: - Accessory Views
+    
+    private var mainView: some View {
+        VStack {
+            navBar
+                .padding(.horizontal)
+            CustomLinearGradient()
+                .padding(.bottom, 10)
+            
             VStack {
-                navBar
-                    .padding(.horizontal)
-                CustomLinearGradient()
-                    .padding(.bottom, 10)
-                
-                ZStack {
-                    if viewModel.searchActivated{
+                Group {
+                    if viewModel.searchActivated {
                         SearchBar()
                     } else{
                         SearchBar()
@@ -39,48 +61,24 @@ struct LandingPage: View {
                         viewModel.searchActivated = true
                     }
                 }
-                
-                
-                
-                
-                ScrollView(.vertical, showsIndicators: false,content: {
+                ScrollView(.vertical, showsIndicators: false){
+                    
                     tabView
                         .padding(.top, 10)
-                    Categorys
+                    //Categorys
                         .padding(.vertical)
-                        
-                    Recommended
+                    
+                    recommended
                     RecentlyAdded
                         .padding(.horizontal)
                     
-                })
-                
-                .overlay {
-                    ZStack{
-                        
-                        if viewModel.searchActivated{
-                            SearchView(animation: animation)
-                                .environmentObject(viewModel)
-                        }
-                    }
                 }
-                
-                
             }
-            //.padding(.horizontal)
-            .background(Color.black.opacity(0.03).ignoresSafeArea())
         }
-        .padding(.horizontal)
-        .onAppear{
-            viewModel.getRecommended()
-        }
-        .navigationBarHidden(true)
         //.padding(.horizontal)
+        .background(Color.black.opacity(0.03).ignoresSafeArea())
+        .padding(.horizontal)
     }
-        
-    
-    
-    // MARK: - Accessory Views
     
     private var searchView: some View {
         HStack{
@@ -96,9 +94,6 @@ struct LandingPage: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                 Spacer()
-                Image("filtro")
-                    .resizable()
-                    .frame(width: 20, height: 20)
             }
                 .padding(.horizontal, 32)
                 .foregroundColor(.gray)
@@ -113,15 +108,19 @@ struct LandingPage: View {
             
             Spacer()
             
-            Button(action: {
+            Button(action:  {
                 
-               
-            } , label: {
+                
+            })
+            {
                 Image("configuracion")
                     .resizable()
                     .frame(width: 20,height: 20)
                     .opacity(0.5)
-            })
+            }
+            NavigationLink(destination: SettingsView()) {
+                EmptyView()
+            }
         }
     }
     
@@ -150,7 +149,7 @@ struct LandingPage: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 250)
                 .tag(2)
-            Image("3")
+            Image("4")
                 .resizable()
                 .cornerRadius(10)
                 .padding(.horizontal)
@@ -166,77 +165,76 @@ struct LandingPage: View {
         }
     }
     
-    private var Categorys: some View{
-        VStack(alignment: .leading , spacing: 15){
-            Text("Categorias")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.horizontal)
-                .padding(.bottom)
-                .foregroundColor(Color("Black"))
-            
-            ScrollView(.horizontal, showsIndicators:  false, content: {
-                
-                HStack(spacing: 15){
-                    
-                    ForEach(categories){ Category in
-                        
-                        HStack(spacing: 12){
-                            
-                            Image(Category.image)
-                                .resizable()
-                            
-                                .aspectRatio( contentMode: .fit)
-                                .frame(width: 18, height: 18)
-                                .padding(6)
-                                .background(selectedCategory.id == Category.id ? Color.white : Color.clear)
-                                .clipShape(Circle())
-                            
-                            Text(Category.title)
-                                .fontWeight(.bold)
-                                .foregroundColor(selectedCategory.id == Category.id ? .white: .black)
-                        }
-                        .padding(.vertical,12)
-                        .padding(.horizontal)
-                        .background(selectedCategory.id == Category.id ? Color("Naranja") : Color.gray.opacity(0.06))
-                        .clipShape(Capsule())
-                        .shadow(color: Color.black.opacity(0.05) , radius: 5, x: 5, y: 5)
-                        .onTapGesture {
-                            withAnimation(.spring()){
-                                selectedCategory = Category
-                            }
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                
-            })
-            
-            
-            
-        }
-        
-    }
-    
-    private var Recommended: some View {
+//    private var Categorys: some View{
+//        VStack(alignment: .leading , spacing: 15){
+//            Text("Categorias")
+//                .font(.title)
+//                .fontWeight(.bold)
+//                .padding(.horizontal)
+//                .padding(.bottom)
+//                .foregroundColor(Color("Black"))
+//
+//            ScrollView(.horizontal, showsIndicators:  false, content: {
+//
+//                HStack(spacing: 15){
+//
+//                    ForEach(categories){ Category in
+//
+//                        HStack(spacing: 12){
+//
+//                            Image(Category.image)
+//                                .resizable()
+//                                .aspectRatio( contentMode: .fit)
+//                                .frame(width: 18, height: 18)
+//                                .padding(6)
+//                                .background(selectedCategory.id == Category.id ? Color.white : Color.clear)
+//                                .clipShape(Circle())
+//
+//                            Text(Category.title)
+//                                .fontWeight(.bold)
+//                                .foregroundColor(selectedCategory.id == Category.id ? .white: .black)
+//                        }
+//                        .padding(.vertical,12)
+//                        .padding(.horizontal)
+//                        .background(selectedCategory.id == Category.id ? Color("Naranja") : Color.gray.opacity(0.06))
+//                        .clipShape(Capsule())
+//                        .shadow(color: Color.black.opacity(0.05) , radius: 5, x: 5, y: 5)
+//                        .onTapGesture {
+//                            withAnimation(.spring()){
+//                                selectedCategory = Category
+//                            }
+//                        }
+//                    }
+//                }
+//                .padding(.horizontal)
+//            })
+//        }
+//    }
+    @ViewBuilder
+    var recommended: some View {
         VStack(alignment: .leading , spacing: 15){
             HStack{
-                
+
                 Text("Recomendado")
                     .font(.title2)
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color("Black"))
-                
-                
+
             }
             .padding(.top, 10)
             //.padding(.horizontal,10)
-            
+
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(spacing: 25) {
-                    ForEach(viewModel.restaurants) { item in
-                        RecommendedItemsView(item: item)
+                    ForEach(viewModel.restaurantsRecommended) { restaurants in
+                        Button {
+                            withAnimation(.easeInOut){
+                                sharedData.detailRestaurant = restaurants
+                            }
+                        } label: {
+                            RecommendedItemsView(item: restaurants)
+                        }
                     }
                 }
                 .padding(.leading)
@@ -271,7 +269,6 @@ struct LandingPage: View {
     private var RecentlyAdded: some View{
         VStack(alignment: .leading , spacing: 15){
             HStack{
-                
                 Text("Agregado recientemente")
                     .font(.title2)
                     .fontWeight(.bold)
@@ -282,20 +279,20 @@ struct LandingPage: View {
             }
             .padding(.top,10)
             VStack(spacing:15){
-                ForEach(recentlyAdded_items){ item in
-                    
-                    RecentlyAddedView(item: item)
+                ForEach(viewModel.restaurantsRecentlyAdded){ item in
+                    RecentlyAddedView(item: .init(name: item.name, image: item.image))
                 }
                 
             }
         }
     }
-    
 }
 
 struct LandingPage_Previews: PreviewProvider {
     static var previews: some View {
-        LandingPage(selectedCategory: .constant(Category(image: "Ternera", title: "Burguer")))    }
+        
+        LandingPage()
+    }
 }
 
 //extension View {

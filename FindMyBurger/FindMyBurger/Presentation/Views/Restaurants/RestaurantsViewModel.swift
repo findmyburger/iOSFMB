@@ -10,27 +10,29 @@ import Foundation
 class RestaurantsViewModel: ObservableObject{
     
     @Published var offset: CGFloat = 0
+    @Published var detailRestaurant: RestaurantPresentationModel?
+    @Published var showDetailProduct: Bool = false
     @Published var dishes: [DishesPresentationModel] = []
     
     
-    func getRestaurants() {
-        
-        //baseUrl + endpoint
-        let url = "http://127.0.0.1:8000/api/restaurants/show"
-        
-        // petición
-        NetworkHelper.shared.requestProvider(url: url, type: .POST) { data, response, error in
-            if let error = error {
-                self.onError(error: error.localizedDescription)
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                if response.statusCode == 200 { // esto daria ok
-                    //self.onSuccess(data: data)
-                } else { // esto daria error
-                    self.onError(error: error?.localizedDescription ?? "Request Error")
-                }
-            }
-        }
-    }
+//    func getRestaurants() {
+//
+//        //baseUrl + endpoint
+//        let url = "http://127.0.0.1:8000/api/restaurants/show"
+//
+//        // petición
+//        NetworkHelper.shared.requestProvider(url: url, type: .POST) { data, response, error in
+//            if let error = error {
+//                self.onError(error: error.localizedDescription)
+//            } else if let data = data, let response = response as? HTTPURLResponse {
+//                if response.statusCode == 200 { // esto daria ok
+//                    //self.onSuccess(data: data)
+//                } else { // esto daria error
+//                    self.onError(error: error?.localizedDescription ?? "Request Error")
+//                }
+//            }
+//        }
+//    }
     
 //    func onSuccess(data: Data) {
 //        do {
