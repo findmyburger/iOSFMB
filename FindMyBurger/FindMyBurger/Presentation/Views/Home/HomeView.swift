@@ -28,12 +28,7 @@ struct HomeView: View {
         ZStack{
             
             BackgroundColorView()
-            
-            
             tabBarView
-            
-            
-            
                 .background(Color.black.opacity(0.03).ignoresSafeArea())
                 .overlay(
                     ZStack{

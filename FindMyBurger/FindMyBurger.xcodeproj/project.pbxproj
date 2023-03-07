@@ -196,12 +196,12 @@
 		3306EAF5299176AA00427606 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9041E87329B760B1006988AB /* ViewModel */,
 				90F9E8D229A7EBB7005DAE7A /* Views */,
 				90E75493299D94FB006D581B /* Model */,
 				3306EAF6299176B600427606 /* HomeView.swift */,
 				90E7548D299D9372006D581B /* LandingPage.swift */,
 				90E7548F299D9411006D581B /* CustomTabBar.swift */,
-				90E754A4299EAD4A006D581B /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,6 +371,14 @@
 				9041E86729B21E03006988AB /* CustomCorners.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9041E87329B760B1006988AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				90E754A4299EAD4A006D581B /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		904585E929B0005F004C7224 /* Restaurant */ = {

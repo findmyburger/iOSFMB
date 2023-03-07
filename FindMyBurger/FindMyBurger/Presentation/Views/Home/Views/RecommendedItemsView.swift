@@ -76,6 +76,7 @@ struct RecommendedItemsView: View {
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
         .padding(.top)
+        .padding(.bottom)
     }
 }
 
