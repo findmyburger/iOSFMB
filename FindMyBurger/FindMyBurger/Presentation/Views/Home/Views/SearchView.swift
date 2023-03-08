@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var viewModel: ViewModel
+    @ObservedObject var homeViewModel = HomeViewModel()
     var animation: Namespace.ID
     @Binding var searchActivated: Bool
     @FocusState var startTF: Bool
@@ -19,53 +20,9 @@ struct SearchView: View {
         VStack(spacing: 0) {
             
             //SearchBar
-            HStack(spacing: 20) {
-                //Close Button
-                Button {
-                    withAnimation{
-                        searchActivated = false
-                    }
-                    viewModel.searchText = ""
-                } label: {
-                    Image(systemName: "arrow.left")
-                        .font(.title2)
-                        .foregroundColor(.black.opacity(0.7))
-                        .padding(.horizontal,5)
-                }
-                HStack(spacing: 15){
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                    
-                    TextField("Buscar Restaurantes", text: $viewModel.searchText)
-                        //.focused($startTF)
-                        .font(.custom("Inter-Regular", size: 18))
-                        .foregroundColor(Color("Black"))
-                        .disableAutocorrection(true)
-                    
-                    Button(action: {
-                        viewModel.showFilters = true
-                    }){
-                        Image("filtro")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
-                }
-                .sheet(isPresented: $viewModel.showFilters) {
-                    FiltersView()
-                }
-                .padding(.vertical,12)
-                .padding(.horizontal,20)
-                .background(
-                    Capsule()
-                        .strokeBorder( Color ("Gris"), lineWidth: 1.5)
-                        .background(Color("Gray"))
-                        .cornerRadius(25)
-                )
-                .matchedGeometryEffect(id: "SearchBar", in: animation)
-                .padding(.trailing,20)
-            }
-            .padding(.horizontal)
-            .padding(.bottom)
+            searchTextField
+                .padding(.horizontal)
+                .padding(.bottom)
             
             //Filter Results
             
@@ -76,15 +33,16 @@ struct SearchView: View {
             Color("Home")
                 .ignoresSafeArea()
         )
-        //                .onAppear{
-        //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-        //                        startTF = true
-        //                    }
-        //                }
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                startTF = true
+            }
+        }
         
         
         .onAppear {
             viewModel.handleSearchText()
+            homeViewModel.getAllRestaurants()
         }
         
     }
@@ -124,8 +82,10 @@ struct SearchView: View {
                             .padding(.horizontal)
                             .foregroundColor(Color("Black"))
                             .padding(.top , 20)
-                        ForEach(items) { item in
-                            ItemSearchView(item: item)
+                        ForEach(homeViewModel.restaurants) { restaurant in
+                            NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
+                                RecommendedItemsView(item: restaurant)
+                            })
                         }
                     }
                 }
@@ -137,6 +97,40 @@ struct SearchView: View {
                 .opacity(viewModel.searchText.isEmpty ? 0 : 1)
         }
         
+    }
+    
+    private var searchTextField: some View{
+        HStack(spacing: 15){
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+            
+            TextField("Buscar Restaurantes", text: $viewModel.searchText)
+            //.focused($startTF)
+                .font(.custom("Inter-Regular", size: 18))
+                .foregroundColor(Color("Black"))
+                .disableAutocorrection(true)
+            
+            Button(action: {
+                viewModel.showFilters = true
+            }){
+                Image("filtro")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+            }
+        }
+        .sheet(isPresented: $viewModel.showFilters) {
+            FiltersView()
+        }
+        .padding(.vertical,12)
+        .padding(.horizontal,20)
+        .background(
+            Capsule()
+                .strokeBorder( Color ("Gris"), lineWidth: 1.5)
+                .background(Color("Gray"))
+                .cornerRadius(25)
+        )
+        .matchedGeometryEffect(id: "SearchBar", in: animation)
+        .padding(.trailing,20)
     }
     
 }

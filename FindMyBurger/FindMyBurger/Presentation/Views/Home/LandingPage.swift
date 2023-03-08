@@ -122,6 +122,7 @@ struct LandingPage: View {
                 EmptyView()
             }
         }
+        .padding(.vertical)
     }
     
     private var tabView: some View {
@@ -261,6 +262,7 @@ struct LandingPage: View {
         )
     }
     
+    @ViewBuilder
     private var RecentlyAdded: some View{
         VStack(alignment: .leading , spacing: 15){
             HStack{
@@ -274,9 +276,12 @@ struct LandingPage: View {
             }
             .padding(.top,10)
             VStack(spacing:15){
-                ForEach(viewModel.restaurantsRecentlyAdded){ item in
-                    
-                    RecentlyAddedView(item: .init(name: item.name, image: item.image))
+                HStack(spacing: 25) {
+                    ForEach(viewModel.restaurantsRecentlyAdded) { restaurant in
+                        NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
+                            RecommendedItemsView(item: restaurant)
+                        })
+                    }
                 }
                 
             }
@@ -291,10 +296,3 @@ struct LandingPage_Previews: PreviewProvider {
     }
 }
 
-//extension View {
-//
-//    func getRect()->CGRect{
-//
-//        return UIScreen.main.bounds
-//    }
-//}

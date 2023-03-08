@@ -89,7 +89,7 @@ class HomeViewModel: ObservableObject{
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
 //            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
-//            
+//
 //            let savedRestaurants = userDefaults.array(forKey: "restaurants")
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
@@ -105,12 +105,7 @@ class HomeViewModel: ObservableObject{
     func recommendedOnSuccess(data: Data) {
         do {
             // Convertimos a modelo de Data los datos que nos llegan
-            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
-            
-            //userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
-            
-            //let saveRestaurants = userDefaults.array(forKey: "restaurants")
-            
+            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)   
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
             restaurantsRecommended = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
