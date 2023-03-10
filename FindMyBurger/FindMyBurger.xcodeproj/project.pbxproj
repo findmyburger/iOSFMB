@@ -283,14 +283,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		33C0FA8829A54CC700B03949 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		33D3200B29A3C2DA00EC9DF9 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,7 +304,6 @@
 		33E1637829917F7300CE6D89 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				33C0FA8829A54CC700B03949 /* Models */,
 				33E1637D2991805000CE6D89 /* Components */,
 				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
 				3306EAEA2991721200427606 /* Views */,
@@ -442,6 +433,7 @@
 		90F9E8D129A7E7A3005DAE7A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */,
 				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
 				904585F029B00325004C7224 /* DishesPresentationModel.swift */,
 			);

@@ -24,9 +24,9 @@ struct RestaurantCard: View {
             Button {
                 favourite.toggle()
                 if favourite{
-                    //viewModel.deleteFavourite()
+                    viewModel.addRestaurantToFavourite()
                 }else{
-                    //viewModel.addFavourite()
+                    viewModel.deleteFavouriteRestaurant()
                 }
                 
             } label: {

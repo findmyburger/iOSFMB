@@ -12,49 +12,18 @@ struct RestaurantsView: View {
     var item: RestaurantPresentationModel
     var animation: Namespace.ID
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @ObservedObject var viewModel = RestaurantsViewModel()
     
     var body: some View {
         VStack {
             
             //Title bar and Restaurant Image
             VStack{
-                HStack{
-                    Button{
-                        withAnimation(.easeInOut){
-                            mode.wrappedValue.dismiss()
-                        }
-                    } label: {
-                        
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                            .foregroundColor(Color.black.opacity(0.7))
-                    }
-                    Spacer()
-                    
-                    Button {
-                        
-                    } label: {
-                        Image("heart")
-                            .renderingMode(.template)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 22, height: 22)
-                            .foregroundColor(Color.black.opacity(0.7))
-                    }
-                }
-                .padding()
+               itemNav
                 //Adding Matched Geometry Effect
-                KFImage(URL(string: item.image ))
-                    .resizable()
-                    .aspectRatio( contentMode: .fit)
-                    .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
-                //                    .padding(.horizontal)
-                //  .offset(y: -12)
-                    .cornerRadius(10)
-                    .frame(width: 404,height: 242)
-                
+                imageRestaurant
             }
-            //.frame(height: getRect().height / 2.7)
+            .frame(height: getRect().height / 2.7)
             
             //Restaurant Details
             ScrollView(.vertical,showsIndicators: false){
@@ -66,11 +35,8 @@ struct RestaurantsView: View {
             .background(
                 Color.white
                 //Corner Radius for only Top side
-                
                     .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 25))
                     .ignoresSafeArea()
-                
-                
             )
         }
         .navigationBarBackButtonHidden(true)
@@ -109,6 +75,61 @@ struct RestaurantsView: View {
             
             CustomLinearGradient()
             
+        }
+    }
+    private var itemNav: some View{
+        HStack{
+            Button{
+                withAnimation(.easeInOut){
+                    mode.wrappedValue.dismiss()
+                }
+            } label: {
+                
+                Image(systemName: "arrow.left")
+                    .font(.title2)
+                    .foregroundColor(Color.black.opacity(0.7))
+            }
+            Spacer()
+            
+            Button {
+                
+                addTofavorite()
+//                viewModel.favourite.toggle()
+//                if viewModel.favourite{
+//                    viewModel.addRestaurantToFavourite()
+//                }else{
+//                    viewModel.deleteFavouriteRestaurant()
+//                }
+            } label: {
+                Image(viewModel.favourite ? "RedHeart" : "WhiteHeart")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding()
+                
+            }
+        }
+        .padding()
+    }
+    private var imageRestaurant: some View{
+        KFImage(URL(string: item.image ))
+            .resizable()
+            .aspectRatio( contentMode: .fit)
+            .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
+        //  .padding(.horizontal)
+        //  .offset(y: -12)
+            .cornerRadius(10)
+            .frame(width: 404,height: 242)
+    }
+    private func addTofavorite(){
+        
+        if let index = viewModel.likedHamburgers.first(where: { restaurant in
+            return self.item.id == restaurant.id
+        }){
+            //remove product
+            //viewModel.likedHamburgers.remove(at: index)
+        } else {
+            viewModel.addRestaurantToFavourite()
+            viewModel.likedHamburgers.append(item)
         }
     }
 }

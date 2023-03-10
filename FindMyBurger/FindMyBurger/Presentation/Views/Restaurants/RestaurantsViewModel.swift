@@ -14,7 +14,8 @@ class RestaurantsViewModel: ObservableObject{
     @Published var detailRestaurant: RestaurantPresentationModel?
     @Published var showDetailProduct: Bool = false
     @Published var dishes: [DishesPresentationModel] = []
-    
+    @Published var favourite = false
+    @Published var likedHamburgers: [RestaurantPresentationModel] = []
     
     func getRestaurants() {
 
@@ -52,8 +53,12 @@ class RestaurantsViewModel: ObservableObject{
 
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/users/addRestaurantToFavourite"
+        
+        let dictionary: [String: Any] = [
+            "restaurant_id": detailRestaurant?.id
+        ]
         // petición
-        NetworkHelper.shared.requestProvider(url: url, type: .POST) { data, response, error in
+        NetworkHelper.shared.requestProvider(url: url, type: .POST, params: dictionary) { data, response, error in
             if let error = error {
                 self.onError(error: error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse {
@@ -65,22 +70,35 @@ class RestaurantsViewModel: ObservableObject{
             }
         }
     }
-    func addToFavouriteOnSuccess(data: Data) {
-        do {
-            // Convertimos a modelo de Data los datos que nos llegan
-            let restaurantsNotFiltered = try JSONDecoder().decode(DishesResponseModel?.self, from: data)
-            // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
-            guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
-            dishes = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
-                return DishesPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", price: Float(restaurantsNotFiltered.price ?? 0), ingredients: restaurantsNotFiltered.ingredients ?? "", burgerType: restaurantsNotFiltered.burgerType ?? "")
-            })
-        } catch {
-            self.onError(error: error.localizedDescription)
-        }
+    
+    func deleteFavouriteRestaurant() {
 
+        //baseUrl + endpoint
+        let url = "http://127.0.0.1:8000/api/users/deleteRestaurantInFavourite"
+        
+        let dictionary: [String: Any] = [
+            "restaurant_id": detailRestaurant?.id ?? 0
+        ]
+        // petición
+        NetworkHelper.shared.requestProvider(url: url, type: .POST, params: dictionary) { data, response, error in
+            if let error = error {
+                self.onError(error: error.localizedDescription)
+            } else if let data = data, let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 { // esto daria ok
+                    self.ola(data: data)
+                } else { // esto daria error
+                    self.onError(error: error?.localizedDescription ?? "Request Error")
+                }
+            }
+        }
     }
+
+    
     
     func onError(error: String) {
         print(error)
+    }
+    func ola(data: Data){
+        print(data)
     }
 }
