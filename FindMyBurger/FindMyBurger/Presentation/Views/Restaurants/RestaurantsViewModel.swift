@@ -11,7 +11,6 @@ import SwiftUI
 class RestaurantsViewModel: ObservableObject{
     
     @Published var offset: CGFloat = 0
-    @Published var detailRestaurant: RestaurantPresentationModel?
     @Published var showDetailProduct: Bool = false
     @Published var dishes: [DishesPresentationModel] = []
     @Published var favourite = false
@@ -49,13 +48,13 @@ class RestaurantsViewModel: ObservableObject{
         }
 
     }
-    func addRestaurantToFavourite() {
+    func addRestaurantToFavourite(from id: Int) {
 
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/users/addRestaurantToFavourite"
         
         let dictionary: [String: Any] = [
-            "restaurant_id": detailRestaurant?.id
+            "restaurant_id": id
         ]
         // petición
         NetworkHelper.shared.requestProvider(url: url, type: .POST, params: dictionary) { data, response, error in
@@ -71,13 +70,13 @@ class RestaurantsViewModel: ObservableObject{
         }
     }
     
-    func deleteFavouriteRestaurant() {
+    func deleteFavouriteRestaurant(from id: Int) {
 
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/users/deleteRestaurantInFavourite"
         
         let dictionary: [String: Any] = [
-            "restaurant_id": detailRestaurant?.id ?? 0
+            "restaurant_id": id
         ]
         // petición
         NetworkHelper.shared.requestProvider(url: url, type: .POST, params: dictionary) { data, response, error in

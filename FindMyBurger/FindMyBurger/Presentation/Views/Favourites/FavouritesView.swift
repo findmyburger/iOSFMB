@@ -11,15 +11,14 @@ struct FavouritesView: View {
     @ObservedObject var viewModel = FavouritesViewModel()
     
     var body: some View {
-        ZStack{
+        ZStack {
             BackgroundColorView()
-            VStack{
+            VStack(spacing: 0){
                 CustomTitle(title: "Favoritos")
                 
-                ScrollView{
-                    VStack(spacing:10){
-                        
-                        if viewModel.restaurants.isEmpty{
+                ScrollView {
+                    if viewModel.restaurants.isEmpty{
+                        VStack(spacing: 10){
                             Image("nodata")
                                 .resizable()
                                 .frame(width: 100, height: 100)
@@ -34,17 +33,25 @@ struct FavouritesView: View {
                                 .foregroundColor(.gray)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal,30)
-                        }else{
+                        }
+                    }else{
+                        VStack(spacing: 15) {
                             ForEach(viewModel.restaurants){ item in
-                                
                                 RestaurantCard(item: item, width: 350, height: 300, favourite: true)
-                                    .padding(40)
+                                    .padding(10)
                             }
                         }
+                        .padding(.bottom, 10)
                     }
+                    
                 }
             }
         }
+        .onAppear {
+            viewModel.getFavourites()
+        }
+        .navigationBarHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

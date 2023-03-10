@@ -93,13 +93,13 @@ struct RestaurantsView: View {
             
             Button {
                 
-                addTofavorite()
-//                viewModel.favourite.toggle()
-//                if viewModel.favourite{
-//                    viewModel.addRestaurantToFavourite()
-//                }else{
-//                    viewModel.deleteFavouriteRestaurant()
-//                }
+                //addTofavorite()
+                viewModel.favourite.toggle()
+                if viewModel.favourite{
+                    viewModel.addRestaurantToFavourite(from: item.id)
+                }else{
+                    viewModel.deleteFavouriteRestaurant(from: item.id)
+                }
             } label: {
                 Image(viewModel.favourite ? "RedHeart" : "WhiteHeart")
                     .resizable()
@@ -120,18 +120,18 @@ struct RestaurantsView: View {
             .cornerRadius(10)
             .frame(width: 404,height: 242)
     }
-    private func addTofavorite(){
-        
-        if let index = viewModel.likedHamburgers.first(where: { restaurant in
-            return self.item.id == restaurant.id
-        }){
-            //remove product
-            //viewModel.likedHamburgers.remove(at: index)
-        } else {
-            viewModel.addRestaurantToFavourite()
-            viewModel.likedHamburgers.append(item)
-        }
-    }
+//    private func addTofavorite(){
+//
+//        if let index = viewModel.likedHamburgers.first(where: { restaurant in
+//            return self.item.id == restaurant.id
+//        }){
+//            //remove product
+//            //viewModel.likedHamburgers.remove(at: index)
+//        } else {
+//            viewModel.addRestaurantToFavourite()
+//            viewModel.likedHamburgers.append(item)
+//        }
+//    }
 }
 struct RestaurantsView_Previews: PreviewProvider {
     static var previews: some View {

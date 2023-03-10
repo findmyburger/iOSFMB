@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-class FavouritesViewModel: ObservableObject{
+class FavouritesViewModel: ObservableObject {
     
     @Published var restaurants: [RestaurantPresentationModel] = []
     
     func getFavourites() {
         //baseUrl + endpoint
-        let url = "http://127.0.0.1:8000/api/restaurants/favouriteList"
+        let url = "http://127.0.0.1:8000/api/users/favouriteList"
         
         // petición
         NetworkHelper.shared.requestProvider(url: url, type: .GET) { data, response, error in

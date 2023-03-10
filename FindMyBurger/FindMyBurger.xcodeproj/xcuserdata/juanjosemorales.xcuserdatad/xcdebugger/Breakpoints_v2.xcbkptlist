@@ -940,9 +940,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "deleteFavouriteRestaurant()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "deleteFavouriteRestaurant(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -956,9 +956,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "deleteFavouriteRestaurant()"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "deleteFavouriteRestaurant(id:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1034,9 +1034,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "deleteFavouriteRestaurant()"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "deleteFavouriteRestaurant(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1050,9 +1050,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "deleteFavouriteRestaurant()"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "deleteFavouriteRestaurant(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1066,9 +1066,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "addRestaurantToFavourite()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "addRestaurantToFavourite(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1082,9 +1082,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "addRestaurantToFavourite()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "addRestaurantToFavourite(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1098,69 +1098,69 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "addRestaurantToFavourite()"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "addRestaurantToFavourite(id:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - 16769b055a4989d"
+                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - e8449cf904c5b8a6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite(from: Swift.Int) -&gt; ()"
                   moduleName = "FindMyBurger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
                   offsetFromSymbolStart = "136">
                </Location>
                <Location
-                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - 16769b055a4989d"
+                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - e8449cf904c5b8a6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite(from: Swift.Int) -&gt; ()"
                   moduleName = "FindMyBurger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
                   offsetFromSymbolStart = "424">
                </Location>
                <Location
-                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - 16769b055a4989d"
+                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - e8449cf904c5b8a6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite(from: Swift.Int) -&gt; ()"
                   moduleName = "FindMyBurger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
                   offsetFromSymbolStart = "452">
                </Location>
                <Location
-                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - 16769b055a4989d"
+                  uuid = "8319C80D-F510-4876-99BE-B0E225153D20 - e8449cf904c5b8a6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite(from: Swift.Int) -&gt; ()"
                   moduleName = "FindMyBurger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
                   offsetFromSymbolStart = "748">
                </Location>
             </Locations>
@@ -1176,9 +1176,9 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "addRestaurantToFavourite()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "addRestaurantToFavourite(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1192,10 +1192,248 @@
             filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "ola(data:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73E07EC8-8D4B-4981-B90C-734FFEB50B90"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "addRestaurantToFavourite(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2409B39F-CB5E-49A2-B03B-8E4455F140FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "addRestaurantToFavourite(id:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2409B39F-CB5E-49A2-B03B-8E4455F140FD - f8ce11c2476fb38e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite(from: Swift.Int) -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "2409B39F-CB5E-49A2-B03B-8E4455F140FD - e8449cf904c5b860"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.RestaurantsViewModel.addRestaurantToFavourite(from: Swift.Int) -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Restaurants/RestaurantsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B7C5D17-0A12-46A7-9840-9BE750B1F0A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Favourites/FavouritesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B2E6B8C-DF3F-4C0F-BCB8-4E623C4AA261"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "onSuccess(data:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4B2E6B8C-DF3F-4C0F-BCB8-4E623C4AA261 - 41ccd10922f4d5de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FindMyBurger.FavouritesViewModel.onSuccess(data: Foundation.Data) -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  uuid = "4B2E6B8C-DF3F-4C0F-BCB8-4E623C4AA261 - 7da76c1a2d5386ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FindMyBurger.DataHomeResponseModel) -&gt; Swift.Optional&lt;FindMyBurger.RestaurantPresentationModel&gt; in FindMyBurger.FavouritesViewModel.onSuccess(data: Foundation.Data) -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5974907-32CB-4029-9EA0-A7B97722D60A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "getFavourites()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFE58CD7-0E09-4A6B-AD82-81728C48A031"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "getFavourites()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "540478F3-5404-4C84-AFE8-2102EDF0437D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getFavourites()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "540478F3-5404-4C84-AFE8-2102EDF0437D - 451b46d0a6299d50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.FavouritesViewModel.getFavourites() -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "540478F3-5404-4C84-AFE8-2102EDF0437D - 451b46d0a6299d50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.FavouritesViewModel.getFavourites() -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "540478F3-5404-4C84-AFE8-2102EDF0437D - 451b46d0a6299d50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.FavouritesViewModel.getFavourites() -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "452">
+               </Location>
+               <Location
+                  uuid = "540478F3-5404-4C84-AFE8-2102EDF0437D - 451b46d0a6299d50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FindMyBurger.FavouritesViewModel.getFavourites() -&gt; ()"
+                  moduleName = "FindMyBurger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanjosemorales/Desktop/iOSFMB/FindMyBurger/FindMyBurger/Presentation/Views/Favourites/FavouritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "748">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
