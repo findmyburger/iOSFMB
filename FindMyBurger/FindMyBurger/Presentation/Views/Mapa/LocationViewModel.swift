@@ -17,7 +17,7 @@ class LocationViewModel: NSObject, ObservableObject{
         self.selectedLocation = location
     }
     
-    func getAllRestaurants() {
+    func getAllRestaurants(completion: @escaping () -> ()) {
         
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/restaurants/getAllRestaurants"
@@ -28,7 +28,9 @@ class LocationViewModel: NSObject, ObservableObject{
                 self.onError(error: error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse {
                 if response.statusCode == 200 { // esto daria ok
-                    self.onSuccess(data: data)
+                    self.onSuccess(data: data) {
+                        completion()
+                    }
                 } else { // esto daria error
                     self.onError(error: error?.localizedDescription ?? "Request Error")
                 }
@@ -36,7 +38,7 @@ class LocationViewModel: NSObject, ObservableObject{
         }
     }
     
-    func onSuccess(data: Data) {
+    func onSuccess(data: Data, completion: @escaping () -> ()) {
         do {
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
 
@@ -44,11 +46,13 @@ class LocationViewModel: NSObject, ObservableObject{
             restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
                 return LocationsPresentationModel(id: restaurantsNotFiltered.id ?? 0,name: restaurantsNotFiltered.name ?? "",latitude: restaurantsNotFiltered.latitude ?? 0,longitude: restaurantsNotFiltered.longitude ?? 0)
             })
+            completion()
         } catch {
             self.onError(error: error.localizedDescription)
         }
-        
     }
+    
+    
     
     func onError(error: String) {
         print(error)

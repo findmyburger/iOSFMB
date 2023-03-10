@@ -13,7 +13,7 @@ struct FindMyBurgerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MapViewRepresentable()
+            HomeView()
                 .environmentObject(locationViewModel)
         }
     }

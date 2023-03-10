@@ -20,10 +20,11 @@ struct MapViewRepresentable: UIViewRepresentable{
         mapView.isRotateEnabled = false
         mapView.userTrackingMode = .follow
         mapView.showsUserLocation = true
-        viewModel.restaurants.forEach { restaurant in
-            addAnnotation(location: CLLocationCoordinate2D(latitude: CLLocationDegrees(CGFloat(restaurant.latitude)), longitude: CLLocationDegrees(CGFloat(restaurant.longitude))), title: restaurant.name)
+        viewModel.getAllRestaurants {
+            viewModel.restaurants.forEach { restaurant in
+                addAnnotation(location: CLLocationCoordinate2D(latitude: CLLocationDegrees(CGFloat(restaurant.latitude)), longitude: CLLocationDegrees(CGFloat(restaurant.longitude))), title: restaurant.name)
+            }
         }
-        
         
         return mapView
     }
