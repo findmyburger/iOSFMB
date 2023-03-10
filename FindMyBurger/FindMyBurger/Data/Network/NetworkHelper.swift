@@ -9,11 +9,14 @@ import Foundation
 
 class NetworkHelper {
     
+    let userDefaults = UserDefaults.standard
+    
     //MARK: - Enum
     
     enum RequestType: String {
         case POST
         case GET
+        case DELETE
     }
     
     
@@ -49,8 +52,8 @@ class NetworkHelper {
             let data = try! JSONSerialization.data(withJSONObject: dictionary, options: [])
             request.httpBody = data
         }
-        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(userDefaults.string(forKey: "token") ?? "")", forHTTPHeaderField: "Authorization")
         
         requestApi(request: request) { data, response, error in
             DispatchQueue.main.async {

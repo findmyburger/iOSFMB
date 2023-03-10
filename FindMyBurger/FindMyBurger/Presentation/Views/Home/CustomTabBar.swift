@@ -16,7 +16,7 @@ struct CustomTabBar: View {
 
            itemsTabBar
             .padding(.top)
-            .background(Color("Gray"))
+            .background(Color("Gray3"))
         }
     }
     

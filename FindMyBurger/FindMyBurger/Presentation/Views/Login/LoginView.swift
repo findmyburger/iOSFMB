@@ -76,7 +76,7 @@ struct LoginView: View {
     
     func btnLogin() -> some View {
         Button {
-            viewModel.login(email: email, pass: pass)
+            viewModel.login(email: "juanjo@gmail.com", pass: "Aa123456")
         } label: {
             HStack {
                 Text("Iniciar Sesión")
