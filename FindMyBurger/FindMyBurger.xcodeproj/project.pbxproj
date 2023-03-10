@@ -36,6 +36,7 @@
 		33D30F7C299FF4120027F4B8 /* SignOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */; };
 		33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */; };
 		33D3200F29A3C58200EC9DF9 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3200E29A3C58200EC9DF9 /* RestaurantCard.swift */; };
+		33D9C81629B7BA10006A332D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9C81529B7BA10006A332D /* MapView.swift */; };
 		33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */; };
 		33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */; };
 		33DE18E529B1233B0043EA8B /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */; };
@@ -103,6 +104,7 @@
 		33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutResponseModel.swift; sourceTree = "<group>"; };
 		33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		33D3200E29A3C58200EC9DF9 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
+		33D9C81529B7BA10006A332D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			children = (
 				3372FBF829B260290057669B /* MapViewRepresentable.swift */,
 				3372FBFD29B278620057669B /* LocationViewModel.swift */,
+				33D9C81529B7BA10006A332D /* MapView.swift */,
 			);
 			path = Mapa;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				904585F829B0F3C9004C7224 /* RestaurantsView.swift in Sources */,
 				33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */,
 				33501EDF299EB10E00EB1CFE /* AboutUsView.swift in Sources */,
+				33D9C81629B7BA10006A332D /* MapView.swift in Sources */,
 				33D30F7A299FEC1A0027F4B8 /* SettingViewModel.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				904585FE29B0F56D004C7224 /* RestaurantHeaderView.swift in Sources */,

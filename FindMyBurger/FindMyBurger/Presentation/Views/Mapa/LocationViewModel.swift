@@ -42,7 +42,7 @@ class LocationViewModel: NSObject, ObservableObject{
 
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
             restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
-                return LocationsPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "",latitude: restaurantsNotFiltered.latitude ?? 0,longitude: restaurantsNotFiltered.longitude ?? 0, rate: restaurantsNotFiltered.rate ?? 0)
+                return LocationsPresentationModel(id: restaurantsNotFiltered.id ?? 0,name: restaurantsNotFiltered.name ?? "",latitude: restaurantsNotFiltered.latitude ?? 0,longitude: restaurantsNotFiltered.longitude ?? 0)
             })
         } catch {
             self.onError(error: error.localizedDescription)
