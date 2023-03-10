@@ -28,6 +28,8 @@
 		336E2E7329A3F6EE00AA9DDC /* ProfileResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E2E7229A3F6EE00AA9DDC /* ProfileResponseModel.swift */; };
 		33AB4985299ABF7900FDF71F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB4984299ABF7900FDF71F /* EditProfileView.swift */; };
 		33C0FA8A29A54CDE00B03949 /* ProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */; };
+		33C0FA8729A54BD300B03949 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 33C0FA8629A54BD300B03949 /* Kingfisher */; };
+		33C0FA8A29A54CDE00B03949 /* ProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */; };
 		33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */; };
 		33D30F7A299FEC1A0027F4B8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30F79299FEC1A0027F4B8 /* SettingViewModel.swift */; };
 		33D30F7C299FF4120027F4B8 /* SignOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */; };

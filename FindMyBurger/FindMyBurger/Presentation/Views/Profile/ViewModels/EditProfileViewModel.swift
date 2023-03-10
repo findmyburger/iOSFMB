@@ -13,9 +13,10 @@ class EditProfileViewModel: ObservableObject {
     @Published var shouldShowSettings: Bool = false
     @Published var shouldShowError: Bool = false
     @Published var shouldShowProfile : Bool = false
-    @State var isPresented: Bool = false
+    @Published var shouldShowImagePicker: Bool = false
+    @Published var isPresented: Bool = false
     @Published var shouldShowName: Bool = false
-    
+    //@Published var userData: ProfilePresentationModel()
     @Published var name = ""
     @Published var pass = ""
     @Published var newPass = ""
@@ -36,12 +37,14 @@ class EditProfileViewModel: ObservableObject {
             
         let url = "http://127.0.0.1:8000/api/users/updateData"
         
-        let dictionary: [String: Any] = [
-            "name": name,
-            "password" : pass,
-            "newPass": newPass,
-            "newPass" : newPass_confirmation
-        ]
+            var dictionary: [String: Any] = [:]
+        
+            if !name.isEmpty{
+                dictionary = ["name": name]
+            }else{
+                dictionary = ["password": pass, "newPassword": newPass, "newPassword_corfimation": newPass_confirmation]
+            }
+            
         connectToAPI(dictionary: dictionary, url: url)
         }
     }
