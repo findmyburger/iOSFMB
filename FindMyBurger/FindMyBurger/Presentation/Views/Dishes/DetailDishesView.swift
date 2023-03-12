@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DetailDishesView: View {
+    
+    var item: DishesPresentationModel
     var body: some View {
         
         ScrollView(.vertical ,showsIndicators: false){
@@ -77,6 +79,6 @@ struct DetailDishesView: View {
 
 struct DetailDishesView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailDishesView()
+        HomeView()
     }
 }

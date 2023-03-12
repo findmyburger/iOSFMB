@@ -115,23 +115,25 @@ struct RestaurantsView: View {
             .resizable()
             .aspectRatio( contentMode: .fit)
             .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
-        //  .padding(.horizontal)
-        //  .offset(y: -12)
             .cornerRadius(10)
             .frame(width: 404,height: 242)
     }
-//    private func addTofavorite(){
-//
-//        if let index = viewModel.likedHamburgers.first(where: { restaurant in
-//            return self.item.id == restaurant.id
-//        }){
-//            //remove product
-//            //viewModel.likedHamburgers.remove(at: index)
-//        } else {
-//            viewModel.addRestaurantToFavourite()
-//            viewModel.likedHamburgers.append(item)
-//        }
-//    }
+    private var dishesOfRestaurant: some View{
+        VStack(alignment: .leading , spacing: 15){
+            
+            ScrollView(.horizontal, showsIndicators: false, content: {
+                HStack(spacing: 25) {
+                    ForEach(viewModel.dishes) { restaurant in
+                        NavigationLink(destination: DetailDishesView(item: restaurant, animation: animation), label: {
+                            DishesItemView(item: restaurant)
+                        })
+                    }
+                }
+                .padding(.leading)
+            })
+        }
+        
+    }
 }
 struct RestaurantsView_Previews: PreviewProvider {
     static var previews: some View {
