@@ -124,7 +124,7 @@ struct RestaurantsView: View {
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(spacing: 25) {
                     ForEach(viewModel.dishes) { restaurant in
-                        NavigationLink(destination: DetailDishesView(item: restaurant, animation: animation), label: {
+                        NavigationLink(destination: DetailDishesView(item: restaurant), label: {
                             DishesItemView(item: restaurant)
                         })
                     }
