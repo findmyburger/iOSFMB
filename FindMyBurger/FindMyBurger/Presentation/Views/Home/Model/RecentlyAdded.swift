@@ -8,14 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct RecentlyAdded: Identifiable {
+struct RecentlyAddedPresentationModel: Identifiable {
     
-    var id = UUID().uuidString
+    var id = UUID()
     var name: String
     var image: String
      
 }
-var recentlyAdded_items = [
-RecentlyAdded(name: "Porneat", image: "Porneat"),
-RecentlyAdded(name: "Vicio", image: "Vicio")
-]

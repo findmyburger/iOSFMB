@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct RecentlyAddedView: View {
-    var item: RecentlyAdded
+    var item: RestaurantPresentationModel
     
     var body: some View {
         ZStack {
             Image(item.image)
                 .resizable()
-                .frame(width: 350, height: 240)
+                .scaledToFill()
                 .cornerRadius(10)
+                .clipped()
             
             VStack {
                 Spacer()
@@ -26,7 +27,6 @@ struct RecentlyAddedView: View {
             .padding(.bottom, 20)
             
         }
-        .padding(.bottom,20)
         
     }
 }

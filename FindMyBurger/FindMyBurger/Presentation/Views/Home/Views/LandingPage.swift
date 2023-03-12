@@ -70,7 +70,7 @@ struct LandingPage: View {
                         .padding(.vertical)
                     
                     recommended
-                    RecentlyAdded
+                    recentlyAdded
                         .padding(.horizontal)
                     
                 }
@@ -263,7 +263,7 @@ struct LandingPage: View {
     }
     
     @ViewBuilder
-    private var RecentlyAdded: some View{
+    private var recentlyAdded: some View{
         VStack(alignment: .leading , spacing: 15){
             HStack{
                 Text("Agregado recientemente")
@@ -274,13 +274,17 @@ struct LandingPage: View {
                 
                 Spacer()
             }
-            .padding(.top,10)
+            .padding(.top, 10)
+            
             VStack(spacing:15){
-                HStack(spacing: 25) {
-                    ForEach(viewModel.restaurantsRecentlyAdded) { restaurant in
-                        NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
-                            RecommendedItemsView(item: restaurant)
-                        })
+                ScrollView(.horizontal) {
+                    HStack(spacing: 25) {
+                        ForEach(viewModel.restaurantsRecentlyAdded) { restaurant in
+                            NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
+                                RecentlyAddedView(item: restaurant)
+                                    .frame(width: 350, height: 240)
+                            })
+                        }
                     }
                 }
                 

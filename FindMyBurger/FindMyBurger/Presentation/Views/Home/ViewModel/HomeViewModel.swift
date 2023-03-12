@@ -23,11 +23,11 @@ class HomeViewModel: ObservableObject{
     
     
     
-        func startTimer() {
-            Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
-                self.selectedIndex = (self.selectedIndex + 1) % 4
-            }
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
+            self.selectedIndex = (self.selectedIndex + 1) % 4
         }
+    }
     
     func getRecentlyAdded(){
         let url = "http://127.0.0.1:8000/api/restaurants/getRecentlyAdded"
@@ -63,7 +63,7 @@ class HomeViewModel: ObservableObject{
             }
         }
     }
-
+    
     func getRecommended() {
         
         //baseUrl + endpoint
@@ -88,9 +88,9 @@ class HomeViewModel: ObservableObject{
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             
-//            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
-//
-//            let savedRestaurants = userDefaults.array(forKey: "restaurants")
+            //            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
+            //
+            //            let savedRestaurants = userDefaults.array(forKey: "restaurants")
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
@@ -105,7 +105,7 @@ class HomeViewModel: ObservableObject{
     func recommendedOnSuccess(data: Data) {
         do {
             // Convertimos a modelo de Data los datos que nos llegan
-            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)   
+            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
             restaurantsRecommended = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
@@ -119,14 +119,17 @@ class HomeViewModel: ObservableObject{
     func recentlyAddedOnSuccess(data: Data) {
         do {
             // Convertimos a modelo de Data los datos que nos llegan
-            let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
+            let restaurantsNotFiltered = try JSONDecoder().decode(RecentlyAddedResponseModel?.self, from: data)
             
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
-            restaurantsRecentlyAdded = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
-                return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
+            restaurantsRecentlyAdded = restaurantsNotNil.flatMap({
+                $0.compactMap({ restaurantsNotFiltered in
+                    return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
+                })
             })
+            
         } catch {
             self.onError(error: error.localizedDescription)
         }
