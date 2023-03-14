@@ -6,28 +6,28 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct RecentlyAddedView: View {
     var item: RestaurantPresentationModel
     
     var body: some View {
         ZStack {
-            Image(item.image)
-                .resizable()
-                .scaledToFill()
-                .cornerRadius(10)
-                .clipped()
-            
-            VStack {
-                Spacer()
-                Text(item.name)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.white)
+            VStack(spacing: 15){
+                KFImage(URL(string: item.image))
+                    .resizable()
+                    .frame(width: 320, height: 200)
+                    .cornerRadius(10)
+                
+                VStack {
+                    Spacer()
+                    Text(item.name)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                }
             }
-            .padding(.bottom, 20)
-            
+            .padding(.bottom,30)
         }
-        
     }
 }
 

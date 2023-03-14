@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct DishesPresentationModel: Identifiable {
-    
     let id: Int
     let name: String
     let image: String

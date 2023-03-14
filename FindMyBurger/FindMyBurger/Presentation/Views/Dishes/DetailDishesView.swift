@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct DetailDishesView: View {
     
@@ -25,14 +26,15 @@ struct DetailDishesView: View {
     
     private var headerDish: some View{
         VStack{
-            Image("H1")
+           
+            KFImage(URL(string: item.image))
                 .resizable()
                 .frame(width: 395, height: 243)
                 .ignoresSafeArea(.all,edges: .top)
             
-            Text("BACON COFEE DELIGHT")
+            Text(item.name)
                 .padding(.top,10)
-                .font(.custom( "Inter-Bold", size: 20))
+                .font(.custom( "Inter-SemiBold", size: 22))
                 
         }
         
@@ -44,7 +46,7 @@ struct DetailDishesView: View {
                 .font(.custom("Inter-Bold", size: 22))
                 .fontWeight(.bold)
             
-            Text("-Doble patty de 125g de Carne-Doble cheddar ahumado -Pepinillos encurtidos- Bacon al Coffee Delight -Mayonesa Burmet. -Brioche de mantequilla")
+            Text(item.ingredients)
                 .font(.custom("Inter-Regular", size: 20))
                 .padding(.top,20)
                 .multilineTextAlignment(.center)
@@ -54,7 +56,7 @@ struct DetailDishesView: View {
             HStack{
                 Text("Precio")
                 
-                Text("$")
+                Text("\(item.price)".trimmingCharacters(in: ["0"]))
                 
             }
             .padding(.top)

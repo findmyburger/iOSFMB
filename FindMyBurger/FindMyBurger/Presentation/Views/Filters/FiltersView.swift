@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct FiltersView: View {
-    @State private var terneraIsOn = false
-    @State private var chikenIsOn = false
-    @State private var bueyIsOn = false
-    @State private var porkIsOn = false
-    @State private var fishIsOn = false
-    @State private var vegetarianaIsOn = false
-    @State private var veganaIsOn = false
-    @State private var lessThan5 = false
-    @State private var lessThan10 = false
-    @State private var lessThan20 = false
+    
+    @ObservedObject var viewModel = FiltersViewModel()
     @State private var selectedButton: Int? = nil
     var body: some View {
         
@@ -45,13 +37,13 @@ struct FiltersView: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity,alignment: .leading)
             
-            Toggle(isOn: $lessThan5) {
+            Toggle(isOn: $viewModel.lessThan5) {
                 Text("Menos de 5km")
                 
-                    .onChange(of: lessThan5) { newValue in
+                    .onChange(of: viewModel.lessThan5) { newValue in
                         if newValue {
-                            lessThan10 = false
-                            lessThan20 = false
+                            viewModel.lessThan10 = false
+                            viewModel.lessThan20 = false
                         }
                     }
                 
@@ -60,12 +52,12 @@ struct FiltersView: View {
             .padding(.top,20)
             .padding(.horizontal,20)
             
-            Toggle(isOn: $lessThan10) {
+            Toggle(isOn: $viewModel.lessThan10) {
                 Text("Menos de 10km")
-                    .onChange(of: lessThan10) { newValue in
+                    .onChange(of: viewModel.lessThan10) { newValue in
                         if newValue {
-                            lessThan5 = false
-                            lessThan20 = false
+                            viewModel.lessThan5 = false
+                            viewModel.lessThan20 = false
                         }
                     }
                 
@@ -73,12 +65,12 @@ struct FiltersView: View {
             .toggleStyle(SwitchToggleStyle(tint: .orange))
             .padding(.top,20)
             .padding(.horizontal,20)
-            Toggle(isOn: $lessThan20) {
+            Toggle(isOn: $viewModel.lessThan20) {
                 Text("Menos de 20km")
-                    .onChange(of: lessThan20) { newValue in
+                    .onChange(of: viewModel.lessThan20) { newValue in
                         if newValue {
-                            lessThan10 = false
-                            lessThan5 = false
+                            viewModel.lessThan10 = false
+                            viewModel.lessThan5 = false
                         }
                     }
             }
@@ -112,16 +104,16 @@ struct FiltersView: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity,alignment: .leading)
             
-            Toggle(isOn: $terneraIsOn) {
+            Toggle(isOn: $viewModel.terneraIsOn) {
                 Text("Ternera")
-                    .onChange(of: terneraIsOn) { newValue in
+                    .onChange(of: viewModel.terneraIsOn) { newValue in
                         if newValue {
-                            chikenIsOn = false
-                            porkIsOn = false
-                            bueyIsOn = false
-                            fishIsOn = false
-                            veganaIsOn = false
-                            vegetarianaIsOn = false
+                            viewModel.chikenIsOn = false
+                            viewModel.porkIsOn = false
+                            viewModel.bueyIsOn = false
+                            viewModel.fishIsOn = false
+                            viewModel.veganaIsOn = false
+                            viewModel.vegetarianaIsOn = false
                             
                         }
                     }
@@ -130,16 +122,16 @@ struct FiltersView: View {
             .padding(.top,20)
             .padding(.horizontal,20)
             
-            Toggle(isOn: $chikenIsOn) {
+            Toggle(isOn: $viewModel.chikenIsOn) {
                 Text("Pollo")
-                    .onChange(of: chikenIsOn) { newValue in
+                    .onChange(of: viewModel.chikenIsOn) { newValue in
                         if newValue {
-                            terneraIsOn = false
-                            porkIsOn = false
-                            bueyIsOn = false
-                            fishIsOn = false
-                            veganaIsOn = false
-                            vegetarianaIsOn = false
+                            viewModel.terneraIsOn = false
+                            viewModel.porkIsOn = false
+                            viewModel.bueyIsOn = false
+                            viewModel.fishIsOn = false
+                            viewModel.veganaIsOn = false
+                            viewModel.vegetarianaIsOn = false
                             
                         }
                     }
@@ -147,16 +139,16 @@ struct FiltersView: View {
             .toggleStyle(SwitchToggleStyle(tint: .orange))
             .padding(.top,20)
             .padding(.horizontal,20)
-            Toggle(isOn: $porkIsOn) {
+            Toggle(isOn: $viewModel.porkIsOn) {
                 Text("Cerdo")
-                    .onChange(of: porkIsOn) { newValue in
+                    .onChange(of: viewModel.porkIsOn) { newValue in
                         if newValue {
-                            terneraIsOn = false
-                            chikenIsOn = false
-                            bueyIsOn = false
-                            fishIsOn = false
-                            veganaIsOn = false
-                            vegetarianaIsOn = false
+                            viewModel.terneraIsOn = false
+                            viewModel.chikenIsOn = false
+                            viewModel.bueyIsOn = false
+                            viewModel.fishIsOn = false
+                            viewModel.veganaIsOn = false
+                            viewModel.vegetarianaIsOn = false
                             
                         }
                     }
@@ -165,16 +157,16 @@ struct FiltersView: View {
             .padding(.top,20)
             .padding(.horizontal,20)
             
-            Toggle(isOn: $bueyIsOn) {
+            Toggle(isOn: $viewModel.bueyIsOn) {
                 Text("Buey")
-                    .onChange(of: bueyIsOn) { newValue in
+                    .onChange(of: viewModel.bueyIsOn) { newValue in
                         if newValue {
-                            terneraIsOn = false
-                            chikenIsOn = false
-                            porkIsOn = false
-                            fishIsOn = false
-                            veganaIsOn = false
-                            vegetarianaIsOn = false
+                            viewModel.terneraIsOn = false
+                            viewModel.chikenIsOn = false
+                            viewModel.porkIsOn = false
+                            viewModel.fishIsOn = false
+                            viewModel.veganaIsOn = false
+                            viewModel.vegetarianaIsOn = false
                             
                         }
                     }
@@ -183,16 +175,16 @@ struct FiltersView: View {
             .padding(.top,20)
             .padding(.horizontal,20)
             
-            Toggle(isOn: $fishIsOn) {
+            Toggle(isOn: $viewModel.fishIsOn) {
                 Text("Pescado")
-                    .onChange(of: fishIsOn) { newValue in
+                    .onChange(of: viewModel.fishIsOn) { newValue in
                         if newValue {
-                            terneraIsOn = false
-                            chikenIsOn = false
-                            porkIsOn = false
-                            bueyIsOn = false
-                            veganaIsOn = false
-                            vegetarianaIsOn = false
+                            viewModel.terneraIsOn = false
+                            viewModel.chikenIsOn = false
+                            viewModel.porkIsOn = false
+                            viewModel.bueyIsOn = false
+                            viewModel.veganaIsOn = false
+                            viewModel.vegetarianaIsOn = false
                             
                         }
                     }
@@ -201,16 +193,16 @@ struct FiltersView: View {
             .padding(.top,20)
             .padding(.horizontal,20)
             
-            Toggle(isOn: $veganaIsOn) {
+            Toggle(isOn: $viewModel.veganaIsOn) {
                 Text("Vegana")
-                    .onChange(of: veganaIsOn) { newValue in
+                    .onChange(of: viewModel.veganaIsOn) { newValue in
                         if newValue {
-                            terneraIsOn = false
-                            chikenIsOn = false
-                            porkIsOn = false
-                            bueyIsOn = false
-                            fishIsOn = false
-                            vegetarianaIsOn = false
+                            viewModel.terneraIsOn = false
+                            viewModel.chikenIsOn = false
+                            viewModel.porkIsOn = false
+                            viewModel.bueyIsOn = false
+                            viewModel.fishIsOn = false
+                            viewModel.vegetarianaIsOn = false
                             
                         }
                     }
@@ -219,16 +211,16 @@ struct FiltersView: View {
             .padding(.top,20)
             .padding(.horizontal,20)
             
-            Toggle(isOn: $vegetarianaIsOn) {
+            Toggle(isOn: $viewModel.vegetarianaIsOn) {
                 Text("Vegetariana")
-                    .onChange(of: vegetarianaIsOn) { newValue in
+                    .onChange(of: viewModel.vegetarianaIsOn) { newValue in
                         if newValue {
-                            terneraIsOn = false
-                            chikenIsOn = false
-                            porkIsOn = false
-                            bueyIsOn = false
-                            fishIsOn = false
-                            veganaIsOn = false
+                            viewModel.terneraIsOn = false
+                            viewModel.chikenIsOn = false
+                            viewModel.porkIsOn = false
+                            viewModel.bueyIsOn = false
+                            viewModel.fishIsOn = false
+                            viewModel.veganaIsOn = false
                             
                         }
                     }

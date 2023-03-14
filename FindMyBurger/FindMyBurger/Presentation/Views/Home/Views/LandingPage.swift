@@ -276,18 +276,15 @@ struct LandingPage: View {
             }
             .padding(.top, 10)
             
-            VStack(spacing:15){
-                ScrollView(.horizontal) {
-                    HStack(spacing: 25) {
-                        ForEach(viewModel.restaurantsRecentlyAdded) { restaurant in
-                            NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
-                                RecentlyAddedView(item: restaurant)
-                                    .frame(width: 350, height: 240)
-                            })
-                        }
+            ScrollView(.vertical) {
+                VStack(spacing: 25) {
+                    ForEach(viewModel.restaurantsRecentlyAdded) { restaurant in
+                        NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
+                            RecentlyAddedView(item: restaurant)
+                                .frame(width: 350, height: 240)
+                        })
                     }
                 }
-                
             }
         }
     }

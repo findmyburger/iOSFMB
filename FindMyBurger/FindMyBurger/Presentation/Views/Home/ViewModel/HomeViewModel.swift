@@ -124,11 +124,9 @@ class HomeViewModel: ObservableObject{
             
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
-            restaurantsRecentlyAdded = restaurantsNotNil.flatMap({
-                $0.compactMap({ restaurantsNotFiltered in
+            restaurantsRecentlyAdded = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
                     return RestaurantPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", address: restaurantsNotFiltered.address ?? "", rate: restaurantsNotFiltered.rate ?? 0)
                 })
-            })
             
         } catch {
             self.onError(error: error.localizedDescription)

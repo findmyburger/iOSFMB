@@ -15,7 +15,7 @@ struct HomeResponseModel: Decodable{
 struct RecentlyAddedResponseModel: Decodable{
     let status: Int?
     let message: String?
-    let data: [[DataHomeResponseModel]]?
+    let data: [DataHomeResponseModel]?
 }
 
 struct DataHomeResponseModel: Decodable{

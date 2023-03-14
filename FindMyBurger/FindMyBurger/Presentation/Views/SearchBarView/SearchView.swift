@@ -10,7 +10,6 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var viewModel: ViewModel
-    @ObservedObject var homeViewModel = HomeViewModel()
     var animation: Namespace.ID
     @Binding var searchActivated: Bool
     @FocusState var startTF: Bool
@@ -34,17 +33,15 @@ struct SearchView: View {
             Color("Home")
                 .ignoresSafeArea()
         )
+        .onDisappear {
+            searchActivated = false
+        }
         //        .onAppear{
         //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
         //                startTF = true
         //            }
         //        }
         
-        
-        .onAppear {
-            viewModel.handleSearchText()
-            homeViewModel.getAllRestaurants()
-        }
         
     }
     
@@ -53,50 +50,49 @@ struct SearchView: View {
     
     @ViewBuilder private var filterResults: some View {
         
-        if let items = viewModel.searchedProducts {
-            if items.isEmpty {
-                // No results Found
+        if viewModel.filteredRestaurants.isEmpty {
+            
+            // No results Found
+            
+            VStack(spacing:10) {
+                Image("nodata")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .aspectRatio( contentMode: .fit)
+                    .padding(.top,60)
                 
-                VStack(spacing:10) {
-                    Image("nodata")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .aspectRatio( contentMode: .fit)
-                        .padding(.top,60)
-                    
-                    Text("No se han encontrado resultados con tu busqueda")
-                        .font(.custom("Inter-SemiBold", size: 17))
-                    
-                    Text("Intenta buscar otra hamburgueseria")
-                        .font(.custom("Inter-Regular", size: 15))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal,30)
-                }
-                .padding()
-            } else {
-                ScrollView(.vertical, showsIndicators: false){
-                    VStack(spacing:25){
-                        Text("Se han encontrado \(items.count) restaurantes ")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .padding(.horizontal)
-                            .foregroundColor(Color("Black"))
-                            .padding(.top , 20)
-                        ForEach(homeViewModel.restaurants) { restaurant in
-                            NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
-                                RecommendedItemsView(item: restaurant)
-                            })
-                        }
+                Text("No se han encontrado resultados con tu busqueda")
+                    .font(.custom("Inter-SemiBold", size: 17))
+                
+                Text("Intenta buscar otra hamburgueseria")
+                    .font(.custom("Inter-Regular", size: 15))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal,30)
+            }
+            .padding()
+        } else {
+            ScrollView(.vertical, showsIndicators: false){
+                LazyVStack(spacing:25){
+                    Text("Se han encontrado \(viewModel.filteredRestaurants.count) restaurantes ")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.horizontal)
+                        .foregroundColor(Color("Black"))
+                        .padding(.top , 20)
+                    ForEach(viewModel.filteredRestaurants) { restaurant in
+                        NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
+                            RecommendedItemsView(item: restaurant)
+                        })
                     }
                 }
             }
-            
-        } else {
-            ProgressView()
-                .padding(.top , 30)
-                .opacity(viewModel.searchText.isEmpty ? 0 : 1)
         }
+        //        else {
+        //            ProgressView()
+        //                .padding(.top , 30)
+        //                .opacity(viewModel.searchText.isEmpty ? 0 : 1)
+        //        }
         
     }
     
@@ -104,7 +100,7 @@ struct SearchView: View {
         HStack{
             Button{
                 withAnimation(.easeInOut){
-                    mode.wrappedValue.dismiss()
+                    searchActivated = false
                 }
             } label: {
                 
@@ -118,6 +114,9 @@ struct SearchView: View {
                     .foregroundColor(.gray)
                 
                 TextField("Buscar Restaurantes", text: $viewModel.searchText)
+                    .onChange(of: viewModel.searchText, perform: { newValue in
+                        viewModel.filterRestaurants()
+                    })
                     .focused($startTF)
                     .font(.custom("Inter-Regular", size: 18))
                     .foregroundColor(Color("Black"))

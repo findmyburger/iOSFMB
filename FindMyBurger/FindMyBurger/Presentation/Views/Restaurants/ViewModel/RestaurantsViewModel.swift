@@ -16,17 +16,17 @@ class RestaurantsViewModel: ObservableObject{
     @Published var favourite = false
     @Published var likedHamburgers: [RestaurantPresentationModel] = []
     
-    func getDishesOfRestaurants() {
-
+    func getDishesOfRestaurants(id: Int) {
+        
         //baseUrl + endpoint
-        let url = "http://127.0.0.1:8000/api/restaurants/show"
+        let url = "http://127.0.0.1:8000/api/restaurants/show/\(id)"
         // petición
-        NetworkHelper.shared.requestProvider(url: url, type: .POST) { data, response, error in
+        NetworkHelper.shared.requestProvider(url: url, type: .GET) { data, response, error in
             if let error = error {
                 self.onError(error: error.localizedDescription)
             } else if let data = data, let response = response as? HTTPURLResponse {
                 if response.statusCode == 200 { // esto daria ok
-                    //self.onSuccess(data: data)
+                    self.onSuccess(data: data)
                 } else { // esto daria error
                     self.onError(error: error?.localizedDescription ?? "Request Error")
                 }
@@ -46,10 +46,10 @@ class RestaurantsViewModel: ObservableObject{
         } catch {
             self.onError(error: error.localizedDescription)
         }
-
+        
     }
     func addRestaurantToFavourite(from id: Int) {
-
+        
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/users/addRestaurantToFavourite"
         
@@ -71,7 +71,7 @@ class RestaurantsViewModel: ObservableObject{
     }
     
     func deleteFavouriteRestaurant(from id: Int) {
-
+        
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/users/deleteRestaurantInFavourite"
         
@@ -91,9 +91,6 @@ class RestaurantsViewModel: ObservableObject{
             }
         }
     }
-
-    
-    
     func onError(error: String) {
         print(error)
     }

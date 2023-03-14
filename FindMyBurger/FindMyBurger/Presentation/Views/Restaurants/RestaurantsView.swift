@@ -23,27 +23,28 @@ struct RestaurantsView: View {
                 //Adding Matched Geometry Effect
                 imageRestaurant
             }
-            .frame(height: getRect().height / 2.7)
             
             //Restaurant Details
-            ScrollView(.vertical,showsIndicators: false){
                 
-                header
-                
-            }
+            header
+            dishesOfRestaurant
+            mapsButton
+            
             .frame(maxWidth: .infinity,maxHeight:.infinity)
             .background(
-                Color.white
+                Color("White")
                 //Corner Radius for only Top side
                     .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 25))
                     .ignoresSafeArea()
             )
         }
         .navigationBarBackButtonHidden(true)
-        .background(Color("Gray").ignoresSafeArea())
-        
+        .background(Color.white.ignoresSafeArea())
+        .onAppear {
+            viewModel.getDishesOfRestaurants(id: item.id)
+        }
     }
-    
+
     private var header: some View{
         VStack(alignment: .leading, spacing: 15){
             
@@ -113,27 +114,41 @@ struct RestaurantsView: View {
     private var imageRestaurant: some View{
         KFImage(URL(string: item.image ))
             .resizable()
-            .aspectRatio( contentMode: .fit)
+            .aspectRatio( contentMode: .fill)
             .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
             .cornerRadius(10)
-            .frame(width: 404,height: 242)
+            .frame(width: 324,height: 262)
+            .padding(.bottom)
+            .padding(.top,20)
+        
     }
     private var dishesOfRestaurant: some View{
-        VStack(alignment: .leading , spacing: 15){
             
-            ScrollView(.horizontal, showsIndicators: false, content: {
-                HStack(spacing: 25) {
-                    ForEach(viewModel.dishes) { restaurant in
-                        NavigationLink(destination: DetailDishesView(item: restaurant), label: {
-                            DishesItemView(item: restaurant)
+            ScrollView(.vertical) {
+                VStack(spacing: 25) {
+                    ForEach(viewModel.dishes) { dish in
+                        NavigationLink(destination: DetailDishesView(item: dish), label: {
+                            DishesItemView(item: dish)
                         })
                     }
                 }
-                .padding(.leading)
-            })
-        }
-        
+            }
     }
+    
+    private var mapsButton: some View{
+        
+        Button(){
+            
+        } label: {
+            
+            Image("direction")
+                .resizable()
+        }
+        .padding(.top,20)
+        .padding(.bottom,20)
+        //.frame(width: 285, height: 40)
+    }
+    
 }
 struct RestaurantsView_Previews: PreviewProvider {
     static var previews: some View {
