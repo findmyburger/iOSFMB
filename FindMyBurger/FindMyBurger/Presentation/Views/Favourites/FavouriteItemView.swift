@@ -34,8 +34,6 @@ struct FavouriteItemView: View {
                 .resizable()
                 .frame(width: 280 , height: 220)
                 .cornerRadius(20)
-                //.padding(.top, 6)
-            
             
             Text(item.name)
                 .font(.custom("Inter-Regular", size: 13))

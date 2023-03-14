@@ -42,8 +42,3 @@ struct DishesCardView: View {
     }
 }
 
-//struct DishesCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//    }
-//}

@@ -19,7 +19,6 @@ struct ProfileView: View {
                 CustomTitle(title: "Mi perfil")
                     .padding(.top,20)
                     .padding(.bottom, 15)
-                //.padding(.horizontal, 80)
                 HStack(){
                     Spacer()
                     Image("configuracion")

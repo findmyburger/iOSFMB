@@ -17,8 +17,8 @@ struct DataDishesResponseModel: Decodable{
     let id: Int?
     let name: String?
     let image: String?
-    let price: Int?
+    let price: Float?
     let ingredients: String?
     let burgerType: String?
-    let foreigngId: Int?
+    let restaurant_id: Int?
 }

@@ -19,23 +19,24 @@ struct RestaurantCard: View {
     
     var body: some View {
 
-        VStack(spacing:5) {
+        VStack(spacing: 5) {
             
             Button {
-                favourite.toggle()
-                if favourite{
-                    //viewModel.deleteFavourite()
+                    
+                viewModel.favourite.toggle()
+                if viewModel.favourite{
+                    viewModel.addRestaurantToFavourite(from: item.id)
                 }else{
-                    //viewModel.addFavourite()
+                    viewModel.deleteFavouriteRestaurant(from: item.id)
                 }
                 
+
             } label: {
                 HStack{
                     Spacer()
-                    Image(self.favourite ? "RedHearth" : "WhiteHearth")
+                    Image(viewModel.favourite ? "RedHeart" : "WhiteHeart")
                         .resizable()
                         .frame(width: 30, height: 30)
-                        .padding()
                     }
             }
             
@@ -45,7 +46,7 @@ struct RestaurantCard: View {
                 .cornerRadius(20)
                 .padding(.top,6)
             
-            HStack{
+            HStack {
                 VStack{
                     HStack{
                         Text(item.name)
@@ -61,22 +62,21 @@ struct RestaurantCard: View {
                     }
                 }
                 Spacer()
-                    
+
                 Image("Stars")
                     .resizable()
                     .frame(width: 15, height: 15)
                     .padding(.horizontal,4)
-                
+
                 Text("\(item.rate)".trimmingCharacters(in: ["0"]))
                     .fontWeight(.semibold)
-                    
-                
+
+
             }
-            
         }
         .padding()
         .background(Color.white)
         .cornerRadius(25)
-        .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
+        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 3 , y: 3)
     }
 }

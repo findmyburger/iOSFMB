@@ -52,6 +52,8 @@
 		9041E86A29B25108006988AB /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041E86929B25108006988AB /* FiltersView.swift */; };
 		9041E87629B76559006988AB /* DetailDishesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041E87529B76559006988AB /* DetailDishesView.swift */; };
 		9041E87829B7B872006988AB /* SearchView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041E87729B7B872006988AB /* SearchView-ViewModel.swift */; };
+		9041E88229BE108C006988AB /* DishesItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041E88129BE108C006988AB /* DishesItemView.swift */; };
+		9041E88429BF1B09006988AB /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9041E88329BF1B09006988AB /* FiltersViewModel.swift */; };
 		904585F129B00325004C7224 /* DishesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F029B00325004C7224 /* DishesPresentationModel.swift */; };
 		904585F329B0EF8A004C7224 /* DishesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F229B0EF8A004C7224 /* DishesResponseModel.swift */; };
 		904585F829B0F3C9004C7224 /* RestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904585F729B0F3C9004C7224 /* RestaurantsView.swift */; };
@@ -125,6 +127,8 @@
 		9041E86929B25108006988AB /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		9041E87529B76559006988AB /* DetailDishesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDishesView.swift; sourceTree = "<group>"; };
 		9041E87729B7B872006988AB /* SearchView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchView-ViewModel.swift"; sourceTree = "<group>"; };
+		9041E88129BE108C006988AB /* DishesItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesItemView.swift; sourceTree = "<group>"; };
+		9041E88329BF1B09006988AB /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		904585F029B00325004C7224 /* DishesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesPresentationModel.swift; sourceTree = "<group>"; };
 		904585F229B0EF8A004C7224 /* DishesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesResponseModel.swift; sourceTree = "<group>"; };
 		904585F729B0F3C9004C7224 /* RestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsView.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		3306EAEA2991721200427606 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9041E87A29BE0B12006988AB /* Filters */,
+				9041E87929BE0ADD006988AB /* SearchBarView */,
 				9041E87429B7652C006988AB /* Dishes */,
 				3311D34029B27E4B00B70DFA /* Splash */,
 				3372FBF729B25FFF0057669B /* Mapa */,
@@ -212,12 +218,11 @@
 		3306EAF5299176AA00427606 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9041E87E29BE0BCB006988AB /* TabBar */,
 				9041E87329B760B1006988AB /* ViewModel */,
 				90F9E8D229A7EBB7005DAE7A /* Views */,
 				90E75493299D94FB006D581B /* Model */,
 				3306EAF6299176B600427606 /* HomeView.swift */,
-				90E7548D299D9372006D581B /* LandingPage.swift */,
-				90E7548F299D9411006D581B /* CustomTabBar.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -344,7 +349,6 @@
 		33E1637829917F7300CE6D89 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				33C0FA8829A54CC700B03949 /* Models */,
 				33E1637D2991805000CE6D89 /* Components */,
 				330832C92971CDF100CA9EA8 /* FindMyBurgerApp.swift */,
 				3306EAEA2991721200427606 /* Views */,
@@ -424,19 +428,81 @@
 			path = Dishes;
 			sourceTree = "<group>";
 		};
-		904585E929B0005F004C7224 /* Restaurant */ = {
+		9041E87929BE0ADD006988AB /* SearchBarView */ = {
 			isa = PBXGroup;
 			children = (
+				9041E87C29BE0B57006988AB /* Views */,
+				9041E87B29BE0B40006988AB /* ViewModel */,
+				90E754B129A692E1006D581B /* SearchView.swift */,
 			);
-			path = Restaurant;
+			path = SearchBarView;
+			sourceTree = "<group>";
+		};
+		9041E87A29BE0B12006988AB /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				9041E86929B25108006988AB /* FiltersView.swift */,
+				9041E88329BF1B09006988AB /* FiltersViewModel.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		9041E87B29BE0B40006988AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9041E87729B7B872006988AB /* SearchView-ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9041E87C29BE0B57006988AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90F9E8D329AD8836005DAE7A /* ItemSearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9041E87D29BE0B8C006988AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				904585F929B0F495004C7224 /* RestaurantsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9041E87E29BE0BCB006988AB /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				90E7548F299D9411006D581B /* CustomTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		9041E87F29BE0C18006988AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				90E75481299BEDBE006D581B /* ChangePassViewModel.swift */,
+				90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9041E88029BE0C29006988AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90E7548B299BFBDA006D581B /* ChangePassView.swift */,
+				90E75489299BFBC8006D581B /* SendEmailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		904585F429B0F1E0004C7224 /* Restaurants */ = {
 			isa = PBXGroup;
 			children = (
+				9041E87D29BE0B8C006988AB /* ViewModel */,
 				904585FB29B0F54E004C7224 /* Views */,
 				904585F729B0F3C9004C7224 /* RestaurantsView.swift */,
-				904585F929B0F495004C7224 /* RestaurantsViewModel.swift */,
 			);
 			path = Restaurants;
 			sourceTree = "<group>";
@@ -446,6 +512,7 @@
 			children = (
 				904585FC29B0F56D004C7224 /* RestaurantHeaderView.swift */,
 				9045860029B0F5D2004C7224 /* DishesCardView.swift */,
+				9041E88129BE108C006988AB /* DishesItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,11 +520,8 @@
 		90E7547A299BE755006D581B /* RecoverPass */ = {
 			isa = PBXGroup;
 			children = (
-				904585E929B0005F004C7224 /* Restaurant */,
-				90E7547D299BE7F0006D581B /* SendEmailViewModel.swift */,
-				90E75481299BEDBE006D581B /* ChangePassViewModel.swift */,
-				90E75489299BFBC8006D581B /* SendEmailView.swift */,
-				90E7548B299BFBDA006D581B /* ChangePassView.swift */,
+				9041E88029BE0C29006988AB /* Views */,
+				9041E87F29BE0C18006988AB /* ViewModel */,
 			);
 			path = RecoverPass;
 			sourceTree = "<group>";
@@ -466,7 +530,6 @@
 			isa = PBXGroup;
 			children = (
 				90E75494299D953D006D581B /* Category.swift */,
-				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +537,8 @@
 		90F9E8D129A7E7A3005DAE7A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
+				33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */,
 				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
 				904585F029B00325004C7224 /* DishesPresentationModel.swift */,
 				3372FBFF29B280210057669B /* LocationsPresentationModel.swift */,
@@ -484,12 +549,9 @@
 		90F9E8D229A7EBB7005DAE7A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				90E754B129A692E1006D581B /* SearchView.swift */,
-				9041E87729B7B872006988AB /* SearchView-ViewModel.swift */,
+				90E7548D299D9372006D581B /* LandingPage.swift */,
 				90E7549C299D970C006D581B /* RecentlyAddedView.swift */,
 				90E7549A299D9666006D581B /* RecommendedItemsView.swift */,
-				90F9E8D329AD8836005DAE7A /* ItemSearchView.swift */,
-				9041E86929B25108006988AB /* FiltersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -582,8 +644,10 @@
 				3306EAF7299176B600427606 /* HomeView.swift in Sources */,
 				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
 				3372FBF929B260290057669B /* MapViewRepresentable.swift in Sources */,
+				9041E88429BF1B09006988AB /* FiltersViewModel.swift in Sources */,
 				90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */,
 				90E754A3299EAC17006D581B /* HomeResponseModel.swift in Sources */,
+				9041E88229BE108C006988AB /* DishesItemView.swift in Sources */,
 				33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */,
 				3306EAF42991755D00427606 /* RegisterViewModel.swift in Sources */,
 				33AB4985299ABF7900FDF71F /* EditProfileView.swift in Sources */,

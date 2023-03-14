@@ -12,72 +12,39 @@ struct RestaurantsView: View {
     var item: RestaurantPresentationModel
     var animation: Namespace.ID
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @ObservedObject var viewModel = RestaurantsViewModel()
     
     var body: some View {
         VStack {
             
             //Title bar and Restaurant Image
             VStack{
-                HStack{
-                    Button{
-                        withAnimation(.easeInOut){
-                            mode.wrappedValue.dismiss()
-                        }
-                    } label: {
-                        
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                            .foregroundColor(Color.black.opacity(0.7))
-                    }
-                    Spacer()
-                    
-                    Button {
-                        
-                    } label: {
-                        Image("heart")
-                            .renderingMode(.template)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 22, height: 22)
-                            .foregroundColor(Color.black.opacity(0.7))
-                    }
-                }
-                .padding()
+               itemNav
                 //Adding Matched Geometry Effect
-                KFImage(URL(string: item.image ))
-                    .resizable()
-                    .aspectRatio( contentMode: .fit)
-                    .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
-                //                    .padding(.horizontal)
-                //  .offset(y: -12)
-                    .cornerRadius(10)
-                    .frame(width: 404,height: 242)
-                
+                imageRestaurant
             }
-            //.frame(height: getRect().height / 2.7)
             
             //Restaurant Details
-            ScrollView(.vertical,showsIndicators: false){
                 
-                header
-                
-            }
+            header
+            dishesOfRestaurant
+            //mapsButton
+            
             .frame(maxWidth: .infinity,maxHeight:.infinity)
             .background(
-                Color.white
+                Color("White")
                 //Corner Radius for only Top side
-                
                     .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 25))
                     .ignoresSafeArea()
-                
-                
             )
         }
         .navigationBarBackButtonHidden(true)
-        .background(Color("Gray").ignoresSafeArea())
-        
+        .background(Color.white.ignoresSafeArea())
+        .onAppear {
+            viewModel.getDishesOfRestaurants(id: item.id)
+        }
     }
-    
+
     private var header: some View{
         VStack(alignment: .leading, spacing: 15){
             
@@ -111,6 +78,76 @@ struct RestaurantsView: View {
             
         }
     }
+    private var itemNav: some View{
+        HStack{
+            Button{
+                withAnimation(.easeInOut){
+                    mode.wrappedValue.dismiss()
+                }
+            } label: {
+                
+                Image(systemName: "arrow.left")
+                    .font(.title2)
+                    .foregroundColor(Color.black.opacity(0.7))
+            }
+            Spacer()
+            
+            Button {
+                
+                //addTofavorite()
+                viewModel.favourite.toggle()
+                if viewModel.favourite{
+                    viewModel.addRestaurantToFavourite(from: item.id)
+                }else{
+                    viewModel.deleteFavouriteRestaurant(from: item.id)
+                }
+            } label: {
+                Image(viewModel.favourite ? "RedHeart" : "WhiteHeart")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding()
+                
+            }
+        }
+        .padding()
+    }
+    private var imageRestaurant: some View{
+        KFImage(URL(string: item.image ))
+            .resizable()
+            .aspectRatio( contentMode: .fill)
+            .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
+            .cornerRadius(10)
+            .frame(width: 324,height: 262)
+            .padding(.bottom)
+            .padding(.top,20)
+        
+    }
+    private var dishesOfRestaurant: some View{
+            
+            ScrollView(.vertical) {
+                VStack(spacing: 25) {
+                    ForEach(viewModel.dishes) { dish in
+                        NavigationLink(destination: DetailDishesView(item: dish), label: {
+                            DishesItemView(item: dish)
+                        })
+                    }
+                }
+            }
+    }
+    
+    private var mapsButton: some View{
+        
+        Button(){
+            
+        } label: {
+            
+            Image("direction")
+                .resizable()
+        }
+        .padding(.top,20)
+        .padding(.bottom,20)
+    }
+    
 }
 struct RestaurantsView_Previews: PreviewProvider {
     static var previews: some View {

@@ -12,9 +12,8 @@ struct LandingPage: View {
     @ObservedObject var viewModel = HomeViewModel()
     @State var searchText = ""
     @Namespace var animation
-    //@Binding var selectedCategory: Category
     @State var showDetailProduct: Bool = false
-    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     // MARK: - Accessory Views
     
     var body: some View {
@@ -35,7 +34,6 @@ struct LandingPage: View {
             viewModel.getRecentlyAdded()
             viewModel.getAllRestaurants()
         }
-        //.padding(.horizontal)
     }
     
     // MARK: - Accessory Views
@@ -66,17 +64,15 @@ struct LandingPage: View {
                     
                     tabView
                         .padding(.top, 10)
-                    //Categorys
                         .padding(.vertical)
                     
                     recommended
-                    RecentlyAdded
+                    recentlyAdded
                         .padding(.horizontal)
                     
                 }
             }
         }
-        //.padding(.horizontal)
         .background(Color.black.opacity(0.03).ignoresSafeArea())
     }
     
@@ -110,7 +106,7 @@ struct LandingPage: View {
             
             Button(action:  {
                 
-                
+                viewModel.shouldShowSettings = true
             })
             {
                 Image("configuracion")
@@ -118,9 +114,11 @@ struct LandingPage: View {
                     .frame(width: 20,height: 20)
                     .opacity(0.5)
             }
-            NavigationLink(destination: SettingsView()) {
-                EmptyView()
-            }
+            .background(
+                NavigationLink(destination: SettingsView(), isActive: $viewModel.shouldShowSettings) {
+                    EmptyView()
+                }
+            )
         }
         .padding(.vertical)
     }
@@ -166,51 +164,6 @@ struct LandingPage: View {
         }
     }
     
-    //    private var Categorys: some View{
-    //        VStack(alignment: .leading , spacing: 15){
-    //            Text("Categorias")
-    //                .font(.title)
-    //                .fontWeight(.bold)
-    //                .padding(.horizontal)
-    //                .padding(.bottom)
-    //                .foregroundColor(Color("Black"))
-    //
-    //            ScrollView(.horizontal, showsIndicators:  false, content: {
-    //
-    //                HStack(spacing: 15){
-    //
-    //                    ForEach(categories){ Category in
-    //
-    //                        HStack(spacing: 12){
-    //
-    //                            Image(Category.image)
-    //                                .resizable()
-    //                                .aspectRatio( contentMode: .fit)
-    //                                .frame(width: 18, height: 18)
-    //                                .padding(6)
-    //                                .background(selectedCategory.id == Category.id ? Color.white : Color.clear)
-    //                                .clipShape(Circle())
-    //
-    //                            Text(Category.title)
-    //                                .fontWeight(.bold)
-    //                                .foregroundColor(selectedCategory.id == Category.id ? .white: .black)
-    //                        }
-    //                        .padding(.vertical,12)
-    //                        .padding(.horizontal)
-    //                        .background(selectedCategory.id == Category.id ? Color("Naranja") : Color.gray.opacity(0.06))
-    //                        .clipShape(Capsule())
-    //                        .shadow(color: Color.black.opacity(0.05) , radius: 5, x: 5, y: 5)
-    //                        .onTapGesture {
-    //                            withAnimation(.spring()){
-    //                                selectedCategory = Category
-    //                            }
-    //                        }
-    //                    }
-    //                }
-    //                .padding(.horizontal)
-    //            })
-    //        }
-    //    }
     @ViewBuilder
     var recommended: some View {
         VStack(alignment: .leading , spacing: 15){
@@ -263,7 +216,7 @@ struct LandingPage: View {
     }
     
     @ViewBuilder
-    private var RecentlyAdded: some View{
+    private var recentlyAdded: some View{
         VStack(alignment: .leading , spacing: 15){
             HStack{
                 Text("Agregado recientemente")
@@ -274,18 +227,22 @@ struct LandingPage: View {
                 
                 Spacer()
             }
-            .padding(.top,10)
-            VStack(spacing:15){
-                HStack(spacing: 25) {
+            .padding(.top, 10)
+            
+            ScrollView(.vertical) {
+                VStack(spacing: 25) {
                     ForEach(viewModel.restaurantsRecentlyAdded) { restaurant in
                         NavigationLink(destination: RestaurantsView(item: restaurant, animation: animation), label: {
-                            RecommendedItemsView(item: restaurant)
+                            RecentlyAddedView(item: restaurant)
+                                .frame(width: 350, height: 240)
                         })
                     }
                 }
-                
             }
         }
+    }
+    func dismiss(){
+        mode.wrappedValue.dismiss()
     }
 }
 
