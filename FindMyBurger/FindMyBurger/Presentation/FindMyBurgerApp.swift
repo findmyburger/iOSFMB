@@ -14,6 +14,7 @@ struct FindMyBurgerApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
+                .environmentObject(locationViewModel)
         }
     }
 }
