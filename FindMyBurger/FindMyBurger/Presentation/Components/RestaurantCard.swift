@@ -22,17 +22,19 @@ struct RestaurantCard: View {
         VStack(spacing: 5) {
             
             Button {
-                favourite.toggle()
-//                if favourite{
-//                    viewModel.addRestaurantToFavourite()
-//                }else{
-//                    viewModel.deleteFavouriteRestaurant()
-//                }
+                    
+                viewModel.favourite.toggle()
+                if viewModel.favourite{
+                    viewModel.addRestaurantToFavourite(from: item.id)
+                }else{
+                    viewModel.deleteFavouriteRestaurant(from: item.id)
+                }
+                
 
             } label: {
                 HStack{
                     Spacer()
-                    Image(self.favourite ? "RedHeart" : "WhiteHeart")
+                    Image(viewModel.favourite ? "RedHeart" : "WhiteHeart")
                         .resizable()
                         .frame(width: 30, height: 30)
                     }
