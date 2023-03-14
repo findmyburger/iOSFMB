@@ -490,7 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				90E75494299D953D006D581B /* Category.swift */,
-				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,6 +497,7 @@
 		90F9E8D129A7E7A3005DAE7A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				90E75498299D95FB006D581B /* RecentlyAdded.swift */,
 				33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */,
 				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
 				904585F029B00325004C7224 /* DishesPresentationModel.swift */,

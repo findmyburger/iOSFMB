@@ -36,13 +36,6 @@ struct SearchView: View {
         .onDisappear {
             searchActivated = false
         }
-        //        .onAppear{
-        //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-        //                startTF = true
-        //            }
-        //        }
-        
-        
     }
     
     
@@ -88,11 +81,6 @@ struct SearchView: View {
                 }
             }
         }
-        //        else {
-        //            ProgressView()
-        //                .padding(.top , 30)
-        //                .opacity(viewModel.searchText.isEmpty ? 0 : 1)
-        //        }
         
     }
     

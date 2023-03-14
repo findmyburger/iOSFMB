@@ -10,7 +10,6 @@ import SwiftUI
 struct RestaurantHeaderView: View {
     var item: RestaurantPresentationModel
     @ObservedObject var restaurantData = RestaurantsViewModel()
-    //@Binding var selectedCategory: Category
     var body: some View {
         
         VStack(alignment: .leading, spacing: 10){
@@ -97,8 +96,4 @@ struct RestaurantHeaderView: View {
     
 }
 
-//struct RestaurantHeaderView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        //RestaurantsView()
-//    }
-//}
+

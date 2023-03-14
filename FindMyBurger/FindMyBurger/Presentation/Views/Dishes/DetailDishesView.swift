@@ -35,10 +35,7 @@ struct DetailDishesView: View {
             Text(item.name)
                 .padding(.top,10)
                 .font(.custom( "Inter-SemiBold", size: 22))
-                
         }
-        
-        
     }
     private var descriptionCard: some View{
         VStack{

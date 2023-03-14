@@ -23,7 +23,7 @@ struct RecentlyAddedView: View {
                     Spacer()
                     Text(item.name)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.black)
                 }
             }
             .padding(.bottom,30)

@@ -28,7 +28,7 @@ struct RestaurantsView: View {
                 
             header
             dishesOfRestaurant
-            mapsButton
+            //mapsButton
             
             .frame(maxWidth: .infinity,maxHeight:.infinity)
             .background(
@@ -146,7 +146,6 @@ struct RestaurantsView: View {
         }
         .padding(.top,20)
         .padding(.bottom,20)
-        //.frame(width: 285, height: 40)
     }
     
 }

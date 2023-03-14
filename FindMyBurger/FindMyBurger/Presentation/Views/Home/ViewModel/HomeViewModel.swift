@@ -18,6 +18,7 @@ class HomeViewModel: ObservableObject{
     @Published var shouldShowRestaurants = false
     @Published var alertText: String = ""
     @Published var shouldShowError: Bool = false
+    @Published var shouldShowSettings: Bool = false
     let userDefaults = UserDefaults.standard
     @Published var selectedIndex = 0
     
@@ -87,11 +88,6 @@ class HomeViewModel: ObservableObject{
         do {
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(HomeResponseModel?.self, from: data)
-            
-            //            userDefaults.set(restaurantsNotFiltered, forKey: "restaurants")
-            //
-            //            let savedRestaurants = userDefaults.array(forKey: "restaurants")
-            
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
             restaurants = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
@@ -120,8 +116,6 @@ class HomeViewModel: ObservableObject{
         do {
             // Convertimos a modelo de Data los datos que nos llegan
             let restaurantsNotFiltered = try JSONDecoder().decode(RecentlyAddedResponseModel?.self, from: data)
-            
-            
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
             restaurantsRecentlyAdded = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
