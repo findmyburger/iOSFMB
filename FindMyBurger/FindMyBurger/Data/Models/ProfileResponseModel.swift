@@ -15,7 +15,7 @@ struct ProfileResponseModel: Decodable {
 }
 
 struct DataProfileResponseModel: Decodable{
-    
+    let id: Int?
     let name: String?
     let email: String?
     let image: String?

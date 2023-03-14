@@ -119,7 +119,7 @@ struct SearchView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showFilters) {
-                FiltersView()
+                //FiltersView()
             }
             .padding(.vertical,12)
             .padding(.horizontal,20)

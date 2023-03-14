@@ -42,4 +42,3 @@ struct DishesCardView: View {
     }
 }
 
-

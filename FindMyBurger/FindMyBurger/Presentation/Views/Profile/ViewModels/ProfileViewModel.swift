@@ -24,9 +24,6 @@ class ProfileViewModel: ObservableObject {
 
     
 
-    func editName(){
-        
-    }
     
     func connectToAPI(){
         let url = "http://127.0.0.1:8000/api/users/getData"
@@ -51,7 +48,8 @@ class ProfileViewModel: ObservableObject {
             let profileResponse = try JSONDecoder().decode(ProfileResponseModel?.self, from: data)
 
             if profileResponse?.status == 200 {
-                user = ProfilePresentationModel(name: profileResponse?.data?.name ?? "",
+                user = ProfilePresentationModel(id: profileResponse?.data?.id ?? 0,
+                                                name: profileResponse?.data?.name ?? "",
                                                 email: profileResponse?.data?.email ?? "",
                                                 imageUrl: profileResponse?.data?.image ?? "")
                 
