@@ -26,6 +26,10 @@
 		33600CF0299FF0A90066EC3D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33600CEF299FF0A90066EC3D /* ProfileViewModel.swift */; };
 		33600CF2299FF0D70066EC3D /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33600CF1299FF0D70066EC3D /* EditProfileViewModel.swift */; };
 		336E2E7329A3F6EE00AA9DDC /* ProfileResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E2E7229A3F6EE00AA9DDC /* ProfileResponseModel.swift */; };
+		3372FBF929B260290057669B /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372FBF829B260290057669B /* MapViewRepresentable.swift */; };
+		3372FBFC29B262D70057669B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372FBFB29B262D70057669B /* LocationManager.swift */; };
+		3372FBFE29B278620057669B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372FBFD29B278620057669B /* LocationViewModel.swift */; };
+		3372FC0029B280210057669B /* LocationsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372FBFF29B280210057669B /* LocationsPresentationModel.swift */; };
 		33AB4985299ABF7900FDF71F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB4984299ABF7900FDF71F /* EditProfileView.swift */; };
 		33C0FA8A29A54CDE00B03949 /* ProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */; };
 		33C0FA8729A54BD300B03949 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 33C0FA8629A54BD300B03949 /* Kingfisher */; };
@@ -35,6 +39,7 @@
 		33D30F7C299FF4120027F4B8 /* SignOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */; };
 		33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */; };
 		33D3200F29A3C58200EC9DF9 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3200E29A3C58200EC9DF9 /* RestaurantCard.swift */; };
+		33D9C81629B7BA10006A332D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D9C81529B7BA10006A332D /* MapView.swift */; };
 		33DA5E3F29955A07003DEFD2 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */; };
 		33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */; };
 		33DE18E529B1233B0043EA8B /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */; };
@@ -96,6 +101,10 @@
 		33600CEF299FF0A90066EC3D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		33600CF1299FF0D70066EC3D /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		336E2E7229A3F6EE00AA9DDC /* ProfileResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseModel.swift; sourceTree = "<group>"; };
+		3372FBF829B260290057669B /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
+		3372FBFB29B262D70057669B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3372FBFD29B278620057669B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		3372FBFF29B280210057669B /* LocationsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsPresentationModel.swift; sourceTree = "<group>"; };
 		33AB4984299ABF7900FDF71F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		33C0FA8929A54CDE00B03949 /* ProfilePresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresentationModel.swift; sourceTree = "<group>"; };
 		33CD3C2C2992E2B400C0C1DE /* CustomTexfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexfield.swift; sourceTree = "<group>"; };
@@ -103,6 +112,7 @@
 		33D30F7B299FF4120027F4B8 /* SignOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutResponseModel.swift; sourceTree = "<group>"; };
 		33D3200C29A3C30800EC9DF9 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		33D3200E29A3C58200EC9DF9 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
+		33D9C81529B7BA10006A332D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		33DA5E3E29955A07003DEFD2 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		33DA5E4029957EC5003DEFD2 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		33DE18E429B1233B0043EA8B /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 			children = (
 				9041E87429B7652C006988AB /* Dishes */,
 				3311D34029B27E4B00B70DFA /* Splash */,
+				3372FBF729B25FFF0057669B /* Mapa */,
 				904585F429B0F1E0004C7224 /* Restaurants */,
 				33D3200B29A3C2DA00EC9DF9 /* Favourites */,
 				33501ED9299E9EE300EB1CFE /* Settings */,
@@ -230,6 +241,7 @@
 		330832C82971CDF100CA9EA8 /* FindMyBurger */ = {
 			isa = PBXGroup;
 			children = (
+				3372FBFA29B262C30057669B /* Managers */,
 				90F9E8D129A7E7A3005DAE7A /* Models */,
 				3306A3B529940DF900C2387D /* Info.plist */,
 				33E1637B29917FCE00CE6D89 /* Common */,
@@ -283,6 +295,24 @@
 				33600CF1299FF0D70066EC3D /* EditProfileViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3372FBF729B25FFF0057669B /* Mapa */ = {
+			isa = PBXGroup;
+			children = (
+				3372FBF829B260290057669B /* MapViewRepresentable.swift */,
+				3372FBFD29B278620057669B /* LocationViewModel.swift */,
+				33D9C81529B7BA10006A332D /* MapView.swift */,
+			);
+			path = Mapa;
+			sourceTree = "<group>";
+		};
+		3372FBFA29B262C30057669B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3372FBFB29B262D70057669B /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		33C0FA8829A54CC700B03949 /* Models */ = {
@@ -446,6 +476,7 @@
 			children = (
 				90E754AF29A3E5FA006D581B /* RestaurantPresentationModel.swift */,
 				904585F029B00325004C7224 /* DishesPresentationModel.swift */,
+				3372FBFF29B280210057669B /* LocationsPresentationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -542,6 +573,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3372FC0029B280210057669B /* LocationsPresentationModel.swift in Sources */,
 				9045860129B0F5D2004C7224 /* DishesCardView.swift in Sources */,
 				9041E86829B21E03006988AB /* CustomCorners.swift in Sources */,
 				90E75482299BEDBE006D581B /* ChangePassViewModel.swift in Sources */,
@@ -549,6 +581,7 @@
 				904585F329B0EF8A004C7224 /* DishesResponseModel.swift in Sources */,
 				3306EAF7299176B600427606 /* HomeView.swift in Sources */,
 				33E1637F2991807A00CE6D89 /* Logos.swift in Sources */,
+				3372FBF929B260290057669B /* MapViewRepresentable.swift in Sources */,
 				90E75480299BECB4006D581B /* SendEmailResponseModel.swift in Sources */,
 				90E754A3299EAC17006D581B /* HomeResponseModel.swift in Sources */,
 				33DA5E4129957EC5003DEFD2 /* LoginResponseModel.swift in Sources */,
@@ -571,17 +604,20 @@
 				90E7548A299BFBC8006D581B /* SendEmailView.swift in Sources */,
 				904585F129B00325004C7224 /* DishesPresentationModel.swift in Sources */,
 				33CD3C2D2992E2B400C0C1DE /* CustomTexfield.swift in Sources */,
+				3372FBFC29B262D70057669B /* LocationManager.swift in Sources */,
 				33600CF0299FF0A90066EC3D /* ProfileViewModel.swift in Sources */,
 				33DE18E529B1233B0043EA8B /* FavouritesViewModel.swift in Sources */,
 				336E2E7329A3F6EE00AA9DDC /* ProfileResponseModel.swift in Sources */,
 				904585F829B0F3C9004C7224 /* RestaurantsView.swift in Sources */,
 				33D3200D29A3C30800EC9DF9 /* FavouritesView.swift in Sources */,
 				33501EDF299EB10E00EB1CFE /* AboutUsView.swift in Sources */,
+				33D9C81629B7BA10006A332D /* MapView.swift in Sources */,
 				33D30F7A299FEC1A0027F4B8 /* SettingViewModel.swift in Sources */,
 				330832CC2971CDF100CA9EA8 /* ContentView.swift in Sources */,
 				904585FE29B0F56D004C7224 /* RestaurantHeaderView.swift in Sources */,
 				33D3200F29A3C58200EC9DF9 /* RestaurantCard.swift in Sources */,
 				3306EAF2299174D500427606 /* LoginView.swift in Sources */,
+				3372FBFE29B278620057669B /* LocationViewModel.swift in Sources */,
 				33501EDB299E9EF500EB1CFE /* SettingsView.swift in Sources */,
 				90E75490299D9411006D581B /* CustomTabBar.swift in Sources */,
 				90E7548E299D9372006D581B /* LandingPage.swift in Sources */,
@@ -730,6 +766,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMyBurger/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Por favor, concédenos acceso de tu ubicación para encontrar los restaurantes más cercanos a tu posición.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -759,6 +796,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMyBurger/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Por favor, concédenos acceso de tu ubicación para encontrar los restaurantes más cercanos a tu posición.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
