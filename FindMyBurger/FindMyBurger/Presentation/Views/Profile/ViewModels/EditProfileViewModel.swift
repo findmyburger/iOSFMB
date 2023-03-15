@@ -21,32 +21,27 @@ class EditProfileViewModel: ObservableObject {
     @Published var newPass = ""
     @Published var newPass_confirmation = ""
     
-
+    
     let userDefaults = UserDefaults.standard
-//
+    //
     @Published var alertText: String = ""
-
+    
     func editProfile(){
         //Comprobar si se ha elegido nombre o contraseña y rellenar el dictinary con eso.
-        if name.isEmpty || pass.isEmpty || newPass.isEmpty || newPass_confirmation.isEmpty{
-            shouldShowError = true
-            alertText = "Rellena todos los campos."
-            
-        }else{
-            
+        
         let url = "http://127.0.0.1:8000/api/users/updateData"
         
-            var dictionary: [String: Any] = [:]
+        var dictionary: [String: Any] = [:]
         
-            if !name.isEmpty{
-                dictionary = ["name": name]
-            }else{
-                dictionary = ["password": pass, "newPassword": newPass, "newPassword_corfimation": newPass_confirmation]
-            }
-            
-        connectToAPI(dictionary: dictionary, url: url)
+        if !name.isEmpty{
+            dictionary = ["name": name]
+        }else{
+            dictionary = ["password": pass, "newPassword": newPass, "newPassword_corfimation": newPass_confirmation]
         }
+        
+        connectToAPI(dictionary: dictionary, url: url)
     }
+    
     
     
     func connectToAPI(dictionary: [String: Any], url: String){
@@ -63,19 +58,19 @@ class EditProfileViewModel: ObservableObject {
         }
     }
     func onSuccess(_ data: Data) {
-
+        
         do{
             let editResponse = try JSONDecoder().decode(LoginResponseModel?.self, from: data)
-
+            
             if editResponse?.status == 200 {
                 
                 shouldShowProfile = true
-
+                
             }else{
                 shouldShowError = true
                 alertText = editResponse?.message ?? "No se pudo actualizar."
             }
-
+            
         } catch {
             self.onError(error: error.localizedDescription)
         }

@@ -85,7 +85,7 @@ struct EditProfileView: View {
                     .ignoresSafeArea()
             }
         }
-        //.navigationBarHidden(true)
+        .navigationBarHidden(true)
     }
     
     var editProfileButton: some View {
