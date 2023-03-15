@@ -11,6 +11,8 @@ import Kingfisher
 struct DetailDishesView: View {
     
     var item: DishesPresentationModel
+    @State var shouldShowAlert = false
+    
     var body: some View {
         
         ScrollView(.vertical ,showsIndicators: false){
@@ -20,6 +22,10 @@ struct DetailDishesView: View {
                 CustomLinearGradient()
                 descriptionCard
                 mapsButton
+                    .alert("En este preciso instante estamos en la fase de desarrollo de este apartado en concreto. Disculpe las molestias. Mientras tanto utilice Google Maps.", isPresented: $shouldShowAlert){
+                            Button("Cerrar", role: .cancel, action:{})
+                        
+                    }
             }
         }
     }
@@ -68,7 +74,7 @@ struct DetailDishesView: View {
     }
     private var mapsButton: some View{
         Button{
-            
+            shouldShowAlert.toggle()
         }label: {
             Image("direction")
         }

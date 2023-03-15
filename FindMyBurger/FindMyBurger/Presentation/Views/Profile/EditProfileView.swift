@@ -31,12 +31,7 @@ struct EditProfileView: View {
                     .padding(.bottom, 15)
                 
                 ZStack(alignment: .bottomTrailing) {
-                    //                    Image("imgProfile")
-                    //                        .resizable()
-                    //                        .aspectRatio(contentMode: .fill)
-                    //                        .frame(width: 150, height: 150)
-                    //                        .clipShape(Circle())
-                    
+
                     if let image = self.image {
                         Image(uiImage: image)
                             .resizable()

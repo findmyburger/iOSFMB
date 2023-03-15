@@ -16,7 +16,6 @@ class EditProfileViewModel: ObservableObject {
     @Published var shouldShowImagePicker: Bool = false
     @Published var isPresented: Bool = false
     @Published var shouldShowName: Bool = false
-    //@Published var userData: ProfilePresentationModel()
     @Published var name = ""
     @Published var pass = ""
     @Published var newPass = ""

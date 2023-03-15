@@ -14,6 +14,7 @@ struct SearchView: View {
     @Binding var searchActivated: Bool
     @FocusState var startTF: Bool
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @State var shouldShowAlert = false
     
     var body: some View {
         
@@ -23,6 +24,8 @@ struct SearchView: View {
             searchTextField
                 .padding(.horizontal)
                 .padding(.bottom)
+                
+            
             
             //Filter Results
             
@@ -111,15 +114,22 @@ struct SearchView: View {
                     .disableAutocorrection(true)
                 
                 Button(action: {
-                    viewModel.showFilters = true
+                    //In progress
+                    //viewModel.showFilters = true
+                    shouldShowAlert.toggle()
                 }){
                     Image("filtro")
                         .resizable()
                         .frame(width: 20, height: 20)
                 }
+                .alert("En este preciso instante estamos en la fase de desarrollo de este apartado en concreto. Disculpe las molestias.", isPresented: $shouldShowAlert){
+                        Button("Cerrar", role: .cancel, action:{})
+                    
+                }
+                
             }
             .sheet(isPresented: $viewModel.showFilters) {
-                //FiltersView()
+                FiltersView()
             }
             .padding(.vertical,12)
             .padding(.horizontal,20)
