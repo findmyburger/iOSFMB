@@ -11,35 +11,21 @@ import SwiftUI
 
 class FiltersViewModel: ObservableObject{
     
-    @Published var burgerType = ""
-    @Published var location = 0
-    @Published var price = 0
-
+    @Published  var terneraIsOn = false
+    @Published  var chikenIsOn = false
+    @Published  var bueyIsOn = false
+    @Published  var porkIsOn = false
+    @Published  var fishIsOn = false
+    @Published  var vegetarianaIsOn = false
+    @Published  var veganaIsOn = false
+    @Published  var lessThan5 = false
+    @Published  var lessThan10 = false
+    @Published  var lessThan20 = false
+    @Published  var selectedButton: Int? = nil
     
+    // MARK: - Public Methods
     
     func filterRestaurants() {
-        
-//        var dictionary: [String:Any]
-//
-//        if !burgerType.isEmpty {
-//            dictionary =
-//                [
-//                    "burgerType" = burgerType
-//                ]
-//        }
-//        if price != 0{
-//            dictionary =
-//                [
-//                    "price" = price
-//                ]
-//        }
-////        if location != 0 {
-////            dictionary =
-////                [
-////                    "radius" = burgerType
-////                ]
-////        }
-        
 
         //baseUrl + endpoint
         let url = "http://127.0.0.1:8000/api/restaurants/filterRestaurants"

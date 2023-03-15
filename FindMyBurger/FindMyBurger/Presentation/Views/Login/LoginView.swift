@@ -17,6 +17,7 @@ struct LoginView: View {
     @State var visible = false
     @State private var shouldShowRegister: Bool = false
     @State private var shouldShowRecoverPass: Bool = false
+    @State var shouldShowAlert = false
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
@@ -76,7 +77,7 @@ struct LoginView: View {
     
     func btnLogin() -> some View {
         Button {
-            viewModel.login(email: "juanjo@gmail.com", pass: "Aa123456")
+            viewModel.login(email: email, pass: pass)
         } label: {
             HStack {
                 Text("Iniciar Sesión")
@@ -110,7 +111,7 @@ struct LoginView: View {
     
     func btnGoogle() -> some View {
         Button {
-            // TODO: - Google Login
+            shouldShowAlert = true
         } label: {
             HStack {
                 Image("Google")
@@ -130,6 +131,10 @@ struct LoginView: View {
         .background(Color("Gray"))
         .cornerRadius(25)
         .padding(.bottom, 5)
+        .alert("En este preciso instante estamos en la fase de desarrollo de este apartado en concreto. Disculpe las molestias.", isPresented: $shouldShowAlert){
+                Button("Cerrar", role: .cancel, action:{})
+            
+        }
     }
     
     func goRegist() -> some View {

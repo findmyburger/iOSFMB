@@ -16,6 +16,7 @@ class RestaurantsViewModel: ObservableObject{
     @Published var favourite = false
     @Published var likedHamburgers: [RestaurantPresentationModel] = []
     
+    // MARK: - Public Methods
     func getDishesOfRestaurants(id: Int) {
         
         //baseUrl + endpoint

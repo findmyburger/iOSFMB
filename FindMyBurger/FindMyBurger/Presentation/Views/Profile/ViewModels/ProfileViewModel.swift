@@ -23,7 +23,7 @@ class ProfileViewModel: ObservableObject {
     @Published var alertText: String = ""
 
     
-
+    // MARK: - Public Methods
     
     func connectToAPI(){
         let url = "http://127.0.0.1:8000/api/users/getData"
