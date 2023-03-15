@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct FindMyBurgerApp: App {
+    @StateObject var locationViewModel = LocationViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SplashView()
+                .environmentObject(locationViewModel)
         }
     }
 }

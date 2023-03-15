@@ -18,6 +18,7 @@ class LoginViewModel: ObservableObject{
     
     @Published var alertText: String = ""
     
+    // MARK: - Public Methods
     func login (email: String, pass: String){
         
         

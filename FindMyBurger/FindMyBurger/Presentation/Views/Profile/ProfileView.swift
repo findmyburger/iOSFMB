@@ -19,7 +19,6 @@ struct ProfileView: View {
                 CustomTitle(title: "Mi perfil")
                     .padding(.top,20)
                     .padding(.bottom, 15)
-                //.padding(.horizontal, 80)
                 HStack(){
                     Spacer()
                     Image("configuracion")
@@ -29,11 +28,19 @@ struct ProfileView: View {
                         .padding()
                 }
             }
-            KFImage(URL(string: viewModel.user.imageUrl))
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 150)
-                .clipShape(Circle())
+
+            if viewModel.user.imageUrl.isEmpty{
+                Image(systemName: "person.fill")
+                    .font(.system(size: 80))
+                    .padding()
+                    .foregroundColor(Color(.label))
+            }else{
+                KFImage(URL(string: viewModel.user.imageUrl))
+                    .font(.system(size: 80))
+                    .padding()
+                    .foregroundColor(Color(.label))
+            }
+            
             
             Text(viewModel.user.name)
                 .font(.custom("Inter-Regular", size: 20))
@@ -71,20 +78,15 @@ struct ProfileView: View {
             
         }
         .navigationBarHidden(true)
-        .alert(isPresented: $viewModel.isPresented, content: {
-            Alert(title: Text("¿Qué quieres editar?"), message: Text("Elige una opción"),
-                  primaryButton: .default(Text("Nombre"),
-                                          action: {
-                viewModel.editSelectedState = .name
-            }),
-                  secondaryButton: .default(Text("Contraseña"),
-                                            action: {
-                viewModel.editSelectedState = .passwords
-            }))
-            
-        })
+        .alert("¿Qué quieres editar?", isPresented: $viewModel.isPresented) {
+            Button("Nombre", action: {viewModel.editSelectedState = .name
+                viewModel.shouldShowEditProfile = true})
+            Button("Contraseña", action: {viewModel.editSelectedState = .passwords
+                viewModel.shouldShowEditProfile = true})
+            Button("Cerrar", role: .cancel, action:{})
+        }
         .onAppear {
-            //viewModel.connectToAPI()
+            viewModel.connectToAPI()
         }
     }
     
@@ -103,11 +105,7 @@ struct ProfileView: View {
         .padding(.horizontal, 25)
         .background(Color("Amarillo"))
         .cornerRadius(25)
-        .background(
-            NavigationLink(destination: EditProfileView(editSelectedState: viewModel.editSelectedState), isActive: $viewModel.shouldShowEditProfile) {
-                EmptyView()
-            }
-        )
+        
         .alert("Error en el Perfil", isPresented: $viewModel.shouldShowError, actions: {
             
             Button{
@@ -118,6 +116,12 @@ struct ProfileView: View {
         }){
             Text(viewModel.alertText)
         }
+        
+        .background(
+            NavigationLink(destination: EditProfileView(editSelectedState: viewModel.editSelectedState), isActive: $viewModel.shouldShowEditProfile) {
+                EmptyView()
+            }
+        )
     }
 }
 

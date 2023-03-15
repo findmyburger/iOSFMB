@@ -11,42 +11,37 @@ struct HomeView: View {
     
     init(){
         UITabBar.appearance().isHidden = true
-        
     }
     
     @State var selectedCategory : Category = categories.first!
     @State var selectedTab: String = "home"
     @State var searchText = ""
     @State private  var  selection = 0
+    @Namespace var animation
     var imageNames: [String] = ["1","2","3","4"]
-    
     
     var body: some View {
         
         ZStack{
-            
             BackgroundColorView()
             
-            
             tabBarView
-            
-            
+                .background(Color.black.opacity(0.03).ignoresSafeArea())
         }
-        .background(Color.black.opacity(0.03).ignoresSafeArea())
     }
-    
     
     //MARK Accesory Views
     private var tabBarView: some View{
+        
         VStack(spacing: 0){
             
             TabView(selection: $selectedTab){
-                LandingPage(selectedCategory: $selectedCategory)
+                LandingPage()
                     .tag("home")
                 
-                //RestaurantView()
+                FavouritesView()
                     .tag("heart")
-                //MapView()
+                MapViewRepresentable()
                     .tag("mapmarker")
                 ProfileView()
                     .tag("person")

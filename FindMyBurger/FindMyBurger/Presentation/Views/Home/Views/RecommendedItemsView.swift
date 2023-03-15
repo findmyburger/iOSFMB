@@ -10,52 +10,59 @@ import Kingfisher
 
 struct RecommendedItemsView: View {
     var item: RestaurantPresentationModel
+    @Namespace var animation
     
     var body: some View {
         VStack(spacing: 5) {
-            Image(systemName: "flame")
-                .font(.footnote)
-                .foregroundColor(.red)
-                .padding(8)
-                .background(Color.orange.opacity(0.1))
-                .clipShape(Circle())
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(-10)
+            HStack {
+                Spacer()
+                Image(systemName: "flame")
+                    .font(.footnote)
+                    .foregroundColor(.red)
+                    .padding(8)
+                    .background(Color.orange.opacity(0.1))
+                    .clipShape(Circle())
+            }
+            .padding(.horizontal, 10)
             
             KFImage(URL(string: item.image))
                 .resizable()
-                .frame(width: 180 , height: 165)
+                .frame(width: 170 , height: 150)
                 .cornerRadius(20)
-                //.padding(.top, 6)
-            
+                .matchedGeometryEffect(id: "\(item.id) IMAGE", in: animation)
             
             Text(item.name)
                 .font(.custom("Inter-Regular", size: 13))
                 .fontWeight(.bold)
                 .padding(.top, 6)
-            HStack{
+                .foregroundColor(Color.black)
+            
+            HStack {
                 Text(item.address)
                     .foregroundColor(.black.opacity(0.40))
-                    .font(.system(size: 12))
+                    .font(.system(size: 16))
                     .padding(.top, 6)
                     .lineLimit(1)
-                    .minimumScaleFactor(0.5)
+                
+                Spacer(minLength: 0)
+                
                 Image("Stars")
                     .resizable()
                     .frame(width: 15, height: 15)
-                    .padding(.horizontal,4)
                 
-                Text("\(item.rate)".trimmingCharacters(in: ["0"]))
+                Text("\(item.rate)".trimmingCharacters(in: ["0"])) //Viewmodel
                     .fontWeight(.semibold)
+                    .lineLimit(1)
+                    .foregroundColor(Color.black)
             }
-            
+            .padding(.bottom, 10)
+            .padding(.horizontal, 10)
         }
-        .padding()
-        .frame(width: 250 ,height: 250)
+        .frame(width: 230 ,height: 250)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(color: Color.black.opacity(0.25), radius: 3, x: 5 , y: 7)
-        .padding(.bottom)
+        .padding(.vertical)
     }
 }
 

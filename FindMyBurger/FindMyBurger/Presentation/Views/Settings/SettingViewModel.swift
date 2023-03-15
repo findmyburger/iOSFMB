@@ -16,6 +16,8 @@ class SettingViewModel: ObservableObject{
     let userDefaults = UserDefaults.standard
     @Published var alertText: String = ""
     
+    
+    // MARK: - Public Methods
     func signOut(){
         let url = "http://127.0.0.1:8000/api/users/signOut"
         
