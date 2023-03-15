@@ -11,6 +11,14 @@
 //
 //    @ObservedObject var viewModel = FiltersViewModel()
 //    @State private var selectedButton: Int? = nil
+//    
+//    enum Prices: Binding<Bool> {
+//        case less5 = false
+//        case less10 = false
+//        case less20 = false
+//    }
+//    @State private var enumPrices: Prices
+//    
 //    var body: some View {
 //
 //        ScrollView(.vertical, showsIndicators: false){
@@ -37,14 +45,11 @@
 //                .padding(.horizontal)
 //                .frame(maxWidth: .infinity,alignment: .leading)
 //
-//            Toggle(isOn: $viewModel.lessThan5) {
+//            Toggle(isOn: enumPrices = .less5) {
 //                Text("Menos de 5km")
 //
-//                    .onChange(of: viewModel.lessThan5) { newValue in
-//                        if newValue {
-//                            viewModel.lessThan10 = false
-//                            viewModel.lessThan20 = false
-//                        }
+//                    .onChange(of: Prices.less5) { newValue in
+//                        viewModel.location = 5
 //                    }
 //
 //            }
@@ -55,10 +60,7 @@
 //            Toggle(isOn: $viewModel.lessThan10) {
 //                Text("Menos de 10km")
 //                    .onChange(of: viewModel.lessThan10) { newValue in
-//                        if newValue {
-//                            viewModel.lessThan5 = false
-//                            viewModel.lessThan20 = false
-//                        }
+//                        viewModel.location = 10
 //                    }
 //
 //            }
@@ -68,10 +70,7 @@
 //            Toggle(isOn: $viewModel.lessThan20) {
 //                Text("Menos de 20km")
 //                    .onChange(of: viewModel.lessThan20) { newValue in
-//                        if newValue {
-//                            viewModel.lessThan10 = false
-//                            viewModel.lessThan5 = false
-//                        }
+//                        viewModel.location = 20
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -106,15 +105,7 @@
 //            Toggle(isOn: $viewModel.terneraIsOn) {
 //                Text("Ternera")
 //                    .onChange(of: viewModel.terneraIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.chikenIsOn = false
-//                            viewModel.porkIsOn = false
-//                            viewModel.bueyIsOn = false
-//                            viewModel.fishIsOn = false
-//                            viewModel.veganaIsOn = false
-//                            viewModel.vegetarianaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Ternera"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -124,15 +115,7 @@
 //            Toggle(isOn: $viewModel.chikenIsOn) {
 //                Text("Pollo")
 //                    .onChange(of: viewModel.chikenIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.terneraIsOn = false
-//                            viewModel.porkIsOn = false
-//                            viewModel.bueyIsOn = false
-//                            viewModel.fishIsOn = false
-//                            viewModel.veganaIsOn = false
-//                            viewModel.vegetarianaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Pollo"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -141,15 +124,7 @@
 //            Toggle(isOn: $viewModel.porkIsOn) {
 //                Text("Cerdo")
 //                    .onChange(of: viewModel.porkIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.terneraIsOn = false
-//                            viewModel.chikenIsOn = false
-//                            viewModel.bueyIsOn = false
-//                            viewModel.fishIsOn = false
-//                            viewModel.veganaIsOn = false
-//                            viewModel.vegetarianaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Cerdo"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -159,15 +134,7 @@
 //            Toggle(isOn: $viewModel.bueyIsOn) {
 //                Text("Buey")
 //                    .onChange(of: viewModel.bueyIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.terneraIsOn = false
-//                            viewModel.chikenIsOn = false
-//                            viewModel.porkIsOn = false
-//                            viewModel.fishIsOn = false
-//                            viewModel.veganaIsOn = false
-//                            viewModel.vegetarianaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Buey"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -177,15 +144,7 @@
 //            Toggle(isOn: $viewModel.fishIsOn) {
 //                Text("Pescado")
 //                    .onChange(of: viewModel.fishIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.terneraIsOn = false
-//                            viewModel.chikenIsOn = false
-//                            viewModel.porkIsOn = false
-//                            viewModel.bueyIsOn = false
-//                            viewModel.veganaIsOn = false
-//                            viewModel.vegetarianaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Pescado"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -195,15 +154,7 @@
 //            Toggle(isOn: $viewModel.veganaIsOn) {
 //                Text("Vegana")
 //                    .onChange(of: viewModel.veganaIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.terneraIsOn = false
-//                            viewModel.chikenIsOn = false
-//                            viewModel.porkIsOn = false
-//                            viewModel.bueyIsOn = false
-//                            viewModel.fishIsOn = false
-//                            viewModel.vegetarianaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Vegana"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))
@@ -213,15 +164,7 @@
 //            Toggle(isOn: $viewModel.vegetarianaIsOn) {
 //                Text("Vegetariana")
 //                    .onChange(of: viewModel.vegetarianaIsOn) { newValue in
-//                        if newValue {
-//                            viewModel.terneraIsOn = false
-//                            viewModel.chikenIsOn = false
-//                            viewModel.porkIsOn = false
-//                            viewModel.bueyIsOn = false
-//                            viewModel.fishIsOn = false
-//                            viewModel.veganaIsOn = false
-//
-//                        }
+//                        viewModel.burgerType = "Vegetariana"
 //                    }
 //            }
 //            .toggleStyle(SwitchToggleStyle(tint: .orange))

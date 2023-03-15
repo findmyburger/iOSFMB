@@ -40,9 +40,10 @@ class RestaurantsViewModel: ObservableObject{
             let restaurantsNotFiltered = try JSONDecoder().decode(DishesResponseModel?.self, from: data)
             // Recogemos únicamente los que no son nil y además lo convertimos a modelo de vista
             guard let restaurantsNotNil = restaurantsNotFiltered?.data else { return }
-            dishes = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
+            self.dishes = restaurantsNotNil.compactMap({ restaurantsNotFiltered in
                 return DishesPresentationModel(id: restaurantsNotFiltered.id ?? 0, name: restaurantsNotFiltered.name ?? "", image: restaurantsNotFiltered.image ?? "", price: Float(restaurantsNotFiltered.price ?? 0), ingredients: restaurantsNotFiltered.ingredients ?? "", burgerType: restaurantsNotFiltered.burgerType ?? "")
             })
+            print(dishes)
         } catch {
             self.onError(error: error.localizedDescription)
         }

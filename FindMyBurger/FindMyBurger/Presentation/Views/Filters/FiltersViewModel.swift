@@ -14,8 +14,31 @@ class FiltersViewModel: ObservableObject{
     @Published var burgerType = ""
     @Published var location = 0
     @Published var price = 0
+
+    
     
     func filterRestaurants() {
+        
+//        var dictionary: [String:Any]
+//
+//        if !burgerType.isEmpty {
+//            dictionary =
+//                [
+//                    "burgerType" = burgerType
+//                ]
+//        }
+//        if price != 0{
+//            dictionary =
+//                [
+//                    "price" = price
+//                ]
+//        }
+////        if location != 0 {
+////            dictionary =
+////                [
+////                    "radius" = burgerType
+////                ]
+////        }
         
 
         //baseUrl + endpoint

@@ -159,9 +159,6 @@ struct LandingPage: View {
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
         .frame(height: 250)
         .animation(.easeInOut)
-        .onAppear {
-            //viewModel.startTimer()
-        }
     }
     
     @ViewBuilder

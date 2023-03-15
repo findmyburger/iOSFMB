@@ -13,6 +13,7 @@ struct RestaurantsView: View {
     var animation: Namespace.ID
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @ObservedObject var viewModel = RestaurantsViewModel()
+    @State var dishes: [DishesPresentationModel] = []
     
     var body: some View {
         VStack {
@@ -38,6 +39,9 @@ struct RestaurantsView: View {
                     .ignoresSafeArea()
             )
         }
+        .onReceive(viewModel.$dishes, perform: { dishes in
+            self.dishes = dishes
+        })
         .navigationBarBackButtonHidden(true)
         .background(Color.white.ignoresSafeArea())
         .onAppear {
@@ -123,10 +127,9 @@ struct RestaurantsView: View {
         
     }
     private var dishesOfRestaurant: some View{
-            
-            ScrollView(.vertical) {
-                VStack(spacing: 25) {
-                    ForEach(viewModel.dishes) { dish in
+            ScrollView {
+                LazyVStack(spacing: 10) {
+                    ForEach(self.dishes) { dish in
                         NavigationLink(destination: DetailDishesView(item: dish), label: {
                             DishesItemView(item: dish)
                         })
